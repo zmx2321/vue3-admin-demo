@@ -25,7 +25,7 @@
           <el-link type="primary" href="https://github.com/zmx2321" target="_blank"> Github </el-link>
         </el-descriptions-item>
         <el-descriptions-item label="个人博客" label-align="left">
-          <el-link type="primary" href="https://zmx2321.github.io/vite-blog/" target="_blank"> 文档地址 </el-link>
+          <el-link type="primary" href="https://zmx2321.github.io/vite-blog/" target="_blank"> 个人博客 </el-link>
         </el-descriptions-item>
         <el-descriptions-item label="项目地址" label-align="left">
           <el-link type="primary" href="https://github.com/zmx2321/vue3-admin-demo" target="_blank"> 预览地址 </el-link>
