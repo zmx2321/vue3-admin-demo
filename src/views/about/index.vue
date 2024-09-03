@@ -19,16 +19,16 @@
           <el-tag>{{ lastBuildTime }}</el-tag>
         </el-descriptions-item>
         <el-descriptions-item label="Gitee" label-align="left">
-          <el-link type="primary" href="https://gitee.com/HalseySpicy/Geeker-Admin" target="_blank"> Gitee </el-link>
+          <el-link type="primary" href="https://gitee.com/zmx2321" target="_blank"> Gitee </el-link>
         </el-descriptions-item>
         <el-descriptions-item label="Github" label-align="left">
-          <el-link type="primary" href="https://github.com/HalseySpicy/Geeker-Admin" target="_blank"> Github </el-link>
+          <el-link type="primary" href="https://github.com/zmx2321" target="_blank"> Github </el-link>
         </el-descriptions-item>
-        <el-descriptions-item label="文档地址" label-align="left">
-          <el-link type="primary" href="https://docs.spicyboy.cn" target="_blank"> 文档地址 </el-link>
+        <el-descriptions-item label="个人博客" label-align="left">
+          <el-link type="primary" href="https://zmx2321.github.io/vite-blog/" target="_blank"> 文档地址 </el-link>
         </el-descriptions-item>
-        <el-descriptions-item label="预览地址" label-align="left">
-          <el-link type="primary" href="https://admin.spicyboy.cn" target="_blank"> 预览地址 </el-link>
+        <el-descriptions-item label="项目地址" label-align="left">
+          <el-link type="primary" href="https://github.com/zmx2321/vue3-admin-demo" target="_blank"> 预览地址 </el-link>
         </el-descriptions-item>
       </el-descriptions>
     </div>

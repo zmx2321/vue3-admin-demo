@@ -7,7 +7,7 @@ set -e
 yarn build:pro
 
 # 进入生成的文件夹
-cd hooks-admin-demo
+cd vue3-admin-demo
 
 # git pull
 git init
@@ -15,6 +15,6 @@ git add -A
 git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io  填写你刚刚创建的仓库地址
-git push -f git@github.com:zmx2321/hooks-admin-demo.git main:gh-pages
+git push -f git@github.com:zmx2321/vue3-admin-demo.git main:gh-pages
 
 cd -

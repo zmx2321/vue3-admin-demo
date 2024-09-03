@@ -961,7 +961,7 @@
           "meta": {
             "icon": "Menu",
             "title": "Gitee 仓库",
-            "isLink": "https://gitee.com/HalseySpicy/Geeker-Admin",
+            "isLink": "https://gitee.com/zmx2321",
             "isHide": false,
             "isFull": false,
             "isAffix": false,
@@ -975,7 +975,7 @@
           "meta": {
             "icon": "Menu",
             "title": "GitHub 仓库",
-            "isLink": "https://github.com/HalseySpicy/Geeker-Admin",
+            "isLink": "https://github.com/zmx2321",
             "isHide": false,
             "isFull": false,
             "isAffix": false,
@@ -988,8 +988,8 @@
           "component": "/link/docs/index",
           "meta": {
             "icon": "Menu",
-            "title": "项目文档",
-            "isLink": "https://docs.spicyboy.cn",
+            "title": "个人博客",
+            "isLink": "https://zmx2321.github.io/vite-blog/",
             "isHide": false,
             "isFull": false,
             "isAffix": false,
@@ -1003,7 +1003,7 @@
           "meta": {
             "icon": "Menu",
             "title": "掘金主页",
-            "isLink": "https://juejin.cn/user/3263814531551816/posts",
+            "isLink": "https://juejin.cn/user/3350967173542861/posts",
             "isHide": false,
             "isFull": false,
             "isAffix": false,

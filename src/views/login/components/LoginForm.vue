@@ -1,5 +1,5 @@
 <template>
-  <el-form ref="loginFormRef" :model="loginForm" :rules="loginRules" size="large">
+  <!-- <el-form ref="loginFormRef" :model="loginForm" :rules="loginRules" size="large">
     <el-form-item prop="username">
       <el-input v-model="loginForm.username" placeholder="用户名：admin / user">
         <template #prefix>
@@ -18,7 +18,7 @@
         </template>
       </el-input>
     </el-form-item>
-  </el-form>
+  </el-form> -->
   <div class="login-btn">
     <el-button :icon="CircleClose" round size="large" @click="resetForm(loginFormRef)"> 重置 </el-button>
     <el-button :icon="UserFilled" round size="large" type="primary" :loading="loading" @click="login(loginFormRef)">
@@ -62,42 +62,50 @@ const loginForm = reactive<Login.ReqLoginForm>({
 });
 
 // login
-const login = (formEl: FormInstance | undefined) => {
-  if (!formEl) return;
-  formEl.validate(async valid => {
-    if (!valid) return;
-    loading.value = true;
-    try {
-      // 1.执行登录接口
-      const { data } = await loginApi({ ...loginForm, password: md5(loginForm.password) });
-      userStore.setToken(data.access_token);
+// const login = (formEl: FormInstance | undefined) => {
+//   if (!formEl) return;
+//   formEl.validate(async valid => {
+//     if (!valid) return;
+//     loading.value = true;
+//     try {
+//       // 1.执行登录接口
+//       /* const { data } = await loginApi({ ...loginForm, password: md5(loginForm.password) });
+//       userStore.setToken(data.access_token); */
 
-      // 2.添加动态路由
-      await initDynamicRouter();
+//       userStore.setToken({"access_token":"bqddxxwqmfncffacvbpkuxvwvqrhln"});
 
-      // 3.清空 tabs、keepAlive 数据
-      tabsStore.setTabs([]);
-      keepAliveStore.setKeepAliveName([]);
+//       // 2.添加动态路由
+//       await initDynamicRouter();
 
-      // 4.跳转到首页
-      router.push(HOME_URL);
-      // ElNotification({
-      //   title: getTimeState(),
-      //   message: "欢迎登录 Geeker-Admin",
-      //   type: "success",
-      //   duration: 3000
-      // });
-      ElNotification({
-        title: "React 付费版本 🔥🔥🔥",
-        dangerouslyUseHTMLString: true,
-        message: "预览地址：<a href='https://pro.spicyboy.cn'>https://pro.spicyboy.cn</a>",
-        type: "success",
-        duration: 8000
-      });
-    } finally {
-      loading.value = false;
-    }
-  });
+//       // 3.清空 tabs、keepAlive 数据
+//       tabsStore.setTabs([]);
+//       keepAliveStore.setKeepAliveName([]);
+
+//       // 4.跳转到首页
+//       router.push(HOME_URL);
+//       // ElNotification({
+//       //   title: getTimeState(),
+//       //   message: "欢迎登录 Geeker-Admin",
+//       //   type: "success",
+//       //   duration: 3000
+//       // });
+//       ElNotification({
+//         title: "React 付费版本 🔥🔥🔥",
+//         dangerouslyUseHTMLString: true,
+//         message: "预览地址：<a href='https://pro.spicyboy.cn'>https://pro.spicyboy.cn</a>",
+//         type: "success",
+//         duration: 8000
+//       });
+//     } finally {
+//       loading.value = false;
+//     }
+//   });
+// };
+
+const login = () => {
+  userStore.setToken({ access_token: "bqddxxwqmfncffacvbpkuxvwvqrhln" });
+  router.push(HOME_URL);
+  return;
 };
 
 // resetForm

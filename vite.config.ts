@@ -18,8 +18,12 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   const env = loadEnv(mode, root);
   const viteEnv = wrapperEnv(env);
 
+  const INVALID_CHAR_REGEX = /[\u0000-\u001F"#$&*+,:;<=>?[\]^`{|}\u007F]/g;
+  const DRIVE_LETTER_REGEX = /^[a-z]:/i;
+
   return {
-    base: viteEnv.VITE_PUBLIC_PATH,
+    // base: viteEnv.VITE_PUBLIC_PATH,
+    base: "./",
     root,
     resolve: {
       alias: {
@@ -51,7 +55,6 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     },
     build: {
       // outDir: "dist",
-      outDir: "dist",
       minify: "esbuild",
       outDir: __dirname.split(/[\\/]/).pop(),
       // esbuild 打包更快，但是不能去除 console.log，terser打包慢，但能去除 console.log
@@ -72,7 +75,15 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
           // Static resource classification and packaging
           chunkFileNames: "assets/js/[name]-[hash].js",
           entryFileNames: "assets/js/[name]-[hash].js",
-          assetFileNames: "assets/[ext]/[name]-[hash].[ext]"
+          assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
+
+          sanitizeFileName(name) {
+            const match = DRIVE_LETTER_REGEX.exec(name);
+            const driveLetter = match ? match[0] : "";
+            // A `:` is only allowed as part of a windows drive letter (ex: C:\foo)
+            // Otherwise, avoid them because they can refer to NTFS alternate data streams.
+            return driveLetter + name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, "");
+          }
         }
       }
     }
