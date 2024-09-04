@@ -16,18 +16,152 @@
       }
     },
     {
-      "path": "/dataScreen",
-      "name": "dataScreen",
-      "component": "/dataScreen/index",
+      "path": "/map",
+      "name": "map",
+      "redirect": "/map/openlayer",
       "meta": {
-        "icon": "Histogram",
-        "title": "数据大屏",
+        "icon": "List",
+        "title": "地图",
         "isLink": "",
         "isHide": false,
-        "isFull": true,
+        "isFull": false,
         "isAffix": false,
         "isKeepAlive": true
-      }
+      },
+      "children": [
+        {
+          "path": "/map/openlayer",
+          "name": "openlayer",
+          "component": "/map/openlayer/index",
+          "meta": {
+            "icon": "Menu",
+            "title": "openlayer",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          },
+          "children": [
+            {
+              "path": "/map/openlayer/openlayer1",
+              "name": "openlayer1",
+              "component": "/map/openlayer/openlayer1/index",
+              "meta": {
+                "icon": "Menu",
+                "title": "openlayer1",
+                "isLink": "",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true
+              }
+            },
+            {
+              "path": "/map/openlayer/openlayer2",
+              "name": "openlayer2",
+              "component": "/map/openlayer/openlayer2/index",
+              "meta": {
+                "icon": "Menu",
+                "title": "openlayer2",
+                "isLink": "",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true
+              }
+            }
+          ]
+        },
+        {
+          "path": "/map/mapbox",
+          "name": "mapbox",
+          "component": "/map/mapbox/index",
+          "meta": {
+            "icon": "Menu",
+            "title": "mapbox",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          },
+          "children": [
+            {
+              "path": "/map/mapbox/mapbox1",
+              "name": "mapbox1",
+              "component": "/map/mapbox/mapbox1/index",
+              "meta": {
+                "icon": "Menu",
+                "title": "mapbox1",
+                "isLink": "",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true
+              }
+            },
+            {
+              "path": "/map/mapbox/mapbox2",
+              "name": "mapbox2",
+              "component": "/map/mapbox/mapbox2/index",
+              "meta": {
+                "icon": "Menu",
+                "title": "mapbox2",
+                "isLink": "",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true
+              }
+            }
+          ]
+        },
+        {
+          "path": "/map/cesium",
+          "name": "cesium",
+          "component": "/map/cesium/index",
+          "meta": {
+            "icon": "Menu",
+            "title": "cesium",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          },
+          "children": [
+            {
+              "path": "/map/cesium/cesium1",
+              "name": "cesium1",
+              "component": "/map/cesium/cesium1/index",
+              "meta": {
+                "icon": "Menu",
+                "title": "cesium1",
+                "isLink": "",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true
+              }
+            },
+            {
+              "path": "/map/cesium/cesium2",
+              "name": "cesium2",
+              "component": "/map/cesium/cesium2/index",
+              "meta": {
+                "icon": "Menu",
+                "title": "cesium2",
+                "isLink": "",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "path": "/proTable",
@@ -1025,6 +1159,20 @@
           }
         }
       ]
+    },
+    {
+      "path": "/dataScreen",
+      "name": "dataScreen",
+      "component": "/dataScreen/index",
+      "meta": {
+        "icon": "Histogram",
+        "title": "数据大屏",
+        "isLink": "",
+        "isHide": false,
+        "isFull": true,
+        "isAffix": false,
+        "isKeepAlive": true
+      }
     },
     {
       "path": "/about/index",
