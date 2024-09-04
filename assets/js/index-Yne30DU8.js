@@ -1,0 +1,1 @@
+import e from"./index-BKeHtQh4.js";import{o,c as r,b as t}from"./index-jclu2qQG.js";import"./index.vuevuetypescriptsetuptruenameEChartslang-Lsg_YWCN.js";import"./index-A7fPUf7y.js";import"./plugin-vueexport-helper-DlAUqK2U.js";const l={__name:"index",setup(c){return(a,m)=>(o(),r("section",null,[t(e),t(e)]))}};export{l as default};
