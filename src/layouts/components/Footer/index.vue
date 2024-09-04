@@ -1,6 +1,6 @@
 <template>
   <div class="footer flx-center">
-    <a href="https://github.com/HalseySpicy" target="_blank"> 2022 © Geeker-Admin By Geeker Technology. </a>
+    <a href="https://github.com/HalseySpicy" target="_blank"> 2024 © vue3-admin-demo By zmx2321. </a>
   </div>
 </template>
 
