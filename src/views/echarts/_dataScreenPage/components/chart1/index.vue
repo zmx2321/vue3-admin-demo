@@ -8,6 +8,8 @@
 import { ECOption } from "@/components/ECharts/config";
 import ECharts from "@/components/ECharts/index.vue";
 
+// const 
+
 const option: ECOption = {
   tooltip: {
     trigger: "axis",
