@@ -1,14 +1,13 @@
 <template>
   <!-- 年龄比例 -->
   <div class="echarts">
-    <ECharts :option="option" :resize="false" />
-    {{ chartData }}
+    <ECharts :option="option" :resize="false" :chartAuto="true" />
   </div>
 </template>
 
 <script setup lang="ts">
 import ECharts from "@/components/ECharts/index.vue";
-import { ECOption } from "@/components/ECharts/config";
+import echarts, { ECOption } from "@/components/ECharts/config";
 
 // 接收父组件参数，并设置默认值
 interface chartProps {
@@ -18,7 +17,22 @@ const props = withDefaults(defineProps<chartProps>(), {
   chartData: ()=> [],
 });
 
-const colors = ["#F6C95C", "#EF7D33", "#1F9393", "#184EA1", "#81C8EF", "#9270CA"];
+const setLinearGradient = (color1, color2) => {
+  return new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+    { offset: 0, color: color1 },
+    { offset: 1, color: color2 }
+  ])
+}
+
+const opacity = 0.5
+const colors = [
+  setLinearGradient('#D65755', `rgba(214, 87, 85, ${opacity})`),
+  setLinearGradient('#8B6BE9', `rgba(139, 107, 233, ${opacity})`),
+  setLinearGradient('#F0D18C', `rgba(240, 107, 140, ${opacity})`),
+  setLinearGradient('#4389F6', `rgba(67, 137, 246, ${opacity})`),
+  setLinearGradient('#EE9D73', `rgba(238, 157, 115, ${opacity})`)
+]
+
 
 const option: ECOption = {
   color: colors,
@@ -35,7 +49,7 @@ const option: ECOption = {
     itemWidth: 14,
     formatter: function (name: string) {
       let text = "";
-      props.chartData.forEach((val: Object) => {
+      props.chartData.forEach((val: ChartProp) => {
         if (val.name === name) text = " " + name + "　 " + val.percentage;
       });
       return text;
@@ -57,7 +71,7 @@ const option: ECOption = {
         show: true,
         color: "#fff",
         formatter: function (params) {
-          return (params.data as props.chartData).percentage;
+          return (params.data as ChartProp).percentage;
         },
         rich: {
           b: {
@@ -71,16 +85,13 @@ const option: ECOption = {
         shadowColor: "rgba(0, 0, 0, 0.2)",
         shadowBlur: 10
       },
-      data: props.chartData.map((val: Object, index: number) => {
+      data: props.chartData.map((val: ChartProp, index: number) => {
         return {
           value: val.value,
           name: val.name,
           percentage: val.percentage,
           itemStyle: {
-            borderWidth: 10,
-            shadowBlur: 20,
             borderColor: colors[index],
-            borderRadius: 10
           }
         };
       })
@@ -114,6 +125,7 @@ const option: ECOption = {
   ]
 };
 </script>
+
 <style lang="scss" scoped>
 .echarts {
   width: 100%;
