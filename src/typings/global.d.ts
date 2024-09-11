@@ -54,6 +54,7 @@ declare interface ViteEnv {
   VITE_DEVTOOLS: boolean;
   VITE_PUBLIC_PATH: string;
   VITE_API_URL: string;
+  VITE_APP_MapToken: string;
   VITE_PROXY: [string, string][];
 }
 

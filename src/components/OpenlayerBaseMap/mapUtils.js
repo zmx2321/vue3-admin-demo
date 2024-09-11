@@ -45,7 +45,9 @@ let count = 0  // 地图点击打点变量
 // 周边搜索
 // https://api.tianditu.gov.cn/v2/search?postStr={%22keyWord%22:%22%E5%85%AC%E5%9B%AD%22,%22level%22:12,%22queryRadius%22:5000,%22pointLonlat%22:%22121.6262019920349,29.879795341283085%22,%22queryType%22:3,%22start%22:0,%22count%22:10}&type=query&tk=02dd5ea16a6b869b3b37e12f269b1463
 
-const tdtTk = import.meta.env.VITE_APP_MapToken  // 全局配置 - 天地图密钥
+// const tdtTk = import.meta.env.VITE_APP_MapToken  // 全局配置 - 天地图密钥
+const tdtTk = '6b94eac741fe8a50f283b9b11d9d60d2'  // 全局配置 - 天地图密钥
+console.log(import.meta, import.meta.env.VITE_USER_NODE_ENV)
 
 // 设置底图url
 const setLayerUrl = (url) => {
