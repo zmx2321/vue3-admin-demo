@@ -1,6 +1,6 @@
 <template>
   <div class="echarts">
-    <ECharts :option="option" :resize="false" />
+    <ECharts :option="option" :resize="false" :chartAuto="true" />
   </div>
 </template>
 
@@ -29,7 +29,7 @@ const chartConfig = {
 }
 
 const setLinearGradient = (color1, color2) => {
-  return new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+  return new echarts.graphic.LinearGradient(0, 0, 1, 0, [
     { offset: 0, color: color1 },
     { offset: 1, color: color2 }
   ])
@@ -37,12 +37,12 @@ const setLinearGradient = (color1, color2) => {
 
 const option: ECOption = {
       title: {
-        text: '单位(分)',
-        top: "2.5%",
-        right: '2%',
+        text: '退服工单数量(个)',
+        top: "2.5",
+        right: '1%',
         textStyle: {
           color: '#fff',
-          fontSize: 10,
+          fontSize: 11,
         }
       },
       tooltip: {
@@ -58,41 +58,54 @@ const option: ECOption = {
           }
         }
       },
-      legend: {
-        itemWidth: 8,
-        itemHeight: 8,
-        right: 0,
-        top: '4%',
-        left: '5.2%',
-        textStyle: chartConfig.textStyle,
-      },
       grid: {
         left: '3%',
         right: '4%',
-        bottom: '5%',
-        height: '76%',
+        top: '7.8%',
+        height: '88%',
         containLabel: true
       },
       xAxis: {
-        type: 'category',
-        offset: 18,
-        axisTick: {
-          show: false,  // 隐藏刻度线
+        type: 'value',
+        offset: -2,
+        min: 0,
+        axisLabel: {
+          // formatter: '{value} ',
+          textStyle: {
+            color: "#fff"
+          }
         },
         axisLine: {
+          show: true, // 显示y轴线
           lineStyle: chartConfig.lineStyle
         },
         axisLabel: {
           padding: [0, 0, 0, -11],
           interval: 0, // 横轴信息全部显示
-          rotate: 30,
+          rotate: 0,
           ...chartConfig.textStyle,
           align: 'left',
         },
-        data: props.chartData.map(item => item.name),
+        axisTick: {
+          show: false,  // 隐藏刻度线
+        },
+        splitLine: {
+          show: false
+        }
       },
       yAxis: {
-        type: 'value',
+        type: "category",
+        data: props.chartData.map(item => item.name),
+        axisLine: {
+          show: false
+        },
+        axisLabel: {
+          interval: 0,
+          margin: 20,
+          textStyle: {
+            color: "#fff"
+          }
+        },
         splitLine: {
           show: false,
         },
@@ -110,22 +123,25 @@ const option: ECOption = {
       },
       series: [
         {
-          name: '月平均',
+          name: '无线维护指标',
           type: 'bar',
-          barWidth: chartConfig.barWidth,
-          itemStyle: {
-            color: setLinearGradient('rgb(17,85,231)', 'rgba(22, 62, 112, 0)')
+          barWidth: 8,
+          data: props.chartData.map(item => item.wirelessIndicators),
+          label: {
+            show: true, //开启显示
+            position: 'right', //在上方显示
+            color: '#4ABEFE',
+            fontSize: 10.5,
+            // formatter: '{c}个',
+            fontWeight: 800
           },
-          data: props.chartData.map(item => item.monthlyAverage),
-        },
-        {
-          name: '日平均',
-          type: 'bar',
-          barWidth: chartConfig.barWidth,
           itemStyle: {
-            color: setLinearGradient('rgb(63,222,172)', 'rgba(22, 62, 112, 0)')
+            color: setLinearGradient('rgba(197, 163, 86, 0.2)', '#C5A356'),
+            /* color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+              { offset: 0, color: 'rgba(197, 163, 86, 0.2)' },
+              { offset: 1, color: '#C5A356' },
+            ]), */
           },
-          data: props.chartData.map(item => item.dailyAverage),
         },
       ]
     }

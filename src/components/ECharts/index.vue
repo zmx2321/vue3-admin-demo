@@ -10,6 +10,8 @@ import { useDebounceFn } from "@vueuse/core";
 import { useGlobalStore } from "@/stores/modules/global";
 import { storeToRefs } from "pinia";
 
+const emit = defineEmits("beforeSetOption");
+
 interface Props {
   option: ECOption;
   renderer?: "canvas" | "svg";
@@ -38,6 +40,7 @@ const chartInstance = ref<EChartsType>();
 
 const draw = () => {
   if (chartInstance.value) {
+    emit('beforeSetOption')
     chartInstance.value.setOption(props.option, { notMerge: true });
 
     if (props.chartAuto) {
@@ -191,10 +194,10 @@ const chartAutoBar = (option) => {
     });
   })
 }
-
 /************************
  * 轮播
  *************************/
+
 watch(
   () => [maximize, isCollapse, tabs, footer],
   () => {

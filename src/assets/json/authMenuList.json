@@ -278,6 +278,36 @@
       ]
     },
     {
+      "path": "/layoutPage",
+      "name": "layoutPage",
+      "redirect": "/layoutPage/screen",
+      "meta": {
+        "icon": "Menu",
+        "title": "layoutPage",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      },
+      "children": [
+        {
+          "path": "/layoutPage/screen",
+          "name": "screen",
+          "component": "/layoutPage/screen/index",
+          "meta": {
+            "icon": "Menu",
+            "title": "大屏布局",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        }
+      ]
+    },
+    {
       "path": "/proTable",
       "name": "proTable",
       "redirect": "/proTable/useProTable",

@@ -855,9 +855,9 @@ dl,dt,dd,ul,li,p {
 
 .ol_map_wrap {
   position: absolute;
-  width: 100%;
+  width: 98%;
   height: 100%;
-  min-width: 1250px;
+  // min-width: 1250px;
 
   &.nav_ol_map {
     .ol_map {
@@ -1013,7 +1013,7 @@ dl,dt,dd,ul,li,p {
 .copyright_info {
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: 10px;
   width: 100%;
   min-width: 800px;
   min-height: 20px;
