@@ -1,6 +1,6 @@
 <template>
   <section class="empty-page">
-    <div class="inner inner1">{{ currentData }}</div>
+    <div class="inner inner1">2222{{ currentData }}</div>
     <div class="inner inner2"></div>
   </section>
 </template>

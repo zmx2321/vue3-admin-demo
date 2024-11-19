@@ -4,23 +4,31 @@
     "source.fixAll.stylelint": "explicit"
   },
   "stylelint.enable": true,
-  "stylelint.validate": ["css", "less", "postcss", "scss", "vue", "sass", "html"],
+  "stylelint.validate": [
+    "css",
+    "less",
+    "postcss",
+    "scss",
+    "vue",
+    "sass",
+    "html"
+  ],
   "files.eol": "\n",
   "typescript.tsdk": "node_modules/typescript/lib",
   "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "Vue.volar"
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -47,7 +55,6 @@
     "commitlint",
     "contentleft",
     "contentright",
-    "CSDN",
     "daterange",
     "datetimerange",
     "echarts",
@@ -55,7 +62,6 @@
     "geeker",
     "Gitee",
     "hexs",
-    "huiche",
     "iconfont",
     "juejin",
     "liquidfill",
@@ -69,7 +75,6 @@
     "pinia",
     "pjpeg",
     "Prefixs",
-    "screenfull",
     "sortablejs",
     "sousuo",
     "spreadsheetml",
@@ -79,19 +84,15 @@
     "stylelintrc",
     "suoxiao",
     "truetype",
-    "tuichu",
     "unplugin",
-    "unref",
     "VITE",
     "vuedraggable",
     "vueuse",
     "Vuex",
     "wangeditor",
-    "xiala",
     "xiaoxi",
-    "Yahei",
-    "yiwen",
     "zhongyingwen",
     "zhuti"
-  ]
+  ],
+  "livePreview.defaultPreviewPath": "/dist/index.html"
 }
