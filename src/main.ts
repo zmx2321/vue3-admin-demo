@@ -33,6 +33,8 @@ import pinia from "@/stores";
 // errorHandler
 import errorHandler from "@/utils/errorHandler";
 
+import components from '@/components/index.js'
+
 const app = createApp(App);
 
 app.config.errorHandler = errorHandler;

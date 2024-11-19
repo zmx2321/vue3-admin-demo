@@ -309,3 +309,171 @@ export function findItemNested(enumData: any, callValue: any, value: string, chi
     if (current[children]) return findItemNested(current[children], callValue, value, children);
   }, null);
 }
+
+// 判断对象为空
+export const objIsEmpty = obj => {
+  if (JSON.stringify(obj) == '{}') {
+    return true;
+  }
+
+  return false;
+}
+
+export const copyTextToClipboard = async (text, next) => {
+  // navigator clipboard 需要https等安全上下文
+  if (navigator.clipboard && window.isSecureContext) {
+    // navigator clipboard 向剪贴板写文本
+    next(text)
+    return navigator.clipboard.writeText(text);
+  } else {
+    // document.execCommand('copy') 向剪贴板写文本
+    let input = document.createElement('input')
+    input.style.position = 'fixed'
+    input.style.top = '-10000px'
+    input.style.zIndex = '-999'
+    document.body.appendChild(input)
+    input.value = text
+    input.focus()
+    input.select()
+    try {
+      let result = document.execCommand('copy')
+      document.body.removeChild(input)
+      if (!result || result === 'unsuccessful') {
+        console.log('复制失败')
+      } else {
+        // console.log('复制成功')
+        next(text)
+      }
+    } catch (e) {
+      document.body.removeChild(input)
+      alert('当前浏览器不支持复制功能，请检查更新或更换其他浏览器操作')
+    }
+  }
+}
+
+
+// 日期
+export const getDateTimeNowFormate = (dateType) => {
+  let time = new Date();
+  let year = time.getFullYear(); // 年
+  let month = time.getMonth() + 1;  // 月
+  let date = time.getDate();  // 日
+  let hour = time.getHours();  // 时
+  let minute = time.getMinutes();  // 分
+  let second = time.getSeconds();  // 秒
+
+  let day = time.getDay();  // 获取当前星期几
+  let weekday = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+  // console.log(weekday[day])
+
+  // 加上0
+  month < 10 ? month = `0${month}` : month;  // 月
+  date < 10 ? date = `0${date}` : date;  // 日
+  hour < 10 ? hour = `0${hour}` : hour;  // 时
+  minute < 10 ? minute = `0${minute}` : minute;  // 分
+  second < 10 ? second = `0${second}` : second;  // 秒
+
+  if (dateType && dateType === 'timePicker') {
+    return `${year}-${month}-${date}`
+  }
+
+  return `${year}年${month}月${date}日 ${hour}:${minute}:${second}`
+}
+
+export const setFullScreen = (falg) => {
+  if (!falg) {
+    // 全屏
+    if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) {
+      document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) {
+      document.documentElement.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) {
+      document.documentElement.msRequestFullscreen();
+    }
+  } else {
+    // 退出全屏
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
+  }
+}
+
+// 千位符工具
+export function formatNumber(num) {
+  if (num || num === 0) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+}
+
+// 防抖
+export const debounce = (fn, delay = 500) => {
+  // timer是在闭包中的 => 下面的if(timer)
+  // 这样不会被外界轻易拿到 => 即不对外暴露
+  // 我们在外面使用不需要关心
+  // 同时也是在debounce的作用域中
+  // 闭包的使用场景：函数当做返回值或者参数传入
+  let timer = null;
+
+  // 函数作为返回值，这就形成闭包了
+  return function () {
+    // 这里面的timer需要在它定义的作用域往上寻找
+    if (timer) {
+      clearTimeout(timer)
+    }
+
+    timer = setTimeout(() => {
+      // 触发change事件
+      // 第一个参数是改变this指向
+      // 第二个参数是获取所有的参数
+      // apply第二个参数开始，只接收数组
+      // fn函数在执行的时候，argument传进来
+      // debounce返回的函数可能会传进来一些参数
+      // 面试使用fn()也没问题
+      // fn()
+      fn.apply(this, arguments)
+
+      // 清空定时器
+      timer = null
+    }, delay)
+  }
+}
+
+// 节流
+export const throttle = (fn, delay = 100) => {
+  let timer = null  // 这个timer是在闭包里面的
+
+  // 如果不使用apply改变this指向，下面的throttle方法的参数指向这个函数
+  // 不会传给下面的那个fn
+  return function () {
+    if (timer) {
+      return
+    }
+
+    timer = setTimeout(() => {
+      // 一般写一个事件，function里面都要加上event参数，即事件对象
+      fn.apply(this, arguments)  // 打印坐标
+
+      timer = null
+    }, delay)
+  }
+}
+
+// api 封装
+export const apiCommon = (api, params, header = undefined) => {
+  return new Promise((resolve, reject) => {
+    api(params, header).then(res => {
+      resolve(res)
+    }).catch(err => {
+      reject(err)
+      return
+    })
+  })
+}

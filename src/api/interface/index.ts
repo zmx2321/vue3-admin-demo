@@ -88,3 +88,9 @@ export namespace User {
     children?: ResDepartment[];
   }
 }
+
+// mock测试
+export namespace Test {
+  export interface MockTest {
+  }
+}

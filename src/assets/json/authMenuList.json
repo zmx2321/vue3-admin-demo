@@ -74,6 +74,50 @@
           ]
         },
         {
+          "path": "/map/AMAP",
+          "name": "高德地图",
+          "component": "/map/AMAP/index",
+          "meta": {
+            "icon": "Menu",
+            "title": "AMAP",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          },
+          "children": [
+            {
+              "path": "/map/AMAP/AMAP1",
+              "name": "AMAP1",
+              "component": "/map/AMAP/AMAP1/index",
+              "meta": {
+                "icon": "Menu",
+                "title": "AMAP1",
+                "isLink": "",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true
+              }
+            },
+            {
+              "path": "/map/AMAP/AMAP2",
+              "name": "AMAP2",
+              "component": "/map/AMAP/AMAP2/index",
+              "meta": {
+                "icon": "Menu",
+                "title": "AMAP2",
+                "isLink": "",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true
+              }
+            }
+          ]
+        },
+        {
           "path": "/map/mapbox",
           "name": "mapbox",
           "component": "/map/mapbox/index",
@@ -268,6 +312,36 @@
           "meta": {
             "icon": "Menu",
             "title": "嵌套环形图",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        }
+      ]
+    },
+    {
+      "path": "/layoutPage",
+      "name": "layoutPage",
+      "redirect": "/layoutPage/screen",
+      "meta": {
+        "icon": "Menu",
+        "title": "layoutPage",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      },
+      "children": [
+        {
+          "path": "/layoutPage/screen",
+          "name": "screen",
+          "component": "/layoutPage/screen/index",
+          "meta": {
+            "icon": "Menu",
+            "title": "大屏布局",
             "isLink": "",
             "isHide": false,
             "isFull": false,
