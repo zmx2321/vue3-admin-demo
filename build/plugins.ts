@@ -89,24 +89,24 @@ const createVitePwa = (viteEnv: ViteEnv): PluginOption | PluginOption[] => {
       name: VITE_GLOB_APP_TITLE,
       short_name: VITE_GLOB_APP_TITLE,
       theme_color: "#ffffff",
-      icons: [
+      /* icons: [
         {
-          src: __dirname.split(/[\\/]/).pop() + "/logo.png",
+          src: __dirname.split(/[\\/]/).pop() + "/logo1.png",
           sizes: "192x192",
           type: "image/png"
         },
         {
-          src: __dirname.split(/[\\/]/).pop() + "/logo.png",
+          src: __dirname.split(/[\\/]/).pop() + "/logo2.png",
           sizes: "512x512",
           type: "image/png"
         },
         {
-          src: __dirname.split(/[\\/]/).pop() + "/logo.png",
+          src: __dirname.split(/[\\/]/).pop() + "/logo3.png",
           sizes: "512x512",
           type: "image/png",
           purpose: "any maskable"
         }
-      ]
+      ] */
     }
   });
 };

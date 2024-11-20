@@ -44,17 +44,10 @@ const getCurrentPositionParams = (olMap) => {
   // console.log("获取可视区域的左上角和右下角坐标", viewPosition)
 
   return {
-<<<<<<< HEAD
     minLatitude: viewPosition.bottomRight[1],
     maxLatitude: viewPosition.topLeft[1],
     minLongitude: viewPosition.topLeft[0],
     maxLongitude: viewPosition.bottomRight[0],
-=======
-      minLatitude: viewPosition.bottomRight[1],
-      maxLatitude: viewPosition.topLeft[1],
-      minLongitude: viewPosition.topLeft[0],
-      maxLongitude: viewPosition.bottomRight[0],
->>>>>>> 8b2a916cf71ad1355157d2b5fd2471c3a450d1dc
   };
 };
 </script>
