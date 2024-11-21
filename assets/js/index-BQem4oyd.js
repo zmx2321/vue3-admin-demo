@@ -1,1 +1,0 @@
-import{_ as e}from"./plugin-vueexport-helper-DlAUqK2U.js";import{o as t,i as o,d as s}from"./index-BE_UM7M6.js";const c={},n={class:"card content-box"},a=s("span",{class:"text"}," 角色管理（待完善） 🍓🍇🍈🍉",-1),r=[a];function _(d,i){return t(),o("div",n,r)}const m=e(c,[["render",_]]);export{m as default};
