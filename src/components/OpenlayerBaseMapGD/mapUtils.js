@@ -30,8 +30,6 @@ import menuUtils from './menuUtils.js'
 // store
 import { gisDataStore } from '@/stores/modules/gis.ts'
 
-import axios from 'axios';
-
 /******************************
  * 变量(非地图)
  * ****************************
@@ -105,32 +103,40 @@ const baseLayerUrlConfig = {
   // 天地图底图
   getBaseMapLayer(item) {
     switch (item) {
-      case 'empty':
-        return setLayerUrl("/xxx/{z}/{y}/{x}.png", false)
-      case 't0vec':
-        return setLayerUrl("http://t0.tianditu.com/DataServer?T=vec_w&x={x}&y={y}&l={z}&tk=")  // 街道底图
-      case 't3img':
-        return setLayerUrl("http://t3.tianditu.com/DataServer?T=img_w&x={x}&y={y}&l={z}&tk=")  // 卫星(影像)底图
-      case 't4ter':
-        return setLayerUrl("http://t4.tianditu.com/DataServer?T=ter_w&x={x}&y={y}&l={z}&tk=")  // 地形底图
-      case 't07vec':
-        return setLayerUrl("http://t{0-7}.tianditu.com/DataServer?T=vec_w&x={x}&y={y}&l={z}&tk=")  // 街道底图2
-      case 't07img':
-        return setLayerUrl("http://t{0-7}.tianditu.com/DataServer?T=img_w&x={x}&y={y}&l={z}&tk=")  // 卫星底图2
+      case 'gd0':
+        return setLayerUrl("https://wprd0{1-4}.is.autonavi.com/appmaptile?&x={x}&y={y}&z={z}&lang=zh_cn&size=1&scl=1&style=8&ltype=11", false)  // 高德底图
+      case 'gd1':
+        return setLayerUrl("https://webrd01.is.autonavi.com/appmaptile?lang=zh_cn&size=128_128&scale=1&style=8&x={x}&y={y}&z={z}", false)  // 高德底图
+      case 'gd2':
+        return setLayerUrl("http://webrd02.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=7&x={x}&y={y}&z={z}", false)
+      case 'gd3':
+        return setLayerUrl("https://webst01.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&style=6", false)
+      case 'gd4':
+        return setLayerUrl("http://webrd01.is.autonavi.com/appmaptile?x=54658&y=26799&z=16&lang=zh_cn&size=1&scale=1&style=8", false)
+      case 'gd5':
+        return setLayerUrl("https://webst01.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}", false)
+      case 'gd6':
+        return setLayerUrl("http://wprd04.is.autonavi.com/appmaptile?lang=zh_cn&size=1&style=7&x={x}&y={y}&z={z}", false)
+      case 'gd7':
+        return setLayerUrl("https://webst01.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}", false)
+      case 'gd8':
+        return setLayerUrl("https://wprd01.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&lang=zh_cn&size=1&scl=2&style=8<ype=11", false)
+      case 'gd9':
+        return setLayerUrl("https://webst01.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}", false)
     }
   },
   getBaseMapTxt(item) {
     switch (item) {
-      case 'empty':
-        return setLayerUrl('', false)  // 空注记
-      case 't0cva': // 街道图注记
-        return setLayerUrl("http://t0.tianditu.com/DataServer?T=cva_w&x={x}&y={y}&l={z}&tk=")  // 街道图注记
-      case 't4cva': // 地形图注记
-        return setLayerUrl("http://t4.tianditu.com/DataServer?T=cva_w&x={x}&y={y}&l={z}&tk=")  // 地形图注记
-      case 't07cia': // 卫星图注记
-        return setLayerUrl("http://t{0-7}.tianditu.com/DataServer?T=cia_w&x={x}&y={y}&l={z}&tk=")  // 卫星图注记
-      case 't07cva': // 卫星图注记
-        return setLayerUrl("http://t{0-7}.tianditu.com/DataServer?T=cva_w&x={x}&y={y}&l={z}&tk=")  // 卫星图注记
+      case 'gd0':
+        return setLayerUrl('https://wprd01.is.autonavi.com/appmaptile?lang=zh_cn&size=1&style=8&x=54658&y=26799&z=16&scl=1&ltype=4', false)  // 空注记
+      case 'gd1':
+        return setLayerUrl('http://webst01.is.autonavi.com/appmaptile?x=54658&y=26799&z=16&lang=zh_cn&size=1&scale=1&style=8', false)  // 空注记
+      case 'gd2':
+        return setLayerUrl('https://wprd01.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', false)  // 空注记
+      case 'gd1':
+        return setLayerUrl('https://wprd01.is.', false)  // 空注记
+      case 'gd1':
+        return setLayerUrl('https://wprd01.is.', false)  // 空注记
     }
   }
 }
@@ -141,9 +147,15 @@ const mapInitConfig = {
   // ol地图底图 - 默认街道底图
   layers: [
     // 天地图底图
-    setBaseMapLayer(baseLayerUrlConfig.getBaseMapLayer('t3img')),  // 私有化底图
+    // setBaseMapLayer(baseLayerUrlConfig.getBaseMapLayer('gd0')),  
+    // setBaseMapLayer(baseLayerUrlConfig.getBaseMapLayer('gd1')),  
+    // setBaseMapLayer(baseLayerUrlConfig.getBaseMapLayer('gd2')),
+    // setBaseMapLayer(baseLayerUrlConfig.getBaseMapLayer('gd3')),
+    // setBaseMapLayer(baseLayerUrlConfig.getBaseMapLayer('gd4')),
+    // setBaseMapLayer(baseLayerUrlConfig.getBaseMapLayer('gd5')),
+    setBaseMapLayer(baseLayerUrlConfig.getBaseMapLayer('gd9')),
     // 天地图注记
-    setBaseMapTxt(baseLayerUrlConfig.getBaseMapTxt('t07cia')),
+    setBaseMapTxt(baseLayerUrlConfig.getBaseMapTxt('gd2')),
   ],
   // ol地图基本配置 - View默认使用EPSG3857坐标系
   view: new View({
