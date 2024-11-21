@@ -1,6 +1,7 @@
 // map core
 import 'ol/ol.css'
 import { Map, View } from 'ol';
+import WebGLTile from 'ol/layer/WebGLTile'; // 瓦片
 // map 加载底图相关
 import { /* OSM, */ XYZ, Vector as VectorSource, Cluster } from 'ol/source';
 // map 坐标相关
@@ -26,9 +27,8 @@ import { Draw, defaults/* , Modify, Snap */ } from 'ol/interaction';
 import { getVectorContext } from "ol/render";
 // 菜单栏
 import menuUtils from './menuUtils.js'
-
-import WebGLTile from 'ol/layer/WebGLTile';
-import WebGLPointsLayer from 'ol/layer/WebGLPoints';
+// store
+import { gisDataStore } from '@/stores/modules/gis.ts'
 
 /******************************
  * 变量(非地图)
@@ -45,23 +45,29 @@ let count = 0  // 地图点击打点变量
 // 周边搜索
 // https://api.tianditu.gov.cn/v2/search?postStr={%22keyWord%22:%22%E5%85%AC%E5%9B%AD%22,%22level%22:12,%22queryRadius%22:5000,%22pointLonlat%22:%22121.6262019920349,29.879795341283085%22,%22queryType%22:3,%22start%22:0,%22count%22:10}&type=query&tk=02dd5ea16a6b869b3b37e12f269b1463
 
-const tdtTk = import.meta.env.VITE_APP_MapToken  // 全局配置 - 天地图密钥
-// const tdtTk = '6b94eac741fe8a50f283b9b11d9d60d2'  // 全局配置 - 天地图密钥
-console.log(tdtTk, import.meta, import.meta.env.VITE_USER_NODE_ENV)
+let tdtTk = import.meta.env.VITE_APP_MapToken  // 全局配置 - 天地图密钥
+const gisStoreData = gisDataStore()
 
 // 设置底图url
-const setLayerUrl = (url) => {
-  return url + tdtTk
+const setLayerUrl = (url, hasToken = true) => {
+  if (gisStoreData.mapToken !== '') {
+    tdtTk = gisStoreData.mapToken
+  }
+  if (hasToken) {
+    return url + tdtTk
+  }
+  return url
 }
+
 // 创建底图基础配置
 const createBaseLayerConfig = (url, layerSourceConfig = {}, layerConfig = {}) => {
   return new WebGLTile({
-    // return new TileLayer({
     source: new XYZ({
       url,
       ...layerSourceConfig
     }),
     type: 'baseLayer',
+    url,
     ...layerConfig
   })
 }
@@ -69,7 +75,7 @@ const createBaseLayerConfig = (url, layerSourceConfig = {}, layerConfig = {}) =>
 // 配置地图底图
 const setBaseMapLayer = (url) => {
   return createBaseLayerConfig(url, {
-    wrapX: false,
+    wrapX: false,  // 在水平方向不重复显示
     crossOrigin: "anonymous",
   }, { layerType: 'baseMapLayer' })
 }
@@ -93,19 +99,35 @@ const setBaseMapTxt = (url) => {
  */
 const baseLayerUrlConfig = {
   // 天地图底图
-  baseMapLayer: {
-    t0vec: setLayerUrl("http://t0.tianditu.com/DataServer?T=vec_w&x={x}&y={y}&l={z}&tk="),  // 街道底图
-    t3img: setLayerUrl("http://t3.tianditu.com/DataServer?T=img_w&x={x}&y={y}&l={z}&tk="),  // 卫星(影像)底图
-    t4ter: setLayerUrl("http://t4.tianditu.com/DataServer?T=ter_w&x={x}&y={y}&l={z}&tk="),  // 地形底图
-    t07vec: setLayerUrl("http://t{0-7}.tianditu.com/DataServer?T=vec_w&x={x}&y={y}&l={z}&tk="),  // 街道底图2
-    t07img: setLayerUrl("http://t{0-7}.tianditu.com/DataServer?T=img_w&x={x}&y={y}&l={z}&tk="),  // 卫星底图2
+  getBaseMapLayer(item) {
+    switch (item) {
+      case 'empty':
+        return setLayerUrl("/xxx/{z}/{y}/{x}.png", false)
+      case 't0vec':
+        return setLayerUrl("http://t0.tianditu.com/DataServer?T=vec_w&x={x}&y={y}&l={z}&tk=")  // 街道底图
+      case 't3img':
+        return setLayerUrl("http://t3.tianditu.com/DataServer?T=img_w&x={x}&y={y}&l={z}&tk=")  // 卫星(影像)底图
+      case 't4ter':
+        return setLayerUrl("http://t4.tianditu.com/DataServer?T=ter_w&x={x}&y={y}&l={z}&tk=")  // 地形底图
+      case 't07vec':
+        return setLayerUrl("http://t{0-7}.tianditu.com/DataServer?T=vec_w&x={x}&y={y}&l={z}&tk=")  // 街道底图2
+      case 't07img':
+        return setLayerUrl("http://t{0-7}.tianditu.com/DataServer?T=img_w&x={x}&y={y}&l={z}&tk=")  // 卫星底图2
+    }
   },
-  // 天地图注记
-  baseMapTxt: {
-    t0cva: setLayerUrl("http://t0.tianditu.com/DataServer?T=cva_w&x={x}&y={y}&l={z}&tk="),  // 街道图注记
-    t4cva: setLayerUrl("http://t4.tianditu.com/DataServer?T=cva_w&x={x}&y={y}&l={z}&tk="),  // 地形图注记
-    t07cia: setLayerUrl("http://t{0-7}.tianditu.com/DataServer?T=cia_w&x={x}&y={y}&l={z}&tk="),  // 卫星图注记
-    t07cva: setLayerUrl("http://t{0-7}.tianditu.com/DataServer?T=cva_w&x={x}&y={y}&l={z}&tk=")  // 卫星图注记
+  getBaseMapTxt(item) {
+    switch (item) {
+      case 'empty':
+        return setLayerUrl('', false)  // 空注记
+      case 't0cva': // 街道图注记
+        return setLayerUrl("http://t0.tianditu.com/DataServer?T=cva_w&x={x}&y={y}&l={z}&tk=")  // 街道图注记
+      case 't4cva': // 地形图注记
+        return setLayerUrl("http://t4.tianditu.com/DataServer?T=cva_w&x={x}&y={y}&l={z}&tk=")  // 地形图注记
+      case 't07cia': // 卫星图注记
+        return setLayerUrl("http://t{0-7}.tianditu.com/DataServer?T=cia_w&x={x}&y={y}&l={z}&tk=")  // 卫星图注记
+      case 't07cva': // 卫星图注记
+        return setLayerUrl("http://t{0-7}.tianditu.com/DataServer?T=cva_w&x={x}&y={y}&l={z}&tk=")  // 卫星图注记
+    }
   }
 }
 
@@ -115,17 +137,15 @@ const mapInitConfig = {
   // ol地图底图 - 默认街道底图
   layers: [
     // 天地图底图
-    setBaseMapLayer(baseLayerUrlConfig.baseMapLayer.t0vec),
+    setBaseMapLayer(baseLayerUrlConfig.getBaseMapLayer('t0vec')),  // 私有化底图
     // 天地图注记
-    setBaseMapTxt(baseLayerUrlConfig.baseMapTxt.t0cva),
+    setBaseMapTxt(baseLayerUrlConfig.getBaseMapTxt('t0cva')),
   ],
-  // ol地图基本配置
-  // center: fromLonLat([116.400819, 39.916263]),
-  // View默认使用EPSG3857坐标系
-  // projection: 'EPSG:4326',
-  // zoom: 15,
+  // ol地图基本配置 - View默认使用EPSG3857坐标系
   view: new View({
     center: fromLonLat([121.63, 29.88]),
+    /* center: [121.63, 29.88],
+    projection: 'EPSG:4326', */
     zoom: 16,
     maxZoom: 17,
     minZoom: 13,
@@ -190,12 +210,13 @@ const pointIconleStyle = (olMap, src) => {
     image: new Icon({
       src,
       // image: new CircleStyle({
-      anchor: [0.5, 15],//图标的锚点,经纬度点所对应的图标的位置，默认是[0.5, 0.5]，即为标注图标的中心点位置
+      anchor: [.8, 80],//图标的锚点,经纬度点所对应的图标的位置，默认是[0.5, 0.5]，即为标注图标的中心点位置
       anchorOrigin: 'top-right',//锚点的偏移位置，默认是top-left，
       anchorXUnits: 'fraction',//锚点X的单位，默认为百分比，也可以使用px
       anchorYUnits: 'pixels',//锚点Y的单位，默认为百分比，也可以使用px
-      offsetOrigin: 'top-right',//原点偏移bottom-left, bottom-right, top-left, top-right,默认 top-left
-      // offset:[0,10],
+      offsetOrigin: 'top-left',//原点偏移bottom-left, bottom-right, top-left, top-right,默认 top-left
+      size: [100, 100],
+      offset: [3, -32],
       //图标缩放比例
       // scale: 0.5,//可以设置该比例实现，图标跟随地图层级缩放
       scale: olMap.getView().getZoom() / 30,
@@ -253,6 +274,22 @@ const removeAllOverlay = () => {
  * 地图核心方法供出
  * ****************************
  */
+export const destroyMap = (olMap) => {
+  if (olMap) {
+    // 销毁所有图层
+    olMap.getLayers().forEach(function (layer) {
+      layer.setMap(null);
+    });
+
+    // 销毁视图
+    olMap.setView(null);
+
+    // 销毁地图实例
+    olMap.setTarget(null);
+    olMap = null;
+  }
+}
+
 // 初始化地图
 export const initOlMap = (target) => {
   return new Map({
@@ -268,6 +305,10 @@ export const switchBaseLayer = (olMap, type) => {
   let txtType = ''
 
   switch (type) {
+    // 私有化底图
+    case 'empty':
+      txtType = 'empty'  // 卫星图注记
+      break
     // 街道底图
     case 't0vec':
       txtType = 't0cva'  // 街道图注记
@@ -278,14 +319,19 @@ export const switchBaseLayer = (olMap, type) => {
       break
     // 地形底图
     case 't4ter':
-      txtType = 't4cva'  // 地形图注记
+      txtType = 't4cva'  // 地形图注记`
       break
   }
-  // console.log(type, txtType)
 
-  // 底图layer
-  let newBaseMapLayer = setBaseMapLayer(eval(`baseLayerUrlConfig.baseMapLayer.${type}`))
-  let newBaseMapTxt = setBaseMapTxt(eval(`baseLayerUrlConfig.baseMapTxt.${txtType}`))
+  // 天地图底图
+  let newBaseMapLayer = setBaseMapLayer(baseLayerUrlConfig.getBaseMapLayer(type))
+  // 天地图注记
+  let newBaseMapTxt = setBaseMapTxt(baseLayerUrlConfig.getBaseMapTxt(txtType))
+
+  console.log('当前天地图token:', tdtTk)
+  console.log('当前天地图底图地址:', newBaseMapLayer.values_.url)
+  console.log('当前天地图注记地址:', newBaseMapTxt.values_.url)
+
   // 获取当前地图中的所有图层
   const mapLayers = olMap.getLayers();
 
@@ -297,8 +343,17 @@ export const switchBaseLayer = (olMap, type) => {
           mapLayers.insertAt(index, newBaseMapLayer)
           break
         case 'baseMapTxt':
-          olMap.removeLayer(item)
-          mapLayers.insertAt(index, newBaseMapTxt)
+          if (newBaseMapTxt !== '') {
+            olMap.removeLayer(item)
+            mapLayers.insertAt(index, newBaseMapTxt)
+          }
+
+          if (newBaseMapTxt === '') {
+            let newBaseMapTxtTmp = setBaseMapTxt('')
+            olMap.removeLayer(item)
+            mapLayers.insertAt(index, newBaseMapTxtTmp)
+          }
+
           break
       }
     }
@@ -582,33 +637,6 @@ export const addPoint = (olMap, pointBusinessData, src = '/', pointConfig = {}, 
   }
 }
 
-/* // 添加单个点
-export const addPointItem = (olMap, pointItem, src = '/', businessType = '', pointConfig) => {
-  // 创建点的数据源
-  const vectorSource = new VectorSource({
-    features: [],
-  });
-
-  // 创建点图层
-  const vectorLayer = new VectorLayer({
-    source: vectorSource,
-    zIndex: 1,
-    style: src === '/' ? pointCircleStyle : pointIconleStyle(src)
-  });
-
-  olMap.addLayer(vectorLayer);
-
-  const point = new Point(fromLonLat(pointItem.lonlat));
-  const feature = new Feature({
-    geometry: point,
-    type: 'Marker',
-    businessType,
-    ...pointConfig,
-    pointData: pointItem.pointData
-  });
-  vectorSource.addFeature(feature);
-} */
-
 // 点聚合
 export const setCluster = (olMap, clusterBussinessData, src) => {
   // removeAllDefaultLayer(olMap); // 移除所有默认图层
@@ -690,7 +718,16 @@ export const addLine = (olMap, position, lineConfig = {}, style) => {
   });
 
   if (!style) {
-    style = setFeaturesStyle('rgba(255, 255, 255, 0.2)', 'rgba(0, 0, 0, 0.5)', false, 3)
+    // style = setFeaturesStyle('rgba(255, 255, 255, 0.2)', 'rgba(0, 0, 0, 0.5)', false, 3)
+    /* style = new Style({
+      fill: new Fill({
+        color: 'rgba(255, 255, 255, 0.2)'
+      }),
+      stroke: new Stroke({
+        color: 'rgba(0, 0, 0, 0.5)',
+        width: 3
+      }),
+    }) */
   }
 
   lineFeature.setStyle(style);
@@ -862,6 +899,7 @@ export const addTextPoint = (olMap, text, position, textPointConfig = {}, isRemo
  */
 export const popupCommonConfig = (olMap, pixelPoint, popupInner, next, overlayConfig = null,) => {
   let container = document.getElementById('popup');
+  // console.log('container', container)
   let closer = document.getElementById('popup-closer');
   // let content = document.getElementById('popup-content');
   container.style.display = 'block'
@@ -1064,7 +1102,10 @@ export const removeAllDefaultLayer = (olMap) => {
 export const removeByReflashMap = (olMap) => {
   // 根据条件移除要素
   removeByCondition(olMap, currentFeature => {
-    return currentFeature.get('tempType')
+    if (currentFeature) {
+      return currentFeature.get('tempType')
+    }
+
   })
 
   removeAllOverlay()  // 移除地图Overlay元素
@@ -1233,10 +1274,6 @@ export const addCircle = (olMap, circleItem, circleConfig = {}, isFlicker, isHid
 
   let features = []
 
-  /* const fillStyle = new Fill({
-    color: 'rgba(32, 157, 230, 0.2)'
-  }) */
-
   let feature = new Feature({
     type: "Circle",
     ...circleConfig,
@@ -1244,14 +1281,6 @@ export const addCircle = (olMap, circleItem, circleConfig = {}, isFlicker, isHid
     // 圆心 - 半径
     geometry: new Circle(fromLonLat(circleItem.lonlat), circleItem.radius),
   })
-  // feature.setStyle(
-  //   /* style ? style : new Style({
-  //     fill: fillStyle,
-  //   }) */
-  //   new Style({
-  //     fill: fillStyle,
-  //   })
-  // )
 
   feature.setStyle(!isHide ? setDrawFeaturesStyle() : new Style({
     fill: new Fill({
@@ -1263,22 +1292,6 @@ export const addCircle = (olMap, circleItem, circleConfig = {}, isFlicker, isHid
     }),
   }))
 
-  // if (!isHide) {
-
-  // } else {
-  //   feature.setStyle()
-  // }
-  // feature.setStyle(circleStyle ? circleStyle : setDrawFeaturesStyle())
-  // feature.setStyle(setDrawFeaturesStyle())
-  /* feature.setStyle(new Style({
-    fill: new Fill({
-      color: 'rgba(255, 0, 0, 0)'
-    }),
-    stroke: new Stroke({
-      color: '#f00',
-      color: 'rgba(255, 0, 0, 0)'
-    }),
-  })) */
   features.push(feature)
   let source = new VectorSource()
   source.addFeatures(features)
@@ -1298,19 +1311,85 @@ export const addCircle = (olMap, circleItem, circleConfig = {}, isFlicker, isHid
       var pointStyle = new Style({
         radius: radius,
         stroke: new Stroke({
-          color: "rgba(255,0,0" + opacity + ")",
-          width: 22 - radius / 2, // 设置宽度
+          color: "rgba(255,60,5" + opacity + ")",
+          width: 18 - radius / 1.5, // 设置宽度
         }),
       });
       // 获取矢量要素上下文
       let vectorContext = getVectorContext(evt);
       vectorContext.setStyle(pointStyle);
       vectorContext.drawGeometry(feature.getGeometry());
-      radius = radius + 0.3; //调整闪烁速度
+      radius = radius + 0.2; //调整闪烁速度
       //请求地图渲染（在下一个动画帧处）
       olMap.render();
     })
   }
+}
+
+// 闪烁点图层函数
+const flashPoints = (map, layer, record) => {
+  if (JSON.stringify(record) === '{}') return;
+  //清除上一次的闪烁图层
+  if (layer.current) {
+    map.removeLayer(layer.current);
+  }
+  //wgs84togcj02是自己封装的转换经纬度的函数，不需要的话可忽略
+  // const lnglat = wgs84togcj02(record?.longitude, record?.latitude);
+  //下面这段代码是先画一个普通的点位图层
+  const features = [
+    new Feature({
+      geometry: new Point(fromLonLat(record)),
+    }),
+  ];
+  layer.current = new VectorLayer({
+    source: new VectorSource({ features }),
+  });
+  layer.current.setStyle(
+    new Style({
+      image: new CircleStyle({
+        radius: 100,
+        snapToPixel: false,
+        stroke: new Stroke({
+          color: 'red',
+          size: 10,
+        }),
+      }),
+    })
+  );
+  //这里是闪烁动画实现的关键
+  var radius = 550;
+  map.on('postcompose', function () {
+    //0.6是每次扩大的幅度
+    radius = radius + 0.6;
+    //30是最大半径
+    radius = radius % 30;
+    layer.current.setStyle(
+      new Style({
+        image: new CircleStyle({
+          radius,
+          snapToPixel: false,
+          stroke: new Stroke({
+            color: 'red',
+            width: 3,
+            size: 10,
+          }),
+        }),
+      })
+    );
+  });
+  map.addLayer(layer.current);
+};
+
+// 绘制圆2
+export const addCircle2 = (olMap, circleItem, circleConfig = {}, isFlicker = true) => {
+  console.log('circleItem', circleItem.lonlat)
+
+  let vectorLayer = new VectorLayer({
+    opacity: 0.8
+  });
+
+  flashPoints(olMap, vectorLayer, circleItem.lonlat)
+
 }
 
 // 测距
@@ -1364,7 +1443,7 @@ export const cancelTestDistance = (olMap) => {
 }
 
 // 添加带箭头的线
-export const addArrowLine = (olMap, position, src = '../src/components/OpenlayerBaseMap/icon/arrow.svg', businessType = 'arrowLine') => {
+export const addArrowLine = (olMap, position, src = '../src/components/OpenlayerBaseMap/icon/routearrow.svg', businessType = 'arrowLine') => {
   // console.log('添加带箭头的线', olMap)
 
   function stylefunction(feature) {
@@ -1379,12 +1458,10 @@ export const addArrowLine = (olMap, position, src = '../src/components/Openlayer
     let arrowNum = Math.floor(totalLength / StepLength)
 
     const styles = [
-      // linestring
       new Style({
         stroke: new Stroke({
-          // color: 'rgb(164 164 162 / 88%)',
           color: '#42b983',
-          width: 5,
+          width: 6,
         }),
       }),
     ];
@@ -1421,45 +1498,7 @@ export const addArrowLine = (olMap, position, src = '../src/components/Openlayer
     return styles
   }
 
-
-
-  /* const styleFunction = function (feature) {
-    const geometry = feature.getGeometry();
-    const styles = [
-      // linestring
-      new Style({
-        stroke: new Stroke({
-          color: 'rgb(164 164 162 / 88%)',
-          width: 5,
-        }),
-      }),
-    ];
-
-    geometry.forEachSegment(function (start, end) {
-      const dx = end[0] - start[0];
-      const dy = end[1] - start[1];
-      const rotation = Math.atan2(dy, dx);
-      const coord = [start[0] + dx / 2, start[1] + dy / 2]
-      // arrows
-      styles.push(
-        new Style({
-          geometry: new Point(coord),
-          image: new Icon({
-            src,
-            anchor: [0.75, 0.5],
-            rotateWithView: true,
-            rotation: -rotation,
-            scale: 0.03
-          }),
-        })
-      );
-    });
-
-    return styles;
-  }; */
-
   addLine(olMap, position, { businessType }, stylefunction)
-  // addLine(olMap, position, { businessType }, styleFunction)
 }
 
 // 右键添加标注点
@@ -1521,375 +1560,40 @@ export const addFlickerPoint = (olMap, pixelPoint, className = '', next) => {
  * 测试 
  * ****************************
  */
-
-// 地图功能测试
+// 用于作单元测试
 export const olMapTestCommon = (olMap, feature, pixelPoint) => {
   console.log('地图功能测试', olMap, feature, pixelPoint)
   console.log('经纬度', transformToLonlat(pixelPoint))
 
-  // 创建图层
-  var layer = new WebGLPointsLayer({
-    source: new VectorSource(),
-    style: {
-      symbol: {
-        symbolType: 'circle',
-        size: 20,
-        color: 'red'
-      }
+  /* function addFlashMark() {
+    if (amapFlashMark == null) {
+      amapFlashMark = new window.FlashMarker(olMap, []);
     }
-  });
-
-  // 创建要素
-  let source = new VectorSource()
-  for (var i = 1; i <= 100000; i++) {
-    var coordinates = [120.00 + Math.random(), 30.00 + Math.random()];
-    var feature = new Feature(new Point(coordinates));
-    source.addFeature(feature);
-  }
-
-  olMap.addLayer(layer);
-
-  /* // 创建地图
-  var map = new ol.Map({
-    target: 'map',
-    layers: [
-      layer
-    ],
-    view: new ol.View({
-      projection: 'EPSG:4326',
-      center: [120, 30],
-      zoom: 10
-    })
-  }); */
-
-
-  /* olMap.addLayer(new WebGLPointsLayer({
-    source: new VectorSource({
-      url: 'https://openlayers.org/en/latest/examples/data/geojson/world-cities.geojson',
-      format: new GeoJSON(),
-      wrapX: true,
-    }),
-    style: {
-      symbol: {
-        symbolType: 'circle',
-        size: 8,
-        color: 'rgb(255, 0, 0)',
-        opacity: 0.2,
-      },
-    }
-  })); */
-
-
-  /* console.log('feature', polygonGeoJSON)
-
-  // 创建多边形数据源
-  const vectorSource = new VectorSource({
-    features: (new GeoJSON()).readFeatures(polygonGeoJSON) // 替换为你的GeoJSON多边形数据
-  });
-
-  // 创建多边形图层并使用WebGL渲染
-  const vectorLayer = new VectorLayer({
-    source: vectorSource,
-    renderMode: 'webgl' // 指定使用WebGL渲染
-  });
-
-  olMap.addLayer(vectorLayer); */
-
-
-  // console.log()
-  // console.log(feature.get('type') === 'Cluster')
-
-  /*  // 随机创建1000个要素
-   var source = new VectorSource();
-   for (var i = 1; i <= 200; i++) {
-     var coordinates = [120.00 + Math.random(), 30.00 + Math.random()];
-     var feature = new Feature(new Point(coordinates));
-     source.addFeature(feature);
-   }
-   for (var i = 1; i <= 200; i++) {
-     var coordinates = [120.01 + Math.random(), 30.01 + Math.random()];
-     var feature = new Feature(new Point(coordinates));
-     source.addFeature(feature);
-   }
-   for (var i = 1; i <= 200; i++) {
-     var coordinates = [120.02 + Math.random(), 30.02 + Math.random()];
-     var feature = new Feature(new Point(coordinates));
-     source.addFeature(feature);
-   }
-   for (var i = 1; i <= 200; i++) {
-     var coordinates = [120.03 + Math.random(), 30.03 + Math.random()];
-     var feature = new Feature(new Point(coordinates));
-     source.addFeature(feature);
-   }
-   for (var i = 1; i <= 200; i++) {
-     var coordinates = [120.04 + Math.random(), 30.04 + Math.random()];
-     var feature = new Feature(new Point(coordinates));
-     source.addFeature(feature);
-   }
- 
-   // 聚合
-   var cluster = new Cluster({
-     source: source,
-     distance: 100
-   })
- 
-   // 创建图层
-   var layer = new VectorLayer({
-     source: cluster,
-     style: function (feature, resolution) {
-       var size = feature.get('features').length;
-       if (size == 1) {
-         return pointCircleStyle
-       }
-       else {
-         return new Style({
-           image: new CircleStyle({
-             radius: 30,
-             stroke: new Stroke({
-               color: 'white'
-             }),
-             fill: new Fill({
-               color: 'blue'
-             })
-           }),
-           text: new Text({
-             text: size.toString(),
-             fill: new Fill({
-               color: 'white'
-             })
-           })
-         })
-       }
-     }
-   });
- 
-   olMap.addLayer(layer);
- 
-   // 监听地图分辨率改变事件
-   olMap.getView().on('change:resolution', function (event) {
-     if (olMap.getView().getZoom() == olMap.getView().getMaxZoom()) {
-       cluster.setDistance(0);
-     }
-     else {
-       cluster.setDistance(100);
-     }
-   })
-  */
-
-
-
-
-  /* const source = new VectorSource({
-    url: 'https://openlayers.org/en/latest/examples/data/geojson/photovoltaic.json',
-    format: new GeoJSON()
-  })
-  const clusterSource = new Cluster({
-    source: source,
-    distance: 40,
-
-  })
-  const vectorLayer = new VectorLayer({
-    source: clusterSource,
-    // 聚合样式
-    style: function (feature) {
-      // 点的个数
-      const size = feature.get('features').length
-      return new Style({
-        image: new CircleStyle({ // 圆形
-          radius: 15, // 半径
-          stroke: new Stroke({ // 边框
-            color: '#fff'
-          }),
-          fill: new Fill({ // 填充
-            color: '#3399CC'
-          })
-        }),
-        text: new Text({ // 文字样式
-          font: '15px sans-serif',
-          text: size.toString(),
-          fill: new Fill({
-            color: '#fff'
-          })
-        })
-      })
-    }
-  })
-  olMap.addLayer(vectorLayer); */
-
-
-
-
-  /* let featureList = getFeaturesByCondition(olMap, currentFeature => {
-    return currentFeature.get('type') === 'Marker'
-  })
-
-  console.log(featureList)
-
-  // 聚合
-  var cluster = new Cluster({
-    source: new VectorSource({
-      features: featureList
-    }),
-    distance: 100,
-    minDistance: 20, // 聚合块之间的最小像素距离，默认为零
-  })
-
-  // 创建图层
-  var clusterLayer = new VectorLayer({
-    source: cluster,
-    style: function (feature, resolution) {
-      var size = feature.get('features').length;
-      if (size == 1) {
-        return pointCircleStyle
-      }
-      else {
-        return new Style({
-          image: new CircleStyle({
-            radius: 30,
-            stroke: new Stroke({
-              color: 'white'
-            }),
-            fill: new Fill({
-              color: 'blue'
-            })
-          }),
-          text: new Text({
-            text: size.toString(),
-            fill: new Fill({
-              color: 'white'
-            })
-          })
-        })
-      }
-    }
-  });
-
-  olMap.addLayer(clusterLayer); */
-
-  /* let clusterSource = new Cluster({
-    distance: 3,
-    minDistance: 20, // 聚合块之间的最小像素距离，默认为零
-    source: new VectorSource({
-      features: featureList
-    })
-  }); */
-
-  // const baseLayerList = olMap.getAllLayers().filter(item => item.get('type') === 'baseLayer')
-
-
-
-  //创建一个聚合source
-  // let clusterSource = new Cluster({
-  //   distance: 3,
-  //   minDistance: 20, // 聚合块之间的最小像素距离，默认为零
-  //   source: new VectorSource({
-  //     features: features
-  //   })
-  // });
-  // let styleCache = {};
-  // const clusterLayer = new VectorLayer({
-  //   id: 'clusterLayer',
-  //   source: clusterSource,
-  //   zIndex: 11,
-  //   style: function (feature) {
-  //     let size = feature.get('features').length;
-  //     let clusterFeatures = feature.get('features');
-  //     // let fillColor = me.getColor(size);
-  //     if (size > 1) {
-  //       let style = new Style({
-  //         image: new CircleStyle({
-  //           radius: 5,
-  //           /*stroke: new Stroke({
-  //             color: '#fff'
-  //           }),*/
-  //           fill: new Fill({
-  //             color: '#000'
-  //           })
-  //         })
-  //       });
-  //       return style;
-  //     } else {
-  //       return clusterFeatures[0].getStyle();
-  //     }
-  //   }
-  // });
-  // olMap.addLayer(clusterLayer);
-
-  // 切换底图函数
-  /* function switchBaseLayer(newBaseLayer) {
-    // 获取地图中当前的图层
-    var currentBaseLayer = olMap.getLayers().getArray().find(function (lyr) {
-      return lyr.get('type') === 'base';
+    amapMarkPoints = amapFlashMark.addFlashMarker({
+      name: '11111',//名称
+      lnglat: pixelPoint,//经纬度数组
+      color: '#ff0000',//颜色
+      type: 'circle',//形状
+      speed: 0.3//动画速度（闪烁频率）
     });
+  }
+  addFlashMark() */
 
-    // 如果当前图层存在，则将其移除
-    if (currentBaseLayer) {
-      olMap.removeLayer(currentBaseLayer);
-    }
+  // addArrowLineTest(olMap)
+}
 
-    // 将新的图层添加到地图，并设置其为当前图层
-    olMap.addLayer(newBaseLayer);
-  } */
+// 添加带箭头的线测试
+export const addArrowLineTest = (olMap) => {
+  console.log('添加带箭头的线测试')
 
-  /* const baseLayerList = olMap.getAllLayers().filter(item => item.get('type') === 'baseLayer')
-  // console.log(baseLayerList)
+  /* let startPixelPoint = transformToPixelPoint(121.61661041259764, 29.881804699593772)
+  let endPixelPoint = transformToPixelPoint(121.63396966934202, 29.881469809353774) */
+  let startPixelPoint = transformToPixelPoint(121.616247, 29.876098)
+  let endPixelPoint = transformToPixelPoint(121.628471, 29.883743)
+  let position = [startPixelPoint, endPixelPoint]
 
-  baseLayerList.forEach(item => {
-    switch (item.get('layerType')) {
-      case 'baseMapLayer':
-        break
-      case 'baseMapTxt':
-        break
-    }
-  }) */
-  /* // 天地图底图
-  const newBaseMapLayer = createBaseLayerConfig(baseLayerUrlConfig.baseMapLayer.t3img)
-  const newBaseMapTxt = createBaseLayerConfig(baseLayerUrlConfig.baseMapTxt.t07cia)
-  const mapLayers = olMap.getLayers();//获取当前地图中的所有图层
-
-  olMap.getAllLayers().forEach((item, index) => {
-    if (item.get('type') === 'baseLayer') {
-      console.log(item)
-      switch (item.get('layerType')) {
-        case 'baseMapLayer':
-          olMap.removeLayer(item)
-          mapLayers.insertAt(index, newBaseMapLayer)
-          break
-        case 'baseMapTxt':
-          olMap.removeLayer(item)
-          mapLayers.insertAt(index, newBaseMapTxt)
-          break
-      }
-    }
-  }) */
-
-  // const baseLayer = olMap.getAllLayers()[0]//获取当前map的底图
-  // console.log(baseLayer, baseLayer.get('type'))
-  /* olMap.removeLayer(baseLayer)//移除该底图
-  const mapLayers = olMap.getLayers();//获取当前地图中的所有图层
-
-  // 天地图底图
-  let newBaseLayer = createBaseLayerConfig(baseLayerUrlConfig.baseMapLayer.t3img)
-
-  mapLayers.insertAt(0, newBaseLayer)//将新的图层对象插入到第一个位置。 */
-
-  /* // 使用示例：切换到OpenStreetMap
-  var osmLayer = createNewBaseLayer(baseLayerUrlConfig.baseMapLayer.t3img);
-  osmLayer.set('type', 'base'); // 设置一个标识，以便识别是底图层
-
-  // 切换到新创建的OpenStreetMap图层
-  switchBaseLayer(osmLayer); */
-
-  // olMap.addLayer(baseLayerUrlConfig.baseMapLayer.t3img);
-
-  /* getAllLayer(olMap, layerItem => {
-    let currentFeature = layerItem.getSource().getFeatures()
-
-    if (currentFeature[0].get('type') === 'POIMarker') {
-      console.log(currentFeature[0])
-    }
-  }) */
-
+  addArrowLine(olMap, position)
+  // addLine(olMap, position, { drawType: 'TestDistance' })
 }
 
 // 打点测试
@@ -2079,3 +1783,4 @@ export const addFlickerPointByMenuTest = (olMap, pixelPoint) => {
 
   addFlickerPoint(olMap, pixelPoint)
 }
+

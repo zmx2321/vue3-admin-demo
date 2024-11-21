@@ -43,6 +43,9 @@
         </li>
       </ul>
     </div>
+
+    <!-- 切换天地图token 弹窗 -->
+    <set-token-dialog ref="refSetTokenDialog" />
   </section>
 </template>
 
@@ -58,6 +61,7 @@ import { boundingExtent } from 'ol/extent'
 import PopupCommon from "./components/popup/PopupCommon.vue"; // 气泡窗
 import Lend from "./components/Lend.vue"; // 图例
 import SwitchBaseLayer from "./components/SwitchBaseLayer.vue"; // 切换底图控件
+import SetTokenDialog from "./components/SetTokenDialog.vue"; // 切换天地图token
 // 工具
 import { objIsEmpty } from "@/utils/index.ts";
 // 组件传参
@@ -106,13 +110,12 @@ const props = defineProps({
 });
 
 const { proxy } = getCurrentInstance();
-console.log('dcfvsdfvds')
-console.log(proxy)
 
 let myOlMap = null;
 
 const refPopupCommon = ref(null);
 const refLend = ref(null);
+const refSetTokenDialog = ref(null);
 
 let toggleFlag = ref(true);  // 概览信息默认显示
 
@@ -329,6 +332,10 @@ const setMapByAutoPopupData = async (olMap, itemData, fixData, renderFeature) =>
 /**
  * 接收其他组件派发的方法
  */
+// 根据不同token初始化地图
+mittBus.on("initOlMapByToken", () => {
+  resetOlMap()  // 初始化地图
+});
 /**
  * 刷新地图
  * 各个组件如果需要刷新地图通过派发组件,最终到这个文件里面去做最终地图的刷新
@@ -419,6 +426,11 @@ mittBus.on("cancelTestDistance", () => {
 
   mapUtils.cancelTestDistance(myOlMap); // 取消测距
 });
+
+// 切换天地图token
+mittBus.on("showSetTokenDialog", () => {
+  refSetTokenDialog.value?.show();
+})
 
 /**
  * menu方法接收
@@ -804,16 +816,36 @@ const addArrowLine = (olMap, position, src, businessType) => {
   mapUtils.addArrowLine(olMap, position, src, businessType)
 }
 
-/**
- * vue生命周期函数
- * 挂载后触发
- */
-onMounted(() => {
+// 初始化地图
+const resetOlMap = () => {
+  // console.log("地图初始化");
+  /* if (myOlMap) {
+    mapUtils.destroyMap(myOlMap)
+  } */
+  destroyMap(myOlMap)
+
   const olMap = mapUtils.initOlMap("olMap"); // 初始化地图
 
   mapInit(olMap); // 地图加载完初始化做的一些操作
   getMapInitInfo(olMap); // 地图加载完初始化后获取地图的一些信息
   setOlmap(olMap); // 设置地图
+
+  // console.log("地图加载完成");
+}
+
+// 销毁地图
+const destroyMap = (olMap) => {
+  if (olMap) {
+    mapUtils.destroyMap(olMap)
+  }
+}
+
+/**
+ * vue生命周期函数
+ * 挂载后触发
+ */
+onMounted(() => {
+  resetOlMap()  // 初始化地图
 });
 
 /**
@@ -848,7 +880,12 @@ defineExpose({
 <style lang="scss">
 $zoomMargin: 10em;
 
-dl,dt,dd,ul,li,p {
+dl,
+dt,
+dd,
+ul,
+li,
+p {
   margin: 0;
   padding: 0;
 }

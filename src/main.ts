@@ -38,6 +38,7 @@ import components from '@/components/index.js'
 const app = createApp(App);
 
 app.config.errorHandler = errorHandler;
+app.use(components)
 
 // register the element Icons component
 Object.keys(Icons).forEach(key => {

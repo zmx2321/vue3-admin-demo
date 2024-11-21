@@ -2,9 +2,9 @@
   <section class="switch_base_layer_wrap">
     <div class="switch_content" v-show="toggleFlag">
       <el-radio-group v-model="ruleForm.layerType" @change="switchBaseLayerType">
-        <el-radio label="t0vec">街道底图</el-radio>
-        <el-radio label="t3img">卫星(影像)底图</el-radio>
-        <el-radio label="t4ter">地形底图</el-radio>
+        <el-radio value="t0vec">街道底图</el-radio>
+        <el-radio value="t3img">卫星(影像)底图</el-radio>
+        <el-radio value="t4ter">地形底图</el-radio>
       </el-radio-group>
     </div>
     <div class="toggle" :title="`点击${!toggleFlag ? '显示' : '隐藏'}`" @click="toggleLend"></div>
@@ -13,6 +13,13 @@
 
 <script setup>
 import { ref, defineEmits } from 'vue'
+// 组件传参
+import mittBus from "@/utils/mittBus"; // mitt
+
+// 根据不同token初始化地图
+mittBus.on("resetSwitchLayer", () => {
+  ruleForm.value.layerType = 't0vec'
+});
 
 // 自定义事件
 const emit = defineEmits(['switchBaseLayerType'])

@@ -16,6 +16,7 @@ const menuMethodBtn = {
         // commonMenuMethod02: '添加自定义闪烁点',  // 公共选项02
         commonMenuMethod1: '拷贝当前经纬度',  // 公共选项1
         // commonMenuMethod2: '置顶要素',  // 公共选项2
+        commonMenuMethod3: '切换天地图token',  // 公共选项3
     },
     // 公共动态选项,每个页面有需要才显示
     commonDynamicMenu: {
@@ -127,6 +128,12 @@ export default {
             case commonMenu.commonMenuMethod2:
                 // console.log("置顶图层");
                 mapUtils.featureToMaxTop(olMap, feature);
+                break;
+            // 切换天地图token
+            case commonMenu.commonMenuMethod3:
+                // console.log("切换天地图token");
+
+                mittBus.emit("showSetTokenDialog");
                 break;
             /**
              * =======================================
