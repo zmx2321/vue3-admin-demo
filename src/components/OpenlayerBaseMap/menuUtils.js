@@ -34,7 +34,7 @@ const menuMethodBtn = {
     },
 }
 
-if (import.meta.env.VITE_APP_ENV === 'development') {
+if (import.meta.env.VITE_USER_NODE_ENV === 'development') {
     menuMethodBtn.commonMenu = {
         ...menuMethodBtn.commonMenu,
         commonMenuMethod0: '地图功能测试',  // 公共选项0

@@ -9,16 +9,6 @@
     <!-- 图例 -->
     <lend ref="refLend" :currentPageType="currentPageType" :isShowLend="isShowLend" />
 
-    <!-- 概览信息显示隐藏 -->
-    <div class="overview_info_toggle" :title="`点击${!toggleFlag ? '显示' : '隐藏'}`" @click="toggleOverviewInfo"
-      v-if="isControlOverviewInfo"></div>
-    <!-- <el-button type="primary" @click="toggleOverviewInfo" circle class="overview_info_toggle"
-      :title="`${isShowSearch === 'none' ? '显示' : '关闭'}信息窗`">
-      <el-icon>
-        <Expand />
-      </el-icon>
-    </el-button> -->
-
     <!-- 切换底图控件 -->
     <switch-base-layer @switchBaseLayerType="switchBaseLayerType" />
 
@@ -102,11 +92,6 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
-  // 自组件是否需要控制概览信息显示隐藏
-  isControlOverviewInfo: {
-    type: Boolean,
-    default: false,
-  }
 });
 
 const { proxy } = getCurrentInstance();

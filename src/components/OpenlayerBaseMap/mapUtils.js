@@ -137,9 +137,9 @@ const mapInitConfig = {
   // ol地图底图 - 默认街道底图
   layers: [
     // 天地图底图
-    setBaseMapLayer(baseLayerUrlConfig.getBaseMapLayer('t0vec')),  // 私有化底图
+    setBaseMapLayer(baseLayerUrlConfig.getBaseMapLayer('t3img')),  // 私有化底图
     // 天地图注记
-    setBaseMapTxt(baseLayerUrlConfig.getBaseMapTxt('t0cva')),
+    setBaseMapTxt(baseLayerUrlConfig.getBaseMapTxt('t07cia')),
   ],
   // ol地图基本配置 - View默认使用EPSG3857坐标系
   view: new View({

@@ -28,7 +28,7 @@ const getOlMapInstance = (olMap, mapCommonData) => {
   myOlMap = olMap; // 赋值全局变量,为后续业务操作做准备
   myMapCommonData = mapCommonData;
 
-  // console.log(myOlMap, myMapCommonData)
+  console.log(myOlMap, myMapCommonData)
 };
 // 获取可视区域数据 (主入口)
 const getCurrentViewData = async (olMap) => {

@@ -18,7 +18,7 @@ import mittBus from "@/utils/mittBus"; // mitt
 
 // 根据不同token初始化地图
 mittBus.on("resetSwitchLayer", () => {
-  ruleForm.value.layerType = 't0vec'
+  ruleForm.value.layerType = 't3img'
 });
 
 // 自定义事件
@@ -26,7 +26,7 @@ const emit = defineEmits(['switchBaseLayerType'])
 
 let toggleFlag = ref(false);
 const ruleForm = ref({
-  layerType: 't0vec'
+  layerType: 't3img'
 })
 
 const toggleLend = () => {
