@@ -90,7 +90,7 @@
             {
               "path": "/map/openlayer/openlayer-gd",
               "name": "openlayer-高德",
-              "component": "/map/openlayer/openlayer-gd",
+              "component": "/map/openlayer/openlayer-gd/index",
               "meta": {
                 "icon": "Menu",
                 "title": "openlayer-高德",
@@ -99,23 +99,7 @@
                 "isFull": false,
                 "isAffix": false,
                 "isKeepAlive": true
-              },
-              "children": [
-                {
-                  "path": "/map/openlayer/openlayer-gd/empty",
-                  "name": "初始化地图",
-                  "component": "/map/openlayer/openlayer-gd/empty/index",
-                  "meta": {
-                    "icon": "Menu",
-                    "title": "初始化地图",
-                    "isLink": "",
-                    "isHide": false,
-                    "isFull": false,
-                    "isAffix": false,
-                    "isKeepAlive": true
-                  }
-                }
-              ]
+              }
             }
           ]
         },
