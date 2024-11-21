@@ -30,6 +30,8 @@ import menuUtils from './menuUtils.js'
 // store
 import { gisDataStore } from '@/stores/modules/gis.ts'
 
+import axios from 'axios';
+
 /******************************
  * 变量(非地图)
  * ****************************
@@ -61,9 +63,12 @@ const setLayerUrl = (url, hasToken = true) => {
 
 // 创建底图基础配置
 const createBaseLayerConfig = (url, layerSourceConfig = {}, layerConfig = {}) => {
+  // console.log('url', url)
+
   return new WebGLTile({
     source: new XYZ({
       url,
+      crossOrigin: 'anonymous',
       ...layerSourceConfig
     }),
     type: 'baseLayer',
@@ -76,7 +81,6 @@ const createBaseLayerConfig = (url, layerSourceConfig = {}, layerConfig = {}) =>
 const setBaseMapLayer = (url) => {
   return createBaseLayerConfig(url, {
     wrapX: false,  // 在水平方向不重复显示
-    crossOrigin: "anonymous",
   }, { layerType: 'baseMapLayer' })
 }
 

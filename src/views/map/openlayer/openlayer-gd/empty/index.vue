@@ -10,7 +10,7 @@
 import { ref, onUnmounted } from "vue";
 import { getCurrentInstance } from 'vue';
 // 组件
-import OpenlayerBaseMap from "@/components/OpenlayerBaseMap/index.vue";
+import OpenlayerBaseMap from "@/components/OpenlayerBaseMapGD/index.vue";
 
 const refOpenlayerBaseMap = ref(null); // 地图核心元素
 const { proxy } = getCurrentInstance();

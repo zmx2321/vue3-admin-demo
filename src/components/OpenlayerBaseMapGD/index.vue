@@ -1041,9 +1041,9 @@ p {
   min-height: 20px;
   display: flex;
   justify-content: space-between;
-  padding: 0 25px 0 12px;
   z-index: 1;
   background: #8a8888c4;
+  overflow: hidden;
 
   p,
   dt,
@@ -1053,7 +1053,13 @@ p {
     font-size: 12px;
   }
 
+  p {
+    padding-left: 25px;
+  }
+
   ul {
+    padding-right: 25px;
+
     li {
       display: inline-block;
 
