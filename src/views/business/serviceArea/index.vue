@@ -3,7 +3,7 @@
     <ul class="demo_btn_cont">
       <li><el-button @click="linkTo('demo0')">平面图页面</el-button></li>
       <li><el-button @click="linkTo('demo1')">空页面</el-button></li>
-      <p style="margin-top: 20px">当前页面：{{ currentItemPage === 'demo0' ? '平面图页面' : '空页面' }} - 为了演示切换效果</p>
+      <p style="margin-top: 20px">为了演示切换效果 - 当前页面：{{ currentItemPage === 'demo0' ? '平面图页面' : '空页面' }}</p>
     </ul>
 
     <div class="demo_item_cont">
