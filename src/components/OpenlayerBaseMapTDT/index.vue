@@ -38,7 +38,7 @@
     <set-token-dialog ref="refSetTokenDialog" />
   </section>
   <section v-else>
-    天地图服务暂不可用！
+    天地图服务暂不可用,即将跳转高德地图服务页面！
   </section>
 </template>
 

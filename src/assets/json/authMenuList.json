@@ -252,6 +252,20 @@
       },
       "children": [
         {
+          "path": "/business/business0",
+          "name": "业务示例0",
+          "component": "/business/business0/index",
+          "meta": {
+            "icon": "Menu",
+            "title": "业务示例0",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
           "path": "/business/serviceArea",
           "name": "服务区平面图",
           "component": "/business/serviceArea/index",
