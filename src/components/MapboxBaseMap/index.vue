@@ -1,9 +1,10 @@
 <template>
   <section class="map_wrap">
+    <slot></slot>
     <!-- <tab ref="tabRef" class="map_tab f-fl" :tab-list="tabListData" :current-index="currentIndex" @checkTab="checkTab"
         v-if="tabListData.length !== 0" /> -->
 
-    <!-- <div id="glMap" class="gl_map_cont" v-loading="mapLoading"></div> -->
+    <div id="glMap" class="gl_map_cont" v-loading="mapLoading"></div>
 
     <!-- 图例 -->
     <!-- <map-lend ref="refLend" @removePopup="removePopup" v-if="tabCurrent === '浙江普通'" /> -->
@@ -476,9 +477,17 @@ setDefaultTab()
 
 <style lang="scss" scoped>
 .map_wrap {
+  position: relative;
   width: 100%;
   height: 100%;
-  background: rgba(12, 38, 77, 0.75);
+  background: #08203f;
+  overflow: hidden;
+
+  .gl_map_cont {
+    width: 100%;
+    height: 100%;
+  }
+
   /* :deep .maplibregl-popup {
     // background: #f00;
 
@@ -605,4 +614,20 @@ setDefaultTab()
 
   // }
 }
+
+/* :deep .map_marker {
+  width: 21px;
+  height: 24px;
+  cursor: pointer;
+  background-size: cover;
+  overflow: hidden;
+
+  :deep &.map0_mksty0 {
+    background-image: url('../mapIco/map0/kx.png');
+  }
+
+  :deep &.map0_mksty1 {
+    background-image: url('../mapIco/map0/fm.png');
+  }
+} */
 </style>

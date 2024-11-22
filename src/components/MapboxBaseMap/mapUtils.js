@@ -3,7 +3,7 @@
  */
 import maplibregl from 'maplibre-gl'
 
-import { glMapConfig, glMapConfigDev, glMapConfigTest3, glMapConfigTest0, glMapConfigTest1 } from './mapData/mapConfig' // config
+import { glMapConfigDev } from './mapData/mapConfig' // config
 
 import chinaGeo from './mapData/geoData/china.json' // 全国
 import zhejiangIndexGeo from './mapData/geoData/zhejiangIndex' // 首页浙江
@@ -21,6 +21,11 @@ import jiangXiGeo from './mapData/geoData/jiangxi' // 江西
  */
 // 初始化地图
 const mapInitTool = (mapConfig, geoData, center, zoom, minZoom) => new maplibregl.Map(mapConfig('glMap', geoData, center, zoom, minZoom)) // 初始化地图
+
+// 根据开发环境区分底图
+const setMapLayer = (geoData, center, zoom) => {
+  return mapInitTool(glMapConfigDev, geoData, center, zoom)
+}
 
 // 渲染geojson
 const renderGeo = (geoData, map, className, isSet = false, next) => {
@@ -84,29 +89,7 @@ const addMapLayer = (map, geoData, idName, color, opacity) => {
     }
   })
 }
-// 根据开发环境区分底图
-const setMapLayer = (geoData, center, zoom, minZoom) => {
-  if (false) {
-    mapInitTool(glMapConfigTest3, geoData, center, zoom)
-    mapInitTool(glMapConfig, geoData, center, zoom)
-    mapInitTool(glMapConfigDev, geoData, center, zoom)
-    mapInitTool(glMapConfigTest0, geoData, center, zoom)
-    mapInitTool(glMapConfigTest1, geoData, center, zoom)
-  }
 
-  if (process.env.NODE_ENV === 'development') {
-    if (minZoom) {
-      return mapInitTool(glMapConfigDev, geoData, center, zoom, minZoom)
-    }
-    return mapInitTool(glMapConfigDev, geoData, center, zoom)
-
-    // return mapInitTool(glMapConfigTest1, geoData, center, zoom)
-    // return mapInitTool(glMapConfig, geoData, center, zoom)
-    // return mapInitTool(glMapConfigTest3, geoData, center, zoom)
-  }
-  // return mapInitTool(glMapConfigDev, geoData, center, zoom)
-  return mapInitTool(glMapConfig, geoData, center, zoom)
-}
 
 /** ****************************
  * 地图供出方法
