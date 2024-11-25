@@ -1,1 +1,0 @@
-import{P as o}from"./servicePort-D3LIsGOm.js";import{aa as e}from"./index-YIVevtEm.js";const p=a=>e.post(o+"/file/upload/img",a,{cancel:!1}),s=a=>e.post(o+"/file/upload/video",a,{cancel:!1});export{s as a,p as u};
