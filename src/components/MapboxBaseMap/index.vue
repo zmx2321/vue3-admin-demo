@@ -10,6 +10,7 @@
 // core
 import { ref, onMounted, nextTick } from 'vue'
 import * as mapUtils from './mapUtils' // map-core
+import renderMapByCity from './renderMapByCity' // map-render
 
 const props = defineProps({
     tabCurrent: {
@@ -42,27 +43,52 @@ const initMapConfig = (next) => {
     resetMap(() => {
         next()
 
-        // mapUtils.setMapConfig(glMap) // 地图初始化配置
+        mapUtils.setMapConfig(glMap) // 地图初始化配置
 
-        // glMapEvent() // 地图所有事件绑定
+        glMapEvent() // 地图所有事件绑定
     })
 }
 
 const initMap = (val) => {
-    mapLoading.value = false
+    mapLoading.value = true
 
     if (!val) {
         val = props.tabCurrent
     }
 
-    /* initMapConfig(() => {
-        // initZheJiang() // 浙江普通渲染
-        glMap = mapUtils.zhejiangMap()
-        mapUtils.renderGeoToZheJiang(glMap, (textContent) => {
-            console.log(textContent)
-        })
+    renderMap(val)
+}
+
+const renderMap = (val) => {
+    initMapConfig(() => {
+        glMap = renderMapByCity(val)
+
         mapLoading.value = false
-    }) */
+    })
+}
+
+// 地图所有事件绑定
+const glMapEvent = () => {
+    glMap.on('click', (e) => {
+        // 点击非layer请求所有数据
+        let isOut = e.target.queryRenderedFeatures(e.point).length === 0
+        if (isOut) {
+            // console.log('点击非layer请求所有数据')
+            console.log('点击地图外,执行自定义事件')
+
+            // refLend.value.goBack()
+        }
+    })
+
+    // reload - 地图加载时执行
+    glMap.on('load', () => {
+        // 业务
+        nextTick(() => {
+            // setImgMarker() // 设置图片标注
+        })
+    })
+
+    // indexMapClick() // 首页地图点击
 }
 
 onMounted(() => {

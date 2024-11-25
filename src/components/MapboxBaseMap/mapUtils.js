@@ -5,30 +5,20 @@ import maplibregl from 'maplibre-gl'
 
 import { glMapConfigDev } from './mapData/mapConfig' // config
 
-import chinaGeo from './mapData/geoData/china.json' // 全国
-import zhejiangIndexGeo from './mapData/geoData/zhejiangIndex' // 首页浙江
-import zhejiangGeo from './mapData/geoData/zhejiang' // 普通浙江
-import shanghaiGeo from './mapData/geoData/shanghai' // 上海
-import jiangsuGeo from './mapData/geoData/jiangsu' // 江苏
-import xinJiangGeo from './mapData/geoData/xinjiang' // 新疆
-import guangXiGeo from './mapData/geoData/guangxi' // 广西
-import sichuanGeo from './mapData/geoData/sichuan' // 四川
-import jiangXiGeo from './mapData/geoData/jiangxi' // 江西
-
 /** ****************************
- * 地图工具
+ * 地图供出方法 - 初始化地图
  * ****************************
  */
 // 初始化地图
 const mapInitTool = (mapConfig, geoData, center, zoom, minZoom) => new maplibregl.Map(mapConfig('glMap', geoData, center, zoom, minZoom)) // 初始化地图
 
 // 根据开发环境区分底图
-const setMapLayer = (geoData, center, zoom) => {
+export const setMapLayer = (geoData, center, zoom) => {
   return mapInitTool(glMapConfigDev, geoData, center, zoom)
 }
 
 // 渲染geojson
-const renderGeo = (geoData, map, className, isSet = false, next) => {
+export const renderGeo = (geoData, map, className, next) => {
   // console.log(geoData)
 
   geoData.features.forEach((item) => {
@@ -43,8 +33,7 @@ const renderGeo = (geoData, map, className, isSet = false, next) => {
     el.innerHTML = `<div class="title">${name}</div>`
     el.className = `city-label ${className}`
 
-    // 是否需要定制化
-    if (isSet) {
+    if (next) {
       next(el, item, name)
     }
 
@@ -53,8 +42,22 @@ const renderGeo = (geoData, map, className, isSet = false, next) => {
     }
   })
 }
+
+// 地图配置
+export const setMapConfig = (map) => {
+  // 添加相关的地图控件
+  map.addControl(new maplibregl.FullscreenControl(), 'top-right')
+
+  // this.glMap.addControl(new maplibregl.NavigationControl());
+  // this.glMap.scrollZoom.disable();  // 禁用地图缩放
+}
+
+/** ****************************
+ * 地图供出方法 - 点线面
+ * ****************************
+ */
 // 添加面和线图层
-const addMapLayer = (map, geoData, idName, color, opacity) => {
+export const addMapLayer = (map, geoData, idName, color, opacity) => {
   // 添加Source，类型是geojson
   map.addSource(idName, {
     type: 'geojson',
@@ -90,22 +93,6 @@ const addMapLayer = (map, geoData, idName, color, opacity) => {
   })
 }
 
-
-/** ****************************
- * 地图供出方法
- * ****************************
- */
-/**
- * 地图核心方法供出
- */
-// 地图配置
-export const setMapConfig = (map) => {
-  // 添加相关的地图控件
-  map.addControl(new maplibregl.FullscreenControl(), 'top-right')
-
-  // this.glMap.addControl(new maplibregl.NavigationControl());
-  // this.glMap.scrollZoom.disable();  // 禁用地图缩放
-}
 // 设置标注
 export const setMarkerCommon = (el, lonlat, popup, map) => {
   // 如果map为空，表示三个参数
@@ -124,120 +111,3 @@ export const setMarkerCommon = (el, lonlat, popup, map) => {
 }
 // 设置气泡
 export const setPopupCommon = (map, linlat, inner) => new maplibregl.Popup({ closeOnClick: true }).setLngLat(linlat).setHTML(inner).addTo(map)
-
-/**
- * 地图数据及渲染方法供出
- */
-/**
- * 全国
- */
-export const chinaMap = () => setMapLayer(chinaGeo, [106, 31], 3.3, 2)
-export const renderGeoToChina = (map) => {
-  renderGeo(chinaGeo, map, 'china')
-}
-
-/**
- * 首页浙江
- */
-// 地图初始化
-export const zhejiangMapIndex = () => setMapLayer(zhejiangIndexGeo)
-// 渲染geoData
-export const renderGeoToZheJiangIndex = (map, next) => {
-  // 定制首页地图geojson
-  renderGeo(zhejiangIndexGeo, map, 'zhejiang_index', true, (el, item, name) => {
-    // console.log(el, item, name)
-
-    setTimeout(() => {
-      // eslint-disable-next-line default-case
-      switch (name) {
-        case '浙北':
-          // console.log(name, item)
-          // addMapLayer(map, item, 'zhebei', '#1B346A')
-          addMapLayer(map, item, 'zhebei', '#73BBBF', 0.4)
-          break
-        case '浙南':
-          // console.log(name, item)  // 浙东
-          // addMapLayer(map, item, 'zhenan', '#f00')
-          addMapLayer(map, item, 'zhenan', '#C29E35')
-          break
-        case '浙西':
-          // console.log(name, item)  // 浙南
-          // addMapLayer(map, item, 'zhexi', '#f00')
-          addMapLayer(map, item, 'zhexi', '#7BAD84', 0.6)
-          break
-        case '浙东':
-          // console.log(name, item)  // 浙西
-          // addMapLayer(map, item, 'zhedong', '#f00')
-          addMapLayer(map, item, 'zhedong', '#C6716D')
-          break
-      }
-    }, 0)
-
-    // 标注点击事件
-    el.addEventListener('click', (e) => {
-      e.stopPropagation() // 阻止冒泡，防止父层事件影响到文字标注事件
-
-      let { textContent } = e.target
-      // console.log(textContent)
-
-      // 获取城市标注数据
-      next(textContent)
-    })
-  })
-}
-
-/**
- * 普通浙江
- */
-export const zhejiangMap = () => setMapLayer(zhejiangGeo)
-export const renderGeoToZheJiang = (map) => {
-  renderGeo(zhejiangGeo, map, 'zhejiang')
-}
-
-/**
- * 上海
- */
-export const shanghaiMap = () => setMapLayer(shanghaiGeo, [121.4, 31.2], 8.9, 7)
-export const renderGeoToShangHai = (map) => {
-  renderGeo(shanghaiGeo, map, 'shanghai')
-}
-
-/**
- * 江苏
- */
-export const jiangsuMap = () => setMapLayer(jiangsuGeo, [119.5, 33.1], 6.3)
-export const renderGeoToJiangSu = (map) => {
-  renderGeo(jiangsuGeo, map, 'jiangsu')
-}
-
-/**
- * 新疆
- */
-export const xinJiangMap = () => setMapLayer(xinJiangGeo, [85, 41], 5)
-export const renderGeoToXingJiang = (map) => {
-  renderGeo(xinJiangGeo, map, 'xinjiang')
-}
-
-/**
- * 广西
- */
-export const guangXiMap = () => setMapLayer(guangXiGeo, [108.3, 23.7], 6)
-export const renderGeoToGuangXi = (map) => {
-  renderGeo(guangXiGeo, map, 'guangxi')
-}
-
-/**
- * 四川
- */
-export const sichuanMap = () => setMapLayer(sichuanGeo, [103, 30.28], 5.5)
-export const renderGeoToSichuan = (map) => {
-  renderGeo(sichuanGeo, map, 'sichuan')
-}
-
-/**
- * 江西
- */
-export const jiangXiMap = () => setMapLayer(jiangXiGeo, [116, 26.6], 6)
-export const renderGeoToJiangXi = (map) => {
-  renderGeo(jiangXiGeo, map, 'sichuan')
-}

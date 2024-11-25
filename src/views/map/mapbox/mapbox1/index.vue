@@ -15,7 +15,7 @@ import { getServiceAreaPoint } from "@/api/modules/map";
 
 import Tab from "./components/Tab.vue";
 
-const tabListData = ref(['全国', '浙江定制', '浙江', '上海', '江苏', '新疆', '广西', '四川', '江西']) // 选项卡
+const tabListData = ref(['全国', '首页浙江', '浙江', '上海', '江苏', '新疆', '广西', '四川', '江西']) // 选项卡
 
 let tabCurrent = ref('浙江')// 当前选项卡
 let currentIndex = 0
