@@ -1,6 +1,8 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-// reset style sheet
+// style sheet
+import "@/styles/index.scss";
+/* // reset style sheet
 import "@/styles/reset.scss";
 // CSS common style sheet
 import "@/styles/common.scss";
@@ -16,6 +18,14 @@ import "element-plus/theme-chalk/dark/css-vars.css";
 import "@/styles/element-dark.scss";
 // custom element css
 import "@/styles/element.scss";
+// svg icons
+import "virtual:svg-icons-register"; */
+// iconfont css
+import "@/assets/iconfont/iconfont.scss";
+// element css
+import "element-plus/dist/index.css";
+// element dark css
+import "element-plus/theme-chalk/dark/css-vars.css";
 // svg icons
 import "virtual:svg-icons-register";
 // element plus

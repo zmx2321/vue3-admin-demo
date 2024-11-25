@@ -473,6 +473,10 @@ setDefaultTab()
     glMapData.remove()
   }
 }) */
+
+defineExpose({
+  initMapConfig
+})
 </script>
 
 <style lang="scss" scoped>

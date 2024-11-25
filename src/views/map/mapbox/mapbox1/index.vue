@@ -1,5 +1,5 @@
 <template>
-  <mapbox-base-map>
+  <mapbox-base-map ref="refMapBoxBaseMap">
     <tab ref="tabRef" class="map_tab f-fl" :tab-list="tabListData" :current-index="currentIndex" @checkTab="checkTab"
       v-if="tabListData.length !== 0" />
   </mapbox-base-map>
@@ -16,6 +16,8 @@ const tabListData = ref(['全国', '浙江定制', '浙江普通', '上海', '�
 let tabCurrent = ref('浙江普通')// 当前选项卡
 let currentIndex = 0
 
+const refMapBoxBaseMap = ref(null)
+
 // 点击选项卡
 const checkTab = (val) => {
   tabCurrent.value = val
@@ -25,7 +27,7 @@ const checkTab = (val) => {
 
 // 设置地图
 const initMap = () => {
-  initMapConfig(() => {
+  refMapBoxBaseMap.value.initMapConfig(() => {
     switch (tabCurrent.value) {
       case '全国':
         console.log('全国')
@@ -89,5 +91,6 @@ setDefaultTab()
   position: absolute;
   left: 30px;
   top: 20px;
+  z-index: 1;
 }
 </style>
