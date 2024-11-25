@@ -74,10 +74,21 @@ defineExpose({
 </script>
 
 <style lang="scss" scoped>
+ul,
+li,
+dl,
+dt,
+dd {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
 .dialog_wrap {
   ul {
     li {
       dl {
+
         dt,
         dd {
           display: inline-block;

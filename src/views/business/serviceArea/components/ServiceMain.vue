@@ -31,6 +31,10 @@ const picUrl = ref('')
 // ref
 const refAreaDetail = ref(null)
 
+mittBus.on('clickArea', (tipNum) => {
+  refAreaDetail.value.showDetailDialog(tipNum, businessDataStore.currentBunkList)
+})
+
 /**
  * 定义方法
  */
@@ -52,12 +56,6 @@ const setImgUrlByCity = (value) => {
     picUrl.value = value
   })
 }
-
-onMounted(() => {
-  mittBus.on('clickArea', (tipNum) => {
-    refAreaDetail.value.showDetailDialog(tipNum, businessDataStore.currentBunkList)
-  })
-})
 
 /**
  * 暴露方法 - 供父组件执行
