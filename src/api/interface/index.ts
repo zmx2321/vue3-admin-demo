@@ -94,3 +94,8 @@ export namespace Test {
   export interface MockTest {
   }
 }
+
+// map
+export namespace Map {
+  export interface ServiceAreaPoint {}
+}
