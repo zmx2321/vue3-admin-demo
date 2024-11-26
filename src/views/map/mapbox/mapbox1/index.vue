@@ -31,51 +31,6 @@ const checkTab = (val) => {
   refMapBoxBaseMap.value.initMap(val)
 }
 
-// 设置地图
-/* const initMap = () => {
-  refMapBoxBaseMap.value.initMapConfig(() => {
-    switch (tabCurrent.value) {
-      case '全国':
-        console.log('全国')
-        // initChina() // 全国渲染
-        break
-      case '浙江定制':
-        console.log('浙江定制')
-        // initZheJiangIndex() // 浙江定制渲染
-        break
-      case '浙江':
-        console.log('浙江')
-        // initZheJiang() // 浙江普通渲染
-        break
-      case '上海':
-        console.log('上海')
-        // initShangHai()
-        break
-      case '江苏':
-        console.log('江苏')
-        // initJiangSu()
-        break
-      case '新疆':
-        console.log('新疆')
-        // initXingJiang()
-        break
-      case '广西':
-        console.log('广西')
-        // initGuangXi()
-        break
-      case '四川':
-        console.log('四川')
-        // initSichuan()
-        break
-      case '江西':
-        console.log('江西')
-        // initJiangXi()
-        break
-      default:
-      // initZheJiang()
-    }
-  })
-} */
 
 // 默认tab
 const setDefaultTab = () => {
