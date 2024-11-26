@@ -5,10 +5,15 @@
   background-size: cover;
   overflow: hidden;
 
-  :deep &.map0_mksty0 {
-    background-image: url('../mapIco/map0/kx.png');
+  svg {
+      display: none;
   }
-  :deep &.map0_mksty1 {
-    background-image: url('../mapIco/map0/fm.png');
+
+  &.map0_mksty0 {
+      background-image: url('mapIco//map0/kx.png');
+  }
+
+  &.map0_mksty1 {
+      background-image: url('mapIco//map0/fm.png');
   }
 }

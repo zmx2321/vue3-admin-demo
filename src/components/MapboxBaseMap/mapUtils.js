@@ -43,13 +43,13 @@ export const renderGeo = (geoData, map, className, next) => {
   })
 }
 
-// 地图配置
+// 地图配置 - 添加相关的地图控件
 export const setMapConfig = (map) => {
-  // 添加相关的地图控件
-  map.addControl(new maplibregl.FullscreenControl(), 'top-right')
+  // console.log("地图配置", map)
 
-  // this.glMap.addControl(new maplibregl.NavigationControl());
-  // this.glMap.scrollZoom.disable();  // 禁用地图缩放
+  map.addControl(new maplibregl.FullscreenControl(), 'top-right')  // 全屏控件
+  map.addControl(new maplibregl.NavigationControl());  // 缩放控件
+  // map.scrollZoom.disable();  // 禁用地图缩放
 }
 
 /** ****************************

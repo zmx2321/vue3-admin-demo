@@ -1,6 +1,7 @@
 // map-core
 import * as mapUtils from './mapUtils'
 
+// geoData
 import chinaGeo from './mapData/geoData/china.json' // 全国
 import zhejiangIndexGeo from './mapData/geoData/zhejiangIndex' // 首页浙江
 import zhejiangGeo from './mapData/geoData/zhejiang' // 浙江
