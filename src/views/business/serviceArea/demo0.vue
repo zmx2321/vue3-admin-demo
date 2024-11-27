@@ -54,8 +54,6 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-// @import url(../styles/demoCommonStyle.scss);
-
 .demo_cont {
   .servarea_wrap {
     width: 100%;

@@ -6,14 +6,18 @@
       <div class="upload-list">
         <UploadImgs v-model:file-list="fileList" :drag="false" border-radius="50%">
           <template #empty>
-            <el-icon><Picture /></el-icon>
+            <el-icon>
+              <Picture />
+            </el-icon>
             <span>请上传照片</span>
           </template>
           <template #tip> 圆形组件，图片最大为 5M（禁止拖拽上传） </template>
         </UploadImgs>
         <UploadImgs v-model:file-list="fileList1" width="250px">
           <template #empty>
-            <el-icon><Picture /></el-icon>
+            <el-icon>
+              <Picture />
+            </el-icon>
             <span>请上传照片</span>
           </template>
           <template #tip> 长方形组件（可拖拽上传） </template>
@@ -35,14 +39,18 @@
         </UploadImg>
         <UploadImg v-model:image-url="avatar2" :drag="false" border-radius="50%">
           <template #empty>
-            <el-icon><Avatar /></el-icon>
+            <el-icon>
+              <Avatar />
+            </el-icon>
             <span>请上传头像</span>
           </template>
           <template #tip> 圆形组件（禁止拖拽上传） </template>
         </UploadImg>
         <UploadImg v-model:image-url="avatar3" width="250px">
           <template #empty>
-            <el-icon><Picture /></el-icon>
+            <el-icon>
+              <Picture />
+            </el-icon>
             <span>请上传 Banner 图</span>
           </template>
           <template #tip> 长方形组件（可拖拽上传） </template>
@@ -76,18 +84,15 @@
     <!-- 表单使用 -->
     <div class="form-box">
       <div class="card">
-        <el-alert
-          title="图片上传组件在 form 表单中使用，上传之后成功会自动重新校验"
-          type="warning"
-          effect="dark"
-          :closable="false"
-          class="mb20"
-        />
+        <el-alert title="图片上传组件在 form 表单中使用，上传之后成功会自动重新校验" type="warning" effect="dark" :closable="false"
+          class="mb20" />
         <el-form ref="ruleFormRef" label-width="100px" label-suffix=" :" :rules="rules" :model="fromModel">
           <el-form-item label="用户头像" prop="avatar">
             <UploadImg v-model:image-url="fromModel.avatar" width="135px" height="135px" :file-size="3">
               <template #empty>
-                <el-icon><Avatar /></el-icon>
+                <el-icon>
+                  <Avatar />
+                </el-icon>
                 <span>请上传头像</span>
               </template>
               <template #tip> 头像大小不能超过 3M </template>
@@ -96,7 +101,9 @@
           <el-form-item label="用户照片" prop="photo">
             <UploadImgs v-model:file-list="fromModel.photo" :limit="3" height="140px" width="140px" border-radius="50%">
               <template #empty>
-                <el-icon><Picture /></el-icon>
+                <el-icon>
+                  <Picture />
+                </el-icon>
                 <span>请上传照片</span>
               </template>
               <template #tip> 最多上传 3 张照片 </template>
@@ -118,18 +125,15 @@
         </el-form>
       </div>
       <div class="card">
-        <el-alert
-          title="图片上传组件在 form 表单中使用，如果该表单禁用，则上传组件会自动禁用"
-          type="warning"
-          effect="dark"
-          :closable="false"
-          class="mb20"
-        />
+        <el-alert title="图片上传组件在 form 表单中使用，如果该表单禁用，则上传组件会自动禁用" type="warning" effect="dark" :closable="false"
+          class="mb20" />
         <el-form label-width="100px" label-suffix=" :" disabled :model="fromModel1">
           <el-form-item label="用户头像" prop="avatar">
             <UploadImg v-model:image-url="fromModel1.avatar" width="135px" height="135px" :file-size="3">
               <template #empty>
-                <el-icon><Avatar /></el-icon>
+                <el-icon>
+                  <Avatar />
+                </el-icon>
                 <span>请上传头像</span>
               </template>
               <template #tip> 头像大小不能超过 3M </template>
@@ -138,7 +142,9 @@
           <el-form-item label="用户照片" prop="photo">
             <UploadImgs v-model:file-list="fromModel1.photo" height="140px" width="140px" border-radius="50%">
               <template #empty>
-                <el-icon><Picture /></el-icon>
+                <el-icon>
+                  <Picture />
+                </el-icon>
                 <span>请上传照片</span>
               </template>
               <template #tip> 照片大小不能超过 5M </template>
@@ -209,5 +215,5 @@ const submit = () => {
 </script>
 
 <style scoped lang="scss">
-@import "./index";
+@use "./index";
 </style>

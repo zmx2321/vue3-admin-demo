@@ -1,20 +1,9 @@
 <template>
   <div class="content-box">
-    <TreeFilter
-      label="name"
-      title="部门列表(单选)"
-      :request-api="getUserDepartment"
-      :default-value="treeFilterValue.departmentId"
-      @change="changeTreeFilter"
-    />
-    <TreeFilter
-      title="部门列表(多选)"
-      multiple
-      label="name"
-      :request-api="getUserDepartment"
-      :default-value="treeFilterValue1.departmentId"
-      @change="changeTreeFilter1"
-    />
+    <TreeFilter label="name" title="部门列表(单选)" :request-api="getUserDepartment"
+      :default-value="treeFilterValue.departmentId" @change="changeTreeFilter" />
+    <TreeFilter title="部门列表(多选)" multiple label="name" :request-api="getUserDepartment"
+      :default-value="treeFilterValue1.departmentId" @change="changeTreeFilter1" />
     <div class="descriptions-box card">
       <span class="text"> 树形筛选器 🍓🍇🍈🍉</span>
       <el-descriptions title="配置项 📚" :column="1" border>
@@ -50,5 +39,5 @@ const changeTreeFilter1 = (val: string[]) => {
 </script>
 
 <style scoped lang="scss">
-@import "./index";
+@use "./index";
 </style>

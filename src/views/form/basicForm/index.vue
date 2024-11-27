@@ -67,5 +67,5 @@ const onSubmit = () => {
 </script>
 
 <style scoped lang="scss">
-@import "./index";
+@use "./index";
 </style>

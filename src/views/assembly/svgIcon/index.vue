@@ -1,10 +1,7 @@
 <template>
   <div class="card content-box">
-    <el-alert
-      title="SVG 图标目前使用 vite-plugin-svg-icons 插件完成，官方文档请查看 ：https://github.com/vbenjs/vite-plugin-svg-icons"
-      type="warning"
-      :closable="false"
-    />
+    <el-alert title="SVG 图标目前使用 vite-plugin-svg-icons 插件完成，官方文档请查看 ：https://github.com/vbenjs/vite-plugin-svg-icons"
+      type="warning" :closable="false" />
     <div class="icon-list">
       <SvgIcon name="xianxingdaoyu" />
       <SvgIcon name="xianxingdiqiu" />
@@ -31,5 +28,5 @@ import SvgIcon from "@/components/SvgIcon/index.vue";
 </script>
 
 <style scoped lang="scss">
-@import "./index";
+@use "./index";
 </style>

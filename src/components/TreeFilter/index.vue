@@ -6,7 +6,9 @@
     <div class="search">
       <el-input v-model="filterText" placeholder="输入关键字进行过滤" clearable />
       <el-dropdown trigger="click">
-        <el-icon size="20"><More /></el-icon>
+        <el-icon size="20">
+          <More />
+        </el-icon>
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item @click="toggleTreeNodes(true)">展开全部</el-dropdown-item>
@@ -16,23 +18,11 @@
       </el-dropdown>
     </div>
     <el-scrollbar :style="{ height: title ? `calc(100% - 95px)` : `calc(100% - 56px)` }">
-      <el-tree
-        ref="treeRef"
-        default-expand-all
-        :node-key="id"
-        :data="multiple ? treeData : treeAllData"
-        :show-checkbox="multiple"
-        :check-strictly="false"
-        :current-node-key="!multiple ? selected : ''"
-        :highlight-current="!multiple"
-        :expand-on-click-node="false"
-        :check-on-click-node="multiple"
-        :props="defaultProps"
-        :filter-node-method="filterNode"
-        :default-checked-keys="multiple ? selected : []"
-        @node-click="handleNodeClick"
-        @check="handleCheckChange"
-      >
+      <el-tree ref="treeRef" default-expand-all :node-key="id" :data="multiple ? treeData : treeAllData"
+        :show-checkbox="multiple" :check-strictly="false" :current-node-key="!multiple ? selected : ''"
+        :highlight-current="!multiple" :expand-on-click-node="false" :check-on-click-node="multiple"
+        :props="defaultProps" :filter-node-method="filterNode" :default-checked-keys="multiple ? selected : []"
+        @node-click="handleNodeClick" @check="handleCheckChange">
         <template #default="scope">
           <span class="el-tree-node__label">
             <slot :row="scope">
@@ -158,5 +148,5 @@ defineExpose({ treeData, treeAllData, treeRef });
 </script>
 
 <style scoped lang="scss">
-@import "./index";
+@use "./index";
 </style>

@@ -1,15 +1,9 @@
 <template>
   <div :class="['editor-box', self_disabled ? 'editor-disabled' : '']">
-    <Toolbar v-if="!hideToolBar" class="editor-toolbar" :editor="editorRef" :default-config="toolbarConfig" :mode="mode" />
-    <Editor
-      v-model="valueHtml"
-      class="editor-content"
-      :style="{ height }"
-      :mode="mode"
-      :default-config="editorConfig"
-      @on-created="handleCreated"
-      @on-blur="handleBlur"
-    />
+    <Toolbar v-if="!hideToolBar" class="editor-toolbar" :editor="editorRef" :default-config="toolbarConfig"
+      :mode="mode" />
+    <Editor v-model="valueHtml" class="editor-content" :style="{ height }" :mode="mode" :default-config="editorConfig"
+      @on-created="handleCreated" @on-blur="handleBlur" />
   </div>
 </template>
 
@@ -154,5 +148,5 @@ defineExpose({
 </script>
 
 <style scoped lang="scss">
-@import "./index";
+@use "./index";
 </style>

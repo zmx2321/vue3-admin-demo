@@ -194,8 +194,8 @@ defineExpose({
 </script>
 
 <style lang="scss" scoped>
-@import './scss/marker.scss';
-@import './scss/popup.scss';
+@use './scss/marker.scss';
+@use './scss/popup.scss';
 
 .map_wrap {
     position: relative;

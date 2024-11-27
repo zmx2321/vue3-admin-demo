@@ -7,5 +7,5 @@
 <script setup lang="ts" name="watermarkDirect"></script>
 
 <style scoped lang="scss">
-@import "./index";
+@use "./index";
 </style>

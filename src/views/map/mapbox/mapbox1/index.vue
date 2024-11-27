@@ -82,7 +82,7 @@ initPage()
 </script>
 
 <style scoped lang="scss">
-@import "./index";
+@use "./index";
 
 .map_tab {
   position: absolute;

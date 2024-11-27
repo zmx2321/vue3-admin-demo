@@ -7,16 +7,11 @@
       <span v-if="!item.options.length" class="select-filter-notData">暂无数据 ~</span>
       <el-scrollbar>
         <ul class="select-filter-list">
-          <li
-            v-for="option in item.options"
-            :key="option.value"
-            :class="{
-              active:
-                option.value === selected[item.key] ||
-                (Array.isArray(selected[item.key]) && selected[item.key].includes(option.value))
-            }"
-            @click="select(item, option)"
-          >
+          <li v-for="option in item.options" :key="option.value" :class="{
+            active:
+              option.value === selected[item.key] ||
+              (Array.isArray(selected[item.key]) && selected[item.key].includes(option.value))
+          }" @click="select(item, option)">
             <slot :row="option">
               <el-icon v-if="option.icon">
                 <component :is="option.icon" />
@@ -106,5 +101,5 @@ const select = (item: SelectDataProps, option: OptionsProps) => {
 </script>
 
 <style scoped lang="scss">
-@import "./index";
+@use "./index";
 </style>

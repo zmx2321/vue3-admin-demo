@@ -87,5 +87,5 @@ const filterData = [
 </script>
 
 <style scoped lang="scss">
-@import "./index";
+@use "./index";
 </style>

@@ -7,18 +7,19 @@
             <user />
           </el-icon>
         </template>
-      </el-input>
-    </el-form-item>
-    <el-form-item prop="password">
-      <el-input v-model="loginForm.password" type="password" placeholder="密码：123456" show-password autocomplete="new-password">
-        <template #prefix>
+</el-input>
+</el-form-item>
+<el-form-item prop="password">
+  <el-input v-model="loginForm.password" type="password" placeholder="密码：123456" show-password
+    autocomplete="new-password">
+    <template #prefix>
           <el-icon class="el-input__icon">
             <lock />
           </el-icon>
         </template>
-      </el-input>
-    </el-form-item>
-  </el-form> -->
+  </el-input>
+</el-form-item>
+</el-form> -->
   <div class="login-btn">
     <el-button :icon="CircleClose" round size="large" @click="resetForm(loginFormRef)"> 重置 </el-button>
     <el-button :icon="UserFilled" round size="large" type="primary" :loading="loading" @click="login(loginFormRef)">
@@ -130,5 +131,5 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped lang="scss">
-@import "../index";
+@use "../index";
 </style>

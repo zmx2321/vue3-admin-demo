@@ -11,5 +11,5 @@ const value = ref("");
 </script>
 
 <style scoped lang="scss">
-@import "./index";
+@use "./index";
 </style>

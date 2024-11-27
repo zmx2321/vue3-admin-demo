@@ -38,7 +38,6 @@ const linkTo = (val) => {
 </script>
 
 <style lang="scss" scoped>
-// @import url(../styles/demoCommonStyle.scss);
 .demo_cont {
   padding: 10px;
 }

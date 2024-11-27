@@ -1,6 +1,6 @@
-@import "./reset"; // reset style sheet
-@import "./common"; // CSS common style sheet
-@import "./shortcut"; // function css
-@import "./element-dark"; // custom element dark css
-@import "./element"; // custom element css
-@import "./maplibre-gl.css"; // maplibre-gl css
+@use "./reset"; // reset style sheet
+@use "./common"; // CSS common style sheet
+@use "./shortcut"; // function css
+@use "./element-dark"; // custom element dark css
+@use "./element"; // custom element css
+@use "./maplibre-gl.css"; // maplibre-gl css

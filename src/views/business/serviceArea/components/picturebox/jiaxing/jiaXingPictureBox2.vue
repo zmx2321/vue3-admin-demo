@@ -8,5 +8,5 @@ import PictureBoxContent from '../../service-tools/PictureBoxContent.vue'
 </script>
 
 <style lang="scss" scoped>
-@import './scss/box2.scss';
+@use './scss/box2.scss';
 </style>

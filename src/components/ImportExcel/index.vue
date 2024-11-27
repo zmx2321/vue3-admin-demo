@@ -5,20 +5,9 @@
         <el-button type="primary" :icon="Download" @click="downloadTemp"> 点击下载 </el-button>
       </el-form-item>
       <el-form-item label="文件上传 :">
-        <el-upload
-          action="#"
-          class="upload"
-          :drag="true"
-          :limit="excelLimit"
-          :multiple="true"
-          :show-file-list="true"
-          :http-request="uploadExcel"
-          :before-upload="beforeExcelUpload"
-          :on-exceed="handleExceed"
-          :on-success="excelUploadSuccess"
-          :on-error="excelUploadError"
-          :accept="parameter.fileType!.join(',')"
-        >
+        <el-upload action="#" class="upload" :drag="true" :limit="excelLimit" :multiple="true" :show-file-list="true"
+          :http-request="uploadExcel" :before-upload="beforeExcelUpload" :on-exceed="handleExceed"
+          :on-success="excelUploadSuccess" :on-error="excelUploadError" :accept="parameter.fileType!.join(',')">
           <slot name="empty">
             <el-icon class="el-icon--upload">
               <upload-filled />
@@ -145,5 +134,5 @@ defineExpose({
 });
 </script>
 <style lang="scss" scoped>
-@import "./index";
+@use "./index";
 </style>

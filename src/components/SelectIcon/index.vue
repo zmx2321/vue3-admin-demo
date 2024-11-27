@@ -1,14 +1,7 @@
 <template>
   <div class="icon-box">
-    <el-input
-      ref="inputRef"
-      v-model="valueIcon"
-      v-bind="$attrs"
-      :placeholder="placeholder"
-      :clearable="clearable"
-      @clear="clearIcon"
-      @click="openDialog"
-    >
+    <el-input ref="inputRef" v-model="valueIcon" v-bind="$attrs" :placeholder="placeholder" :clearable="clearable"
+      @clear="clearIcon" @click="openDialog">
       <template #append>
         <el-button :icon="customIcons[iconValue]" />
       </template>
@@ -86,5 +79,5 @@ const iconsList = computed((): { [key: string]: any } => {
 </script>
 
 <style scoped lang="scss">
-@import "./index";
+@use "./index";
 </style>
