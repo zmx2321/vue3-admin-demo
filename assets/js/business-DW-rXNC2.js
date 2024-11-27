@@ -1,0 +1,1 @@
+import{a7 as s}from"./index-CrNJSI7T.js";const r=s({id:"business",state:()=>({currentBunkList:[],currentBunkNo:""}),actions:{setCurrentBunkList(t){this.currentBunkList=t},setCurrentBunkNo(t){this.currentBunkNo=t}}});export{r as b};
