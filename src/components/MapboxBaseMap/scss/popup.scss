@@ -1,7 +1,7 @@
 $popupBg: rgba(12, 38, 77, 0.75);
 
 // 气泡
-:deep .maplibregl-popup {
+::v-deep(.maplibregl-popup) {
   max-width: 260px !important;
 
   &.maplibregl-popup-anchor-top {

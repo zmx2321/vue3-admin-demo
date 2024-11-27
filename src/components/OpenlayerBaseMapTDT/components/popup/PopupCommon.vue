@@ -357,7 +357,7 @@ $popupBg: rgba(255, 255, 255, 0.8);
   /**
      * 此处开始气泡窗内容样式
      */
-  :deep .popup-content {
+  ::v-deep(.popup-content) {
     margin-right: 8px;
     margin-top: 5px;
 

@@ -1,4 +1,4 @@
-:deep.picture_box {
+::v-deep(.picture_box) {
   .block {
     &[data-content='No-2-1'] {
       width: 83px;

@@ -48,7 +48,7 @@ $bgColorBody: rgba(24, 102, 237, 0.4);
   bottom: 56px;
   right: 30px;
 
-  :deep(.el-table) {
+  ::v-deep(.el-table) {
     cursor: pointer;
     border-radius: 10px;
 

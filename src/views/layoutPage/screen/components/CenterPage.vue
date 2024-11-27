@@ -112,10 +112,10 @@ import { formatNumber } from "@/utils/index.ts";
 
 <style lang="scss" scoped>
 * {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
 .scritm_cont {
   &.keydata {
@@ -142,7 +142,7 @@ import { formatNumber } from "@/utils/index.ts";
     }
   }
 
-  :deep .chart3_wrap {
+  ::v-deep(.chart3_wrap) {
     width: 97%;
     // margin: 0 auto;
     cursor: pointer;

@@ -1,4 +1,4 @@
-:deep .map_marker {
+::v-deep(.map_marker) {
   width: 21px;
   height: 24px;
   cursor: pointer;

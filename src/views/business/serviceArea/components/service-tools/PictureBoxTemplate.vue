@@ -66,9 +66,9 @@ const getDataByEvent = (e) => {
   overflow: hidden;
   animation: fadeRightBig 0.8s 0.2s ease both;
 
-  ::v-deep .blank,
-  ::v-deep .blank1,
-  ::v-deep .blank2 {
+  ::v-deep(.blank),
+  ::v-deep(.blank1),
+  ::v-deep(.blank2) {
     display: none;
     position: absolute;
     left: 0;

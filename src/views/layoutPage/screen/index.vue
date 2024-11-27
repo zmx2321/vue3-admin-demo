@@ -252,7 +252,7 @@ $mainFontFamily: YouSheBiaoTiHei;
   overflow-x: auto;
   overflow-y: hidden;
 
-  :deep .scale_box {
+  ::v-deep(.scale_box) {
     background: url("./images/bg.png") top no-repeat;
     background-size: 100% 100%;
     min-width: 1380px;

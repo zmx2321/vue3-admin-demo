@@ -24,7 +24,7 @@
         }
       }
     }
-    :deep(.el-tabs) {
+    ::v-deep(.el-tabs) {
       .el-tabs__header {
         box-sizing: border-box;
         height: 40px;
