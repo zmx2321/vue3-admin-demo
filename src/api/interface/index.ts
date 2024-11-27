@@ -98,4 +98,5 @@ export namespace Test {
 // map
 export namespace Map {
   export interface ServiceAreaPoint {}
+  export interface GasStationPoint {}
 }

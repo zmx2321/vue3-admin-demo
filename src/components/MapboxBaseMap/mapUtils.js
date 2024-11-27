@@ -94,20 +94,29 @@ export const addMapLayer = (map, geoData, idName, color, opacity) => {
 }
 
 // 设置标注
-export const setMarkerCommon = (el, lonlat, popup, map) => {
-  // 如果map为空，表示三个参数
-  if (!map) {
-    // 无气泡
-    // eslint-disable-next-line no-shadow
-    let map = popup
-    new maplibregl.Marker(el).setLngLat(lonlat).addTo(map)
-  } else {
+export const setMarkerCommon = (el, lonlat, map, popup) => {
+  if (popup) {
     // 有气泡
-    new maplibregl.Marker(el)
-      .setLngLat(lonlat)
-      .setPopup(popup) // sets a popup on this marker
-      .addTo(map)
+    new maplibregl.Marker({ element: el, anchor: 'center' }).setLngLat(lonlat).setPopup(popup).addTo(map)
+  } else {
+    // 无气泡
+    new maplibregl.Marker({ element: el, anchor: 'center' }).setLngLat(lonlat).addTo(map)
   }
 }
 // 设置气泡
 export const setPopupCommon = (map, linlat, inner) => new maplibregl.Popup({ closeOnClick: true }).setLngLat(linlat).setHTML(inner).addTo(map)
+
+
+/** ****************************
+ * 地图供出方法 -     工具方法
+ * ****************************
+ */
+// 移除气泡
+export const removePopup = (id) => {
+  let mapNode = document.querySelector(`#${id}`)
+
+  let popupNode = document.querySelectorAll('.maplibregl-popup')
+  if (popupNode.length !== 0) {
+    mapNode.removeChild(popupNode[0])
+  }
+}

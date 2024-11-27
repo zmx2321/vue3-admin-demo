@@ -8,7 +8,7 @@
           <dt>
             <img src="../mapIco/map0/kx.png" alt="" />
           </dt>
-          <dd>空闲</dd>
+          <dd>图例1</dd>
         </dl>
       </li>
       <li>
@@ -16,7 +16,7 @@
           <dt>
             <img src="../mapIco/map0/fm.png" alt="" />
           </dt>
-          <dd>繁忙</dd>
+          <dd>图例2</dd>
         </dl>
       </li>
     </ul>
@@ -66,7 +66,6 @@ const getLend = (e) => {
   let { target } = e
   let { nodeName, textContent } = target
   let nodeTxt = ''
-  // console.log(target)
 
   if (nodeName === 'IMG') {
     nodeTxt = target.parentNode.parentNode.textContent
@@ -87,8 +86,8 @@ const lendConfig = (nodeTxt) => {
   /**
    * 首页大屏图例
    */
-  setLendConfig(nodeTxt, '空闲', '.map0_mksty0')
-  setLendConfig(nodeTxt, '繁忙', '.map0_mksty1')
+  setLendConfig(nodeTxt, '图例1', '.map0_mksty0')
+  setLendConfig(nodeTxt, '图例2', '.map0_mksty1')
 }
 
 /**
@@ -103,17 +102,75 @@ defineExpose({
 // 图例
 .glmap_lend {
   position: absolute;
-  bottom: 0;
+  bottom: 38px;
   right: 28px;
 
+  ul,
+  li,
+  dl,
+  dt,
+  dd {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
   ul {
+    li {
+      display: inline-block;
+
+      &:not(:last-child) {
+        margin-right: 25px;
+      }
+
+      dl {
+        cursor: pointer;
+
+        &::after {
+          content: '';
+          display: block;
+          clear: both;
+          height: 0;
+          overflow: hidden;
+          visibility: hidden;
+        }
+
+        dt,
+        dd {
+          float: left;
+        }
+
+        dt {
+          width: 21px;
+          height: 24px;
+          overflow: hidden;
+          margin-right: 10px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        dd {
+          /* position: relative;
+          top: 2px;
+          left: 6px; */
+          font-size: 14px;
+          color: #adb1bc;
+        }
+      }
+    }
+  }
+
+  /* ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 188px;
 
     li {
-      width: 88px;
+      width: 90px;
       height: 26px;
       margin-bottom: 13px;
       cursor: pointer;
@@ -161,6 +218,6 @@ defineExpose({
         }
       }
     }
-  }
+  } */
 }
 </style>
