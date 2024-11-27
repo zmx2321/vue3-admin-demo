@@ -6,7 +6,7 @@
       <li>
         <dl>
           <dt>
-            <img src="../mapIco/map0/kx.png" alt="" />
+            <!-- <img src="../mapIco/map0/kx.png" alt="" /> -->
           </dt>
           <dd>空闲</dd>
         </dl>
@@ -14,7 +14,7 @@
       <li>
         <dl>
           <dt>
-            <img src="../mapIco/map0/fm.png" alt="" />
+            <!-- <img src="../mapIco/map0/fm.png" alt="" /> -->
           </dt>
           <dd>繁忙</dd>
         </dl>
