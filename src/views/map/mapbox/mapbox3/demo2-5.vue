@@ -11,7 +11,7 @@ import { ref, onMounted, nextTick /* computed */ /* unmounted */ } from 'vue' //
 import * as mapUtils from './mapUtils' // map-core
 // 引入组件
 import Tab from './components/Tab.vue'
-import MapLend from './components/MapLend.vue'
+// import MapLend from './components/MapLend.vue'
 // 引入工具
 /* import { http } from '@/api'
 import { showReqError } from '@/hooks/useError' */
