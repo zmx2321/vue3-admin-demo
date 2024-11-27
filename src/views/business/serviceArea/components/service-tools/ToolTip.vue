@@ -12,7 +12,7 @@
 </template>
 
 <style lang="scss" scoped>
-@use '../../scss/common.scss';
+@use '../../scss/common.scss' as *;
 
 .block {
   position: absolute;
