@@ -11,7 +11,7 @@ import { ref, onMounted } from "vue";
 import MapboxBaseMap from "@/components/MapboxBaseMap/index.vue";
 // api
 import { Map } from "@/api/interface";
-import { getServiceAreaPoint } from "@/api/modules/map";
+import { getServiceAreaPoint, getGasStationPoint } from "@/api/modules/map";
 
 import Tab from "./components/Tab.vue";
 
@@ -51,7 +51,7 @@ const getMarkerList = async () => {
       res = await getServiceAreaPoint();
       break;
     case '浙江':
-      res = await getServiceAreaPoint();
+      res = await getGasStationPoint();
       break;
     case '上海':
       break;
@@ -68,7 +68,7 @@ const getMarkerList = async () => {
   }
 
   if (res) {
-    refMapBoxBaseMap.value.setImgMarker(res.data)
+    refMapBoxBaseMap.value.setImgMarker(res.data, tabCurrent.value)
     return
   }
   console.log('没有标注')

@@ -1,0 +1,124 @@
+$popupBg: rgba(12, 38, 77, 0.75);
+
+// 气泡
+:deep .maplibregl-popup {
+  max-width: 260px !important;
+
+  &.maplibregl-popup-anchor-top {
+    .maplibregl-popup-tip {
+      border-bottom-color: $popupBg;
+    }
+  }
+
+  &.maplibregl-popup-anchor-bottom {
+    .maplibregl-popup-tip {
+      border-top-color: $popupBg;
+    }
+  }
+
+  &.maplibregl-popup-anchor-left {
+    .maplibregl-popup-tip {
+      border-right-color: $popupBg;
+    }
+  }
+
+  &.maplibregl-popup-anchor-right {
+    .maplibregl-popup-tip {
+      border-left-color: $popupBg;
+    }
+  }
+
+  .maplibregl-popup-content {
+    width: 100%;
+    padding-top: 12px;
+    border-top: solid 2px #3395be;
+    background: rgba(12, 38, 77, 0.75);
+    color: #fff;
+
+    &>button {
+      display: none;
+    }
+
+    .popupp_wrap {
+      ul,dl
+      dt,
+      dd,
+      li,
+      span,
+      b,
+      td {
+        font-size: 12px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      ul {
+        li {
+          // text-align: center;
+          padding-left: 10px;
+        }
+      }
+
+      table {
+        width: 100%;
+        margin-top: 10px;
+
+        thead,
+        tbody {
+
+          th,
+          td {
+            padding: 2px 8px;
+
+            &:first-child {
+              text-align: left;
+            }
+
+            &:last-child {
+              text-align: right;
+            }
+          }
+        }
+
+        thead {
+          margin-bottom: 5px;
+
+          tr {
+            th {
+              font-weight: bold;
+              color: #58b2ff;
+            }
+          }
+        }
+
+        tbody {
+          tr {
+            td {
+              span {
+                margin-right: 6px;
+                color: #58b2ff;
+              }
+            }
+
+            &:nth-child(odd) {
+              background: rgba(79, 135, 228, 0.2);
+            }
+          }
+        }
+      }
+
+      // 首页大屏
+      &.main_popupp {
+        ul {
+          li {
+            span {
+              color: #34fff0;
+              margin-left: 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

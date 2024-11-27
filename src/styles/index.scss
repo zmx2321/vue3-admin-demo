@@ -1,10 +1,6 @@
-// reset style sheet
-@import './reset.scss';
-// CSS common style sheet
-@import './common.scss';
-// custom element dark css
-@import './element-dark.scss';
-// custom element css
-@import './element.scss';
-// maplibre-gl css
-@import './maplibre-gl.css';
+@import './reset.scss';  // reset style sheet
+@import './common.scss';  // CSS common style sheet
+@import './shortcut.scss';  // function css
+@import './element-dark.scss';  // custom element dark css
+@import './element.scss';  // custom element css
+@import './maplibre-gl.css';  // maplibre-gl css

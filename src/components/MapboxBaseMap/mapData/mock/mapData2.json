@@ -1,480 +1,10 @@
 {
-  "code": 200,
+  "code": 0,
   "totalSize": 167,
   "success": true,
-  "data": [
+  "content": [
     {
-      "company_id": 1,
-      "shop_name": "上虞南湖加油站",
-      "longitude": "120.905505",
-      "latitude": "30.048726",
-      "adress": "上虞区百官街道南湖丰一村（浙江石狮商贸城8号门对面）",
-      "open_date": "1998-10-01",
-      "employees": "8",
-      "open_year": "1998年"
-    },
-    {
-      "company_id": 2,
-      "shop_name": "上虞小越加油站",
-      "longitude": "120.933809",
-      "latitude": "30.077706",
-      "adress": "上虞区小越镇越北村小越加油站",
-      "open_date": "1998-10-01",
-      "employees": "10",
-      "open_year": "1998年"
-    },
-    {
-      "company_id": 3,
-      "shop_name": "上虞杭甬加油站",
-      "longitude": "120.835465",
-      "latitude": "30.016553",
-      "adress": "上虞区曹娥街道新舍村杭甬加油站",
-      "open_date": "1997-05-08",
-      "employees": "8",
-      "open_year": "1997年"
-    },
-    {
-      "company_id": 4,
-      "shop_name": "上虞浙东加油站",
-      "longitude": "120.916791",
-      "latitude": "30.061704",
-      "adress": "上虞区小越镇鲛里村",
-      "open_date": "1997-09-01",
-      "employees": "3",
-      "open_year": "1997年"
-    },
-    {
-      "company_id": 5,
-      "shop_name": "上虞炼塘加油站",
-      "longitude": "120.797425",
-      "latitude": "30.012518",
-      "adress": "上虞区东关街道联星村104国道南侧上虞加油站",
-      "open_date": "1998-07-01",
-      "employees": "4",
-      "open_year": "1998年"
-    },
-    {
-      "company_id": 6,
-      "shop_name": "上虞百官加油站",
-      "longitude": "120.892445",
-      "latitude": "30.031987",
-      "adress": "上虞百官街道二号桥",
-      "open_date": "1997-05-08",
-      "employees": "13",
-      "open_year": "1997年"
-    },
-    {
-      "company_id": 7,
-      "shop_name": "上虞金谷加油站",
-      "longitude": "120.857288",
-      "latitude": "29.831217",
-      "adress": "上虞区章镇笕桥村金谷加油站",
-      "open_date": "1998-03-09",
-      "employees": "3",
-      "open_year": "1998年"
-    },
-    {
-      "company_id": 8,
-      "shop_name": "临建於潜北服务区北侧",
-      "longitude": "119.367214",
-      "latitude": "30.242923",
-      "adress": "浙江省杭州市临安区於潜镇百园村於潜服务区加油站",
-      "open_date": "2023-01-01",
-      "employees": "10",
-      "open_year": "2023年"
-    },
-    {
-      "company_id": 9,
-      "shop_name": "临建於潜北服务区南侧",
-      "longitude": "119.367297",
-      "latitude": "30.241215",
-      "adress": "浙江省杭州市临安区於潜镇百园村於潜服务区加油站",
-      "open_date": "2023-01-01",
-      "employees": "10",
-      "open_year": "2023年"
-    },
-    {
-      "company_id": 10,
-      "shop_name": "余姚历山加油站",
-      "longitude": "121.168954",
-      "latitude": "30.174667",
-      "adress": "余姚市低塘街道芦城村加油站",
-      "open_date": "1990-07-01",
-      "employees": "11",
-      "open_year": "1990年"
-    },
-    {
-      "company_id": 11,
-      "shop_name": "余姚牟山加油站",
-      "longitude": "120.99111",
-      "latitude": "30.080413",
-      "adress": "余姚市牟山镇牟山道口与余夫公路连接处南侧",
-      "open_date": "2022-08-26",
-      "employees": "11",
-      "open_year": "2022年"
-    },
-    {
-      "company_id": 12,
-      "shop_name": "余杭东宙加油站",
-      "longitude": "120.283341",
-      "latitude": "30.370134",
-      "adress": "杭州市余杭区乔司街道永西村太公村60号",
-      "open_date": "1999-03-18",
-      "employees": "11",
-      "open_year": "1999年"
-    },
-    {
-      "company_id": 13,
-      "shop_name": "余杭大众加油站",
-      "longitude": "120.267404",
-      "latitude": "30.390584",
-      "adress": "杭州市余杭区星桥街道星源路258号",
-      "open_date": "1999-11-01",
-      "employees": "15",
-      "open_year": "1999年"
-    },
-    {
-      "company_id": 14,
-      "shop_name": "余杭良渚加油站",
-      "longitude": "120.0362",
-      "latitude": "30.373815",
-      "adress": "杭州市余杭区良渚街道104国道文化村上面",
-      "open_date": "2001-12-15",
-      "employees": "15",
-      "open_year": "2001年"
-    },
-    {
-      "company_id": 15,
-      "shop_name": "奉化灵峰加油站",
-      "longitude": "121.416252",
-      "latitude": "29.718869",
-      "adress": "奉化市江口街道江宁路188号灵峰加油站",
-      "open_date": "1998-11-18",
-      "employees": "5",
-      "open_year": "1998年"
-    },
-    {
-      "company_id": 16,
-      "shop_name": "宁波东亚加油站",
-      "longitude": "121.504812",
-      "latitude": "29.839347",
-      "adress": "宁波鄞州古林镇陈横楼村",
-      "open_date": "1999-11-26",
-      "employees": "16",
-      "open_year": "1999年"
-    },
-    {
-      "company_id": 17,
-      "shop_name": "宁波北外环加油站",
-      "longitude": "121.627119",
-      "latitude": "29.946625",
-      "adress": "宁波市镇海区庄市街道北外环528号",
-      "open_date": "2011-12-17",
-      "employees": "10",
-      "open_year": "2011年"
-    },
-    {
-      "company_id": 18,
-      "shop_name": "宁波石契加油站",
-      "longitude": "121.472739",
-      "latitude": "29.800736",
-      "adress": "宁波市鄞州区石碶街道车何渡村浙石加油站",
-      "open_date": "1997-09-18",
-      "employees": "7",
-      "open_year": "1997年"
-    },
-    {
-      "company_id": 19,
-      "shop_name": "富阳富力加油站",
-      "longitude": "119.916218",
-      "latitude": "30.052982",
-      "adress": "杭州市富阳区富阳镇秋丰村横凉亭路309附近",
-      "open_date": "1998-01-01",
-      "employees": "14",
-      "open_year": "1998年"
-    },
-    {
-      "company_id": 20,
-      "shop_name": "富阳高桥加油站",
-      "longitude": "119.951336",
-      "latitude": "30.100504",
-      "adress": "杭州市富阳区高富路32号",
-      "open_date": "1998-05-30",
-      "employees": "17",
-      "open_year": "1998年"
-    },
-    {
-      "company_id": 21,
-      "shop_name": "嵊州浦口加油站",
-      "longitude": "120.834042",
-      "latitude": "29.657823",
-      "adress": "嵊州市浦口街道嵊州大道浦口加油站",
-      "open_date": "1998-01-20",
-      "employees": "4",
-      "open_year": "1998年"
-    },
-    {
-      "company_id": 22,
-      "shop_name": "慈溪风顺加油站",
-      "longitude": "121.543412",
-      "latitude": "30.094365",
-      "adress": "慈溪龙山镇龙头场村",
-      "open_date": "2003-09-28",
-      "employees": "13",
-      "open_year": "2003年"
-    },
-    {
-      "company_id": 23,
-      "shop_name": "文成（富岙）服务区北侧",
-      "longitude": "119.5847",
-      "latitude": "27.481",
-      "adress": "浙江省温州市文成县富康村文景高速公路富岙服务区加油站  ",
-      "open_date": "2023-01-01",
-      "employees": "8",
-      "open_year": "2023年"
-    },
-    {
-      "company_id": 24,
-      "shop_name": "文成（富岙）服务区南侧",
-      "longitude": "119.5852",
-      "latitude": "27.4755",
-      "adress": "浙江省温州市文成县富康村文景高速公路富岙服务区加油站  ",
-      "open_date": "2023-01-01",
-      "employees": "7",
-      "open_year": "2023年"
-    },
-    {
-      "company_id": 25,
-      "shop_name": "景宁服务区北侧",
-      "longitude": "119.3756",
-      "latitude": "27.5329",
-      "adress": "浙江省丽水市景宁县澄照乡张后山村文景高速公路景宁服务区加油站  ",
-      "open_date": "2023-01-01",
-      "employees": "8",
-      "open_year": "2023年"
-    },
-    {
-      "company_id": 26,
-      "shop_name": "景宁服务区南侧",
-      "longitude": "119.3813",
-      "latitude": "27.5311",
-      "adress": "浙江省丽水市景宁县澄照乡张后山村文景高速公路景宁服务区加油站  ",
-      "open_date": "2023-01-01",
-      "employees": "7",
-      "open_year": "2023年"
-    },
-    {
-      "company_id": 27,
-      "shop_name": "杭州万骋加油站",
-      "longitude": "120.20024",
-      "latitude": "30.317511",
-      "adress": "杭州石桥路48号",
-      "open_date": "1994-02-24",
-      "employees": "12",
-      "open_year": "1994年"
-    },
-    {
-      "company_id": 28,
-      "shop_name": "杭州下沙加油站",
-      "longitude": "120.356033",
-      "latitude": "30.291968",
-      "adress": "杭州市钱塘区11号大街26号",
-      "open_date": "2001-12-05",
-      "employees": "18",
-      "open_year": "2001年"
-    },
-    {
-      "company_id": 29,
-      "shop_name": "杭州东新加油站",
-      "longitude": "120.182026",
-      "latitude": "30.316899",
-      "adress": "杭州市下城区东新路580号",
-      "open_date": "2022-08-26",
-      "employees": "14",
-      "open_year": "2022年"
-    },
-    {
-      "company_id": 30,
-      "shop_name": "杭州北郊加油站",
-      "longitude": "120.206676",
-      "latitude": "30.399725",
-      "adress": "杭州市拱墅区半山互通沈家浜附近",
-      "open_date": "1999-11-10",
-      "employees": "16",
-      "open_year": "1999年"
-    },
-    {
-      "company_id": 31,
-      "shop_name": "杭州吉鸿加油站",
-      "longitude": "120.08819",
-      "latitude": "30.344336",
-      "adress": "金渡北路与通济路交界",
-      "open_date": "2009-06-07",
-      "employees": "11",
-      "open_year": "2009年"
-    },
-    {
-      "company_id": 32,
-      "shop_name": "杭州复兴加油站",
-      "longitude": "120.17507",
-      "latitude": "30.21825",
-      "adress": "杭州市上城区复兴路151号",
-      "open_date": "2000-08-01",
-      "employees": "20",
-      "open_year": "2000年"
-    },
-    {
-      "company_id": 33,
-      "shop_name": "杭州笕桥加油站",
-      "longitude": "120.20425",
-      "latitude": "30.298661",
-      "adress": "杭州石桥路6号",
-      "open_date": "1998-09-01",
-      "employees": "18",
-      "open_year": "1998年"
-    },
-    {
-      "company_id": 34,
-      "shop_name": "杭州衢州路加油站",
-      "longitude": "120.13776",
-      "latitude": "30.332717",
-      "adress": "杭州市衢州路郭家库村",
-      "open_date": "2009-09-04",
-      "employees": "14",
-      "open_year": "2009年"
-    },
-    {
-      "company_id": 35,
-      "shop_name": "杭州金家岭加油站",
-      "longitude": "120.022",
-      "latitude": "30.146",
-      "adress": "杭州市西湖区转塘街道金家岭村172号-1",
-      "open_date": "2021-06-07",
-      "employees": "10",
-      "open_year": "2021年"
-    },
-    {
-      "company_id": 36,
-      "shop_name": "桐庐前村一加油站",
-      "longitude": "119.780183",
-      "latitude": "29.859621",
-      "adress": "杭州市桐庐县320国道富桐段桐庐窄溪镇前村东家脚",
-      "open_date": "1998-09-01",
-      "employees": "8",
-      "open_year": "1998年"
-    },
-    {
-      "company_id": 37,
-      "shop_name": "桐庐前村二加油站",
-      "longitude": "119.7811",
-      "latitude": "29.859391",
-      "adress": "杭州市桐庐县320国道富桐段桐庐窄溪镇前村东家脚",
-      "open_date": "1998-09-01",
-      "employees": "7",
-      "open_year": "1998年"
-    },
-    {
-      "company_id": 38,
-      "shop_name": "浦江长虹加油站",
-      "longitude": "119.909584",
-      "latitude": "29.452918",
-      "adress": "金华市浦江县浦阳镇江滨东路51号",
-      "open_date": "2001-07-01",
-      "employees": "15",
-      "open_year": "2001年"
-    },
-    {
-      "company_id": 39,
-      "shop_name": "滨江星民加油站",
-      "longitude": "120.231543",
-      "latitude": "30.219157",
-      "adress": "滨江西兴街道星民村江南大道35",
-      "open_date": "2005-03-23",
-      "employees": "30",
-      "open_year": "2005年"
-    },
-    {
-      "company_id": 40,
-      "shop_name": "绍兴城北加油站",
-      "longitude": "120.511339",
-      "latitude": "30.104452",
-      "adress": "绍兴市柯桥区金柯桥大道与纺都路交汇处",
-      "open_date": "2006-06-23",
-      "employees": "20",
-      "open_year": "2006年"
-    },
-    {
-      "company_id": 41,
-      "shop_name": "绍兴振昌加油站",
-      "longitude": "120.459267",
-      "latitude": "30.051917",
-      "adress": "绍兴市柯桥区柯岩街道埠头村加油站",
-      "open_date": "2000-07-19",
-      "employees": "14",
-      "open_year": "2000年"
-    },
-    {
-      "company_id": 42,
-      "shop_name": "绍兴柯桥加油站",
-      "longitude": "120.473397",
-      "latitude": "30.079075",
-      "adress": "绍兴柯岩街道红旗村",
-      "open_date": "2000-04-28",
-      "employees": "17",
-      "open_year": "2000年"
-    },
-    {
-      "company_id": 43,
-      "shop_name": "绍兴皋埠加油站",
-      "longitude": "120.701764",
-      "latitude": "30.018451",
-      "adress": "绍兴市越城区皋埠镇正平村",
-      "open_date": "1999-01-12",
-      "employees": "4",
-      "open_year": "1999年"
-    },
-    {
-      "company_id": 44,
-      "shop_name": "绍兴高桥加油站",
-      "longitude": "120.550984",
-      "latitude": "30.074318",
-      "adress": "东浦街道绿云中路301号（绿云路与群贤路交叉口）",
-      "open_date": "1999-02-01",
-      "employees": "13",
-      "open_year": "1999年"
-    },
-    {
-      "company_id": 45,
-      "shop_name": "绍兴高速加油站",
-      "longitude": "120.612244",
-      "latitude": "30.097902",
-      "adress": "绍兴斗门镇杨望村绍三线旁西湖头",
-      "open_date": "1998-07-01",
-      "employees": "15",
-      "open_year": "1998年"
-    },
-    {
-      "company_id": 46,
-      "shop_name": "芦浦停车区(上)加油站",
-      "longitude": "121.227337",
-      "latitude": "28.196752",
-      "adress": "玉环市芦蒲镇分水村沿海高速芦浦服务区加油站",
-      "open_date": "2018-09-28",
-      "employees": "7",
-      "open_year": "2018年"
-    },
-    {
-      "company_id": 47,
-      "shop_name": "芦浦停车区(下)加油站",
-      "longitude": "121.228757",
-      "latitude": "28.197322",
-      "adress": "玉环市芦蒲镇分水村沿海高速芦浦服务区加油站",
-      "open_date": "2018-09-28",
-      "employees": "7",
-      "open_year": "2018年"
-    },
-    {
-      "company_id": 48,
+      "company_id": "10005885",
       "shop_name": "萧山南阳加油站",
       "longitude": "120.441937",
       "latitude": "30.263751",
@@ -484,7 +14,7 @@
       "open_year": "2020年"
     },
     {
-      "company_id": 49,
+      "company_id": "10005885",
       "shop_name": "萧山南飞加油站",
       "longitude": "120.300911",
       "latitude": "30.232328",
@@ -494,7 +24,7 @@
       "open_year": "1998年"
     },
     {
-      "company_id": 50,
+      "company_id": "10005885",
       "shop_name": "萧山坎山加油站",
       "longitude": "120.421111",
       "latitude": "30.176407",
@@ -504,7 +34,7 @@
       "open_year": "2000年"
     },
     {
-      "company_id": 51,
+      "company_id": "10005885",
       "shop_name": "萧山奔驰加油站",
       "longitude": "120.342866",
       "latitude": "30.174328",
@@ -514,7 +44,7 @@
       "open_year": "1998年"
     },
     {
-      "company_id": 52,
+      "company_id": "10005885",
       "shop_name": "萧山机场加油站",
       "longitude": "120.423364",
       "latitude": "30.232737",
@@ -524,7 +54,7 @@
       "open_year": "1999年"
     },
     {
-      "company_id": 53,
+      "company_id": "10005885",
       "shop_name": "萧山绿岛加油站",
       "longitude": "120.25935",
       "latitude": "30.073574",
@@ -534,7 +64,7 @@
       "open_year": "1998年"
     },
     {
-      "company_id": 54,
+      "company_id": "10005885",
       "shop_name": "萧山金腾加油站",
       "longitude": "120.259321",
       "latitude": "30.19832",
@@ -544,7 +74,7 @@
       "open_year": "1999年"
     },
     {
-      "company_id": 55,
+      "company_id": "10005885",
       "shop_name": "萧山银鹰加油站",
       "longitude": "120.161728",
       "latitude": "29.92901",
@@ -554,7 +84,7 @@
       "open_year": "1999年"
     },
     {
-      "company_id": 56,
+      "company_id": "10005885",
       "shop_name": "诸永东阳(上)加油站",
       "longitude": "120.407505",
       "latitude": "29.302356",
@@ -564,7 +94,7 @@
       "open_year": "2021年"
     },
     {
-      "company_id": 57,
+      "company_id": "10005885",
       "shop_name": "诸永东阳(下)加油站",
       "longitude": "120.406089",
       "latitude": "29.29968",
@@ -574,7 +104,7 @@
       "open_year": "2021年"
     },
     {
-      "company_id": 58,
+      "company_id": "10005885",
       "shop_name": "诸永仙居(上)加油站",
       "longitude": "120.633895",
       "latitude": "28.731115",
@@ -584,7 +114,7 @@
       "open_year": "2022年"
     },
     {
-      "company_id": 59,
+      "company_id": "10005885",
       "shop_name": "诸永仙居(下)加油站",
       "longitude": "120.638525",
       "latitude": "28.727381",
@@ -594,7 +124,7 @@
       "open_year": "2022年"
     },
     {
-      "company_id": 60,
+      "company_id": "10005885",
       "shop_name": "诸永永嘉(上)加油站",
       "longitude": "120.750383",
       "latitude": "28.366081",
@@ -604,7 +134,7 @@
       "open_year": "2022年"
     },
     {
-      "company_id": 61,
+      "company_id": "10005885",
       "shop_name": "诸永永嘉(下)加油站",
       "longitude": "120.74966",
       "latitude": "28.364881",
@@ -614,7 +144,7 @@
       "open_year": "2022年"
     },
     {
-      "company_id": 62,
+      "company_id": "10005885",
       "shop_name": "诸永磐安(上)加油站",
       "longitude": "120.2442",
       "latitude": "28.5916",
@@ -624,7 +154,7 @@
       "open_year": "2021年"
     },
     {
-      "company_id": 63,
+      "company_id": "10005885",
       "shop_name": "诸永磐安(下)加油站",
       "longitude": "120.2437",
       "latitude": "28.5967",
@@ -634,7 +164,7 @@
       "open_year": "2021年"
     },
     {
-      "company_id": 64,
+      "company_id": "10005885",
       "shop_name": "镇海永乐加油站",
       "longitude": "121.609457",
       "latitude": "29.960752",
@@ -644,7 +174,7 @@
       "open_year": "2017年"
     },
     {
-      "company_id": 65,
+      "company_id": "10005885",
       "shop_name": "高速三江(上)加油站",
       "longitude": "120.650811",
       "latitude": "30.105393",
@@ -654,7 +184,7 @@
       "open_year": "2008年"
     },
     {
-      "company_id": 66,
+      "company_id": "10005885",
       "shop_name": "高速三江(下)加油站",
       "longitude": "120.64846",
       "latitude": "30.104861",
@@ -664,7 +194,7 @@
       "open_year": "1998年"
     },
     {
-      "company_id": 67,
+      "company_id": "10005885",
       "shop_name": "高速三界(上)加油站",
       "longitude": "120.848516",
       "latitude": "29.793868",
@@ -674,7 +204,7 @@
       "open_year": "2003年"
     },
     {
-      "company_id": 68,
+      "company_id": "10005885",
       "shop_name": "高速三界(下)加油站",
       "longitude": "120.847278",
       "latitude": "29.792351",
@@ -684,7 +214,7 @@
       "open_year": "2003年"
     },
     {
-      "company_id": 69,
+      "company_id": "10005885",
       "shop_name": "高速东阳(上)加油站",
       "longitude": "120.357952",
       "latitude": "29.346516",
@@ -694,7 +224,7 @@
       "open_year": "2005年"
     },
     {
-      "company_id": 70,
+      "company_id": "10005885",
       "shop_name": "高速东阳(下)加油站",
       "longitude": "120.354019",
       "latitude": "29.346309",
@@ -704,7 +234,7 @@
       "open_year": "2005年"
     },
     {
-      "company_id": 71,
+      "company_id": "10005885",
       "shop_name": "高速临安(上)加油站",
       "longitude": "119.11552",
       "latitude": "30.165612",
@@ -714,7 +244,7 @@
       "open_year": "2009年"
     },
     {
-      "company_id": 72,
+      "company_id": "10005885",
       "shop_name": "高速临安(下)加油站",
       "longitude": "119.112925",
       "latitude": "30.165994",
@@ -724,7 +254,7 @@
       "open_year": "2009年"
     },
     {
-      "company_id": 73,
+      "company_id": "10005885",
       "shop_name": "高速丽水(上)加油站",
       "longitude": "119.863991",
       "latitude": "28.493444",
@@ -734,7 +264,7 @@
       "open_year": "2002年"
     },
     {
-      "company_id": 74,
+      "company_id": "10005885",
       "shop_name": "高速丽水(下)加油站",
       "longitude": "119.869712",
       "latitude": "28.500391",
@@ -744,7 +274,7 @@
       "open_year": "2002年"
     },
     {
-      "company_id": 75,
+      "company_id": "10005885",
       "shop_name": "高速云和(上)加油站",
       "longitude": "119.651283",
       "latitude": "28.154824",
@@ -754,7 +284,7 @@
       "open_year": "2006年"
     },
     {
-      "company_id": 76,
+      "company_id": "10005885",
       "shop_name": "高速云和(下)加油站",
       "longitude": "119.649249",
       "latitude": "28.152498",
@@ -764,7 +294,7 @@
       "open_year": "2006年"
     },
     {
-      "company_id": 77,
+      "company_id": "10005885",
       "shop_name": "高速仙居(上)加油站",
       "longitude": "120.570868",
       "latitude": "28.745859",
@@ -774,7 +304,7 @@
       "open_year": "2008年"
     },
     {
-      "company_id": 78,
+      "company_id": "10005885",
       "shop_name": "高速仙居(下)加油站",
       "longitude": "120.573355",
       "latitude": "28.745271",
@@ -784,7 +314,7 @@
       "open_year": "2008年"
     },
     {
-      "company_id": 79,
+      "company_id": "10005885",
       "shop_name": "高速仙霞(上)加油站",
       "longitude": "118.541797",
       "latitude": "28.483472",
@@ -794,7 +324,7 @@
       "open_year": "2008年"
     },
     {
-      "company_id": 80,
+      "company_id": "10005885",
       "shop_name": "高速仙霞(下)加油站",
       "longitude": "118.542832",
       "latitude": "28.4872",
@@ -804,7 +334,7 @@
       "open_year": "2008年"
     },
     {
-      "company_id": 81,
+      "company_id": "10005885",
       "shop_name": "高速兰溪(上)加油站",
       "longitude": "119.482804",
       "latitude": "29.137874",
@@ -814,7 +344,7 @@
       "open_year": "2002年"
     },
     {
-      "company_id": 82,
+      "company_id": "10005885",
       "shop_name": "高速兰溪(下)加油站",
       "longitude": "119.480941",
       "latitude": "29.1387",
@@ -824,7 +354,7 @@
       "open_year": "2002年"
     },
     {
-      "company_id": 83,
+      "company_id": "10005885",
       "shop_name": "高速台州(上)加油站",
       "longitude": "121.234135",
       "latitude": "28.885503",
@@ -834,7 +364,7 @@
       "open_year": "2018年"
     },
     {
-      "company_id": 84,
+      "company_id": "10005885",
       "shop_name": "高速台州(下)加油站",
       "longitude": "121.232924",
       "latitude": "28.883809",
@@ -844,7 +374,7 @@
       "open_year": "2018年"
     },
     {
-      "company_id": 85,
+      "company_id": "10005885",
       "shop_name": "高速后坞(上)加油站",
       "longitude": "118.443106",
       "latitude": "28.574784",
@@ -854,7 +384,7 @@
       "open_year": "2021年"
     },
     {
-      "company_id": 86,
+      "company_id": "10005885",
       "shop_name": "高速后坞(下)加油站",
       "longitude": "118.442958",
       "latitude": "28.57535",
@@ -864,7 +394,7 @@
       "open_year": "2021年"
     },
     {
-      "company_id": 87,
+      "company_id": "10005885",
       "shop_name": "高速和孚(上)加油站",
       "longitude": "120.255653",
       "latitude": "30.799832",
@@ -874,7 +404,7 @@
       "open_year": "2007年"
     },
     {
-      "company_id": 88,
+      "company_id": "10005885",
       "shop_name": "高速和孚(下)加油站",
       "longitude": "120.258958",
       "latitude": "30.798302",
@@ -884,7 +414,7 @@
       "open_year": "2007年"
     },
     {
-      "company_id": 89,
+      "company_id": "10005885",
       "shop_name": "高速嘉兴(上)加油站",
       "longitude": "120.682494",
       "latitude": "30.626903",
@@ -894,7 +424,7 @@
       "open_year": "1999年"
     },
     {
-      "company_id": 90,
+      "company_id": "10005885",
       "shop_name": "高速嘉兴(下)加油站",
       "longitude": "120.685635",
       "latitude": "30.627813",
@@ -904,7 +434,7 @@
       "open_year": "1999年"
     },
     {
-      "company_id": 91,
+      "company_id": "10005885",
       "shop_name": "高速天台(上)加油站",
       "longitude": "121.086326",
       "latitude": "29.138655",
@@ -914,7 +444,7 @@
       "open_year": "2001年"
     },
     {
-      "company_id": 92,
+      "company_id": "10005885",
       "shop_name": "高速天台(下)加油站",
       "longitude": "121.08471",
       "latitude": "29.13954",
@@ -924,7 +454,7 @@
       "open_year": "2001年"
     },
     {
-      "company_id": 93,
+      "company_id": "10005885",
       "shop_name": "高速奉化(上)加油站",
       "longitude": "121.448207",
       "latitude": "29.617629",
@@ -934,7 +464,7 @@
       "open_year": "2011年"
     },
     {
-      "company_id": 94,
+      "company_id": "10005885",
       "shop_name": "高速奉化(下)加油站",
       "longitude": "121.456919",
       "latitude": "29.624537",
@@ -944,7 +474,7 @@
       "open_year": "2011年"
     },
     {
-      "company_id": 95,
+      "company_id": "10005885",
       "shop_name": "高速姚江(上)加油站",
       "longitude": "121.12208",
       "latitude": "30.014379",
@@ -954,7 +484,7 @@
       "open_year": "2002年"
     },
     {
-      "company_id": 96,
+      "company_id": "10005885",
       "shop_name": "高速姚江(下)加油站",
       "longitude": "121.121997",
       "latitude": "30.01313",
@@ -964,7 +494,7 @@
       "open_year": "2002年"
     },
     {
-      "company_id": 97,
+      "company_id": "10005885",
       "shop_name": "高速常山(上)加油站",
       "longitude": "118.469015",
       "latitude": "28.916891",
@@ -974,7 +504,7 @@
       "open_year": "2003年"
     },
     {
-      "company_id": 98,
+      "company_id": "10005885",
       "shop_name": "高速常山(下)加油站",
       "longitude": "118.467663",
       "latitude": "28.917385",
@@ -984,7 +514,7 @@
       "open_year": "2003年"
     },
     {
-      "company_id": 99,
+      "company_id": "10005885",
       "shop_name": "高速常山停车区(上)加油站",
       "longitude": "118.746221",
       "latitude": "29.177697",
@@ -994,7 +524,7 @@
       "open_year": "2017年"
     },
     {
-      "company_id": 100,
+      "company_id": "10005885",
       "shop_name": "高速常山停车区(下)加油站",
       "longitude": "118.744766",
       "latitude": "29.178073",
@@ -1004,7 +534,7 @@
       "open_year": "2017年"
     },
     {
-      "company_id": 101,
+      "company_id": "10005885",
       "shop_name": "高速庆元(上)加油站",
       "longitude": "118.95117",
       "latitude": "27.777965",
@@ -1014,7 +544,7 @@
       "open_year": "2013年"
     },
     {
-      "company_id": 102,
+      "company_id": "10005885",
       "shop_name": "高速庆元(下)加油站",
       "longitude": "118.953342",
       "latitude": "27.780211",
@@ -1024,7 +554,7 @@
       "open_year": "2013年"
     },
     {
-      "company_id": 103,
+      "company_id": "10005885",
       "shop_name": "高速开化(上)加油站",
       "longitude": "118.329378",
       "latitude": "29.08728",
@@ -1034,7 +564,7 @@
       "open_year": "2017年"
     },
     {
-      "company_id": 104,
+      "company_id": "10005885",
       "shop_name": "高速开化(下)加油站",
       "longitude": "118.327808",
       "latitude": "29.088369",
@@ -1044,7 +574,7 @@
       "open_year": "2017年"
     },
     {
-      "company_id": 105,
+      "company_id": "10005885",
       "shop_name": "高速张家渡(上)加油站",
       "longitude": "120.990833",
       "latitude": "28.87702",
@@ -1054,7 +584,7 @@
       "open_year": "2006年"
     },
     {
-      "company_id": 106,
+      "company_id": "10005885",
       "shop_name": "高速张家渡(下)加油站",
       "longitude": "120.996346",
       "latitude": "28.876075",
@@ -1064,7 +594,7 @@
       "open_year": "2006年"
     },
     {
-      "company_id": 107,
+      "company_id": "10005885",
       "shop_name": "高速德清(上)加油站",
       "longitude": "120.311326",
       "latitude": "30.587208",
@@ -1074,7 +604,7 @@
       "open_year": "2010年"
     },
     {
-      "company_id": 108,
+      "company_id": "10005885",
       "shop_name": "高速德清(下)加油站",
       "longitude": "120.308762",
       "latitude": "30.587076",
@@ -1084,7 +614,7 @@
       "open_year": "2010年"
     },
     {
-      "company_id": 109,
+      "company_id": "10005885",
       "shop_name": "高速新昌(上)加油站",
       "longitude": "120.909519",
       "latitude": "29.485791",
@@ -1094,7 +624,7 @@
       "open_year": "2003年"
     },
     {
-      "company_id": 110,
+      "company_id": "10005885",
       "shop_name": "高速新昌(下)加油站",
       "longitude": "120.91046",
       "latitude": "29.484237",
@@ -1104,7 +634,7 @@
       "open_year": "2003年"
     },
     {
-      "company_id": 111,
+      "company_id": "10005885",
       "shop_name": "高速方岩(上)加油站",
       "longitude": "120.1138",
       "latitude": "28.5836",
@@ -1114,7 +644,7 @@
       "open_year": "2022年"
     },
     {
-      "company_id": 112,
+      "company_id": "10005885",
       "shop_name": "高速方岩(下)加油站",
       "longitude": "120.1134",
       "latitude": "28.5837",
@@ -1124,7 +654,7 @@
       "open_year": "2022年"
     },
     {
-      "company_id": 113,
+      "company_id": "10005885",
       "shop_name": "高速松阳(上)加油站",
       "longitude": "119.443036",
       "latitude": "28.455548",
@@ -1134,7 +664,7 @@
       "open_year": "2007年"
     },
     {
-      "company_id": 114,
+      "company_id": "10005885",
       "shop_name": "高速松阳(下)加油站",
       "longitude": "119.444616",
       "latitude": "28.451256",
@@ -1144,7 +674,7 @@
       "open_year": "2007年"
     },
     {
-      "company_id": 115,
+      "company_id": "10005885",
       "shop_name": "高速桥头(上)加油站",
       "longitude": "120.521996",
       "latitude": "28.143701",
@@ -1154,7 +684,7 @@
       "open_year": "2010年"
     },
     {
-      "company_id": 116,
+      "company_id": "10005885",
       "shop_name": "高速桥头(下)加油站",
       "longitude": "120.52524",
       "latitude": "28.142747",
@@ -1164,7 +694,7 @@
       "open_year": "2010年"
     },
     {
-      "company_id": 117,
+      "company_id": "10005885",
       "shop_name": "高速梅林(上)加油站",
       "longitude": "121.455967",
       "latitude": "29.388288",
@@ -1174,7 +704,7 @@
       "open_year": "2002年"
     },
     {
-      "company_id": 118,
+      "company_id": "10005885",
       "shop_name": "高速梅林(下)加油站",
       "longitude": "121.456024",
       "latitude": "29.38995",
@@ -1184,7 +714,7 @@
       "open_year": "2002年"
     },
     {
-      "company_id": 119,
+      "company_id": "10005885",
       "shop_name": "高速武义(上)加油站",
       "longitude": "119.952626",
       "latitude": "28.869119",
@@ -1194,7 +724,7 @@
       "open_year": "2002年"
     },
     {
-      "company_id": 120,
+      "company_id": "10005885",
       "shop_name": "高速武义(下)加油站",
       "longitude": "119.950789",
       "latitude": "28.87023",
@@ -1204,7 +734,7 @@
       "open_year": "2002年"
     },
     {
-      "company_id": 121,
+      "company_id": "10005885",
       "shop_name": "高速永康(上)加油站",
       "longitude": "120.173303",
       "latitude": "28.797785",
@@ -1214,7 +744,7 @@
       "open_year": "2009年"
     },
     {
-      "company_id": 122,
+      "company_id": "10005885",
       "shop_name": "高速永康(下)加油站",
       "longitude": "120.177808",
       "latitude": "28.795634",
@@ -1224,7 +754,7 @@
       "open_year": "2009年"
     },
     {
-      "company_id": 123,
+      "company_id": "10005885",
       "shop_name": "高速江山(上)加油站",
       "longitude": "118.681895",
       "latitude": "28.813615",
@@ -1234,7 +764,7 @@
       "open_year": "2010年"
     },
     {
-      "company_id": 124,
+      "company_id": "10005885",
       "shop_name": "高速江山(下)加油站",
       "longitude": "118.683815",
       "latitude": "28.815399",
@@ -1244,7 +774,7 @@
       "open_year": "2010年"
     },
     {
-      "company_id": 125,
+      "company_id": "10005885",
       "shop_name": "高速清江(上)加油站",
       "longitude": "121.121736",
       "latitude": "28.291917",
@@ -1254,7 +784,7 @@
       "open_year": "2022年"
     },
     {
-      "company_id": 126,
+      "company_id": "10005885",
       "shop_name": "高速清江(下)加油站",
       "longitude": "121.120241",
       "latitude": "28.290759",
@@ -1264,7 +794,7 @@
       "open_year": "2022年"
     },
     {
-      "company_id": 127,
+      "company_id": "10005885",
       "shop_name": "高速温州加油站",
       "longitude": "120.4113",
       "latitude": "27.561",
@@ -1274,7 +804,7 @@
       "open_year": "2022年"
     },
     {
-      "company_id": 128,
+      "company_id": "10005885",
       "shop_name": "高速湖州(上)加油站",
       "longitude": "120.226793",
       "latitude": "30.899181",
@@ -1284,7 +814,7 @@
       "open_year": "2006年"
     },
     {
-      "company_id": 129,
+      "company_id": "10005885",
       "shop_name": "高速湖州(下)加油站",
       "longitude": "120.229027",
       "latitude": "30.897291",
@@ -1294,7 +824,7 @@
       "open_year": "2006年"
     },
     {
-      "company_id": 130,
+      "company_id": "10005885",
       "shop_name": "高速潜川(上)",
       "longitude": "119.2157",
       "latitude": "30.715",
@@ -1304,7 +834,7 @@
       "open_year": "2023年"
     },
     {
-      "company_id": 131,
+      "company_id": "10005885",
       "shop_name": "高速潜川(下)",
       "longitude": "119.2151",
       "latitude": "30.712",
@@ -1314,7 +844,7 @@
       "open_year": "2023年"
     },
     {
-      "company_id": 132,
+      "company_id": "10005885",
       "shop_name": "高速芳村加油站",
       "longitude": "118.623393",
       "latitude": "29.014354",
@@ -1324,7 +854,7 @@
       "open_year": "2011年"
     },
     {
-      "company_id": 133,
+      "company_id": "10005885",
       "shop_name": "高速苍南(上)加油站",
       "longitude": "120.2236",
       "latitude": "27.3042",
@@ -1334,7 +864,7 @@
       "open_year": "2022年"
     },
     {
-      "company_id": 134,
+      "company_id": "10005885",
       "shop_name": "高速苍南(下)加油站",
       "longitude": "120.223",
       "latitude": "27.3041",
@@ -1344,7 +874,7 @@
       "open_year": "2022年"
     },
     {
-      "company_id": 135,
+      "company_id": "10005885",
       "shop_name": "高速莲都(上)加油站",
       "longitude": "119.845107",
       "latitude": "28.36166",
@@ -1354,7 +884,7 @@
       "open_year": "2008年"
     },
     {
-      "company_id": 136,
+      "company_id": "10005885",
       "shop_name": "高速莲都(下)加油站",
       "longitude": "119.84878",
       "latitude": "28.362028",
@@ -1364,7 +894,7 @@
       "open_year": "2008年"
     },
     {
-      "company_id": 137,
+      "company_id": "10005885",
       "shop_name": "高速萧山(上)加油站",
       "longitude": "120.254918",
       "latitude": "29.982514",
@@ -1374,7 +904,7 @@
       "open_year": "2002年"
     },
     {
-      "company_id": 138,
+      "company_id": "10005885",
       "shop_name": "高速萧山(下)加油站",
       "longitude": "120.251334",
       "latitude": "29.978338",
@@ -1384,7 +914,7 @@
       "open_year": "2002年"
     },
     {
-      "company_id": 139,
+      "company_id": "10005885",
       "shop_name": "高速衢州(上)加油站",
       "longitude": "119.066829",
       "latitude": "29.044039",
@@ -1394,7 +924,7 @@
       "open_year": "2002年"
     },
     {
-      "company_id": 140,
+      "company_id": "10005885",
       "shop_name": "高速衢州(下)加油站",
       "longitude": "119.069964",
       "latitude": "29.045525",
@@ -1404,7 +934,7 @@
       "open_year": "2002年"
     },
     {
-      "company_id": 141,
+      "company_id": "10005885",
       "shop_name": "高速衢江(上)加油站",
       "longitude": "118.96005",
       "latitude": "29.239659",
@@ -1414,7 +944,7 @@
       "open_year": "2017年"
     },
     {
-      "company_id": 142,
+      "company_id": "10005885",
       "shop_name": "高速衢江(下)加油站",
       "longitude": "118.962429",
       "latitude": "29.241013",
@@ -1424,7 +954,7 @@
       "open_year": "2017年"
     },
     {
-      "company_id": 143,
+      "company_id": "10005885",
       "shop_name": "高速诸暨(上)加油站",
       "longitude": "120.254307",
       "latitude": "29.982495",
@@ -1434,7 +964,7 @@
       "open_year": "2002年"
     },
     {
-      "company_id": 144,
+      "company_id": "10005885",
       "shop_name": "高速诸暨(下)加油站",
       "longitude": "120.251334",
       "latitude": "29.978299",
@@ -1444,7 +974,7 @@
       "open_year": "2002年"
     },
     {
-      "company_id": 145,
+      "company_id": "10005885",
       "shop_name": "高速遂昌(上)加油站",
       "longitude": "119.299576",
       "latitude": "28.618195",
@@ -1454,7 +984,7 @@
       "open_year": "2006年"
     },
     {
-      "company_id": 146,
+      "company_id": "10005885",
       "shop_name": "高速遂昌(下)加油站",
       "longitude": "119.299758",
       "latitude": "28.617402",
@@ -1464,7 +994,7 @@
       "open_year": "2006年"
     },
     {
-      "company_id": 147,
+      "company_id": "10005885",
       "shop_name": "高速金华(上)加油站",
       "longitude": "119.894087",
       "latitude": "29.252224",
@@ -1474,7 +1004,7 @@
       "open_year": "2002年"
     },
     {
-      "company_id": 148,
+      "company_id": "10005885",
       "shop_name": "高速金华(下)加油站",
       "longitude": "119.889398",
       "latitude": "29.25109",
@@ -1484,7 +1014,7 @@
       "open_year": "2002年"
     },
     {
-      "company_id": 149,
+      "company_id": "10005885",
       "shop_name": "高速金塘(下)加油站",
       "longitude": "121.912105",
       "latitude": "30.057411",
@@ -1494,7 +1024,7 @@
       "open_year": "2010年"
     },
     {
-      "company_id": 150,
+      "company_id": "10005885",
       "shop_name": "高速长兴(上)加油站",
       "longitude": "119.739988",
       "latitude": "30.934015",
@@ -1504,7 +1034,7 @@
       "open_year": "2006年"
     },
     {
-      "company_id": 151,
+      "company_id": "10005885",
       "shop_name": "高速长兴(下)加油站",
       "longitude": "119.737098",
       "latitude": "30.934224",
@@ -1514,7 +1044,7 @@
       "open_year": "2006年"
     },
     {
-      "company_id": 152,
+      "company_id": "10005885",
       "shop_name": "高速长安(上)加油站",
       "longitude": "120.470444",
       "latitude": "30.49254",
@@ -1524,7 +1054,7 @@
       "open_year": "2007年"
     },
     {
-      "company_id": 153,
+      "company_id": "10005885",
       "shop_name": "高速长安(下)加油站",
       "longitude": "120.472728",
       "latitude": "30.491145",
@@ -1534,7 +1064,7 @@
       "open_year": "2007年"
     },
     {
-      "company_id": 154,
+      "company_id": "10005885",
       "shop_name": "高速青山(上)加油站",
       "longitude": "120.054205",
       "latitude": "30.665594",
@@ -1544,7 +1074,7 @@
       "open_year": "2022年"
     },
     {
-      "company_id": 155,
+      "company_id": "10005885",
       "shop_name": "高速青山(下)加油站",
       "longitude": "120.053167",
       "latitude": "30.663988",
@@ -1554,7 +1084,7 @@
       "open_year": "2022年"
     },
     {
-      "company_id": 156,
+      "company_id": "10005885",
       "shop_name": "高速青田(上)加油站",
       "longitude": "120.185465",
       "latitude": "28.271709",
@@ -1564,7 +1094,7 @@
       "open_year": "2005年"
     },
     {
-      "company_id": 157,
+      "company_id": "10005885",
       "shop_name": "高速青田(下)加油站",
       "longitude": "120.184566",
       "latitude": "28.27426",
@@ -1574,7 +1104,7 @@
       "open_year": "2005年"
     },
     {
-      "company_id": 158,
+      "company_id": "10005885",
       "shop_name": "高速马金(上)加油站",
       "longitude": "118.409585",
       "latitude": "29.287066",
@@ -1584,7 +1114,7 @@
       "open_year": "2011年"
     },
     {
-      "company_id": 159,
+      "company_id": "10005885",
       "shop_name": "高速马金(下)加油站",
       "longitude": "118.412207",
       "latitude": "29.291617",
@@ -1594,7 +1124,7 @@
       "open_year": "2011年"
     },
     {
-      "company_id": 160,
+      "company_id": "10005885",
       "shop_name": "高速高楼(上)加油站",
       "longitude": "120.293969",
       "latitude": "27.756513",
@@ -1604,7 +1134,7 @@
       "open_year": "2020年"
     },
     {
-      "company_id": 161,
+      "company_id": "10005885",
       "shop_name": "高速高楼(下)加油站",
       "longitude": "120.294357",
       "latitude": "27.755464",
@@ -1614,7 +1144,7 @@
       "open_year": "2020年"
     },
     {
-      "company_id": 162,
+      "company_id": "10005885",
       "shop_name": "高速龙岗(上)加油站",
       "longitude": "119.11552",
       "latitude": "30.165612",
@@ -1624,7 +1154,7 @@
       "open_year": "2005年"
     },
     {
-      "company_id": 163,
+      "company_id": "10005885",
       "shop_name": "高速龙岗(下)加油站",
       "longitude": "119.112925",
       "latitude": "30.165994",
@@ -1634,7 +1164,7 @@
       "open_year": "2005年"
     },
     {
-      "company_id": 164,
+      "company_id": "10005885",
       "shop_name": "高速龙泉(上)加油站",
       "longitude": "119.101993",
       "latitude": "28.028404",
@@ -1644,7 +1174,7 @@
       "open_year": "2013年"
     },
     {
-      "company_id": 165,
+      "company_id": "10005885",
       "shop_name": "高速龙泉(下)加油站",
       "longitude": "119.104563",
       "latitude": "28.02962",
@@ -1654,7 +1184,7 @@
       "open_year": "2013年"
     },
     {
-      "company_id": 166,
+      "company_id": "10005885",
       "shop_name": "高速龙游(上)加油站",
       "longitude": "119.149006",
       "latitude": "28.916045",
@@ -1664,7 +1194,7 @@
       "open_year": "2006年"
     },
     {
-      "company_id": 167,
+      "company_id": "10005885",
       "shop_name": "高速龙游(下)加油站",
       "longitude": "119.147464",
       "latitude": "28.917694",

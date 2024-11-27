@@ -3,14 +3,21 @@
         <slot></slot>
 
         <div id="glMap" class="gl_map_cont" v-loading="mapLoading"></div>
+
+        <!-- 图例 -->
+        <map-lend ref="refLend" @removePopup="mapUtils.removePopup('glMap')" v-if="tabCurrent === '浙江'" />
     </section>
 </template>
 
 <script setup>
 // core
 import { ref, onMounted, nextTick } from 'vue'
+// 组件
+import MapLend from './components/MapLend.vue'
+// 工具
 import * as mapUtils from './mapUtils' // map-core
 import renderMapByCity from './renderMapByCity' // map-render
+import * as popupConfig from './mapData/popupConfig'
 
 const props = defineProps({
     tabCurrent: {
@@ -18,9 +25,13 @@ const props = defineProps({
         default: ''
     }
 })
+
 let glMap = null // 地图核心数据
 
 let mapLoading = ref(true)
+const mainPopupData = ref({})
+
+let refLend = ref(null) // 图例
 
 /**
  * map init
@@ -110,12 +121,22 @@ const indexMapClick = () => {
  * 地图标注相关
  */
 // 设置图片标注
-const setImgMarker = (dataList) => {
-    // console.log('设置图片标注', dataList)
+const setImgMarker = (dataList, tab) => {
+    // console.log('设置图片标注', dataList, tab)
 
+    switch (tab) {
+        case '首页浙江':
+            break
+            setZjIndexMarker(dataList)
+        case '浙江':
+            setZjMarker(dataList)
+    }
+
+
+}
+
+const setZjIndexMarker = (dataList) => {
     dataList.forEach((item) => {
-        // console.log(item)
-
         switch (item.region_name) {
             case '浙东区域':
             case '浙西区域':
@@ -127,7 +148,15 @@ const setImgMarker = (dataList) => {
         }
     })
 }
-// 定制首页地图标注
+
+const setZjMarker = (dataList) => {
+    console.log(dataList)
+
+    dataList.forEach((item) => {
+        setIndexMarkerConfig([item.longitude, item.latitude], 'map0_mksty1', item)
+    })
+}
+
 const setIndexMarkerConfig = (lonlat, markerClass, item) => {
     if (item.latitude <= -90 || item.latitude > 90) {
         // item.latitude = 30
@@ -136,41 +165,23 @@ const setIndexMarkerConfig = (lonlat, markerClass, item) => {
 
     let el = document.createElement('div')
     el.className = `map_marker no_popup_map_marker index_marker ${markerClass}`
-    console.log(el)
 
-    // console.log(document.querySelector('.map_marker'))
-
-    /* let aaael = document.querySelectorAll('.map_marker')
-    console.log(aaael)
-    if (aaael.length > 0) {
-        aaael.forEach((item) => {
-            item.addEventListener('click', (e) => {
-                e.stopPropagation()
-                console.log('点击标注', item)
-            })
-        })
-    } */
-    /* aaael.addEventListener('click', e => {
+    el.addEventListener('click', (e) => {
         e.stopPropagation()
-        console.log('点击标注', item)
-    }) */
 
-    // el.addEventListener('click', (e) => {
-    //     // e.stopPropagation()
-    //     console.log('点击标注', item)
-
-    // })
-    // el.addEventListener('mouseout', () => {
-    //     console.log('移出标注')
-    //     // removePopup()
-    // })
-    // el.addEventListener('mouseover', () => {
-    //     /* mainPopupData.value = {
-    //         mpdt0: item.serverpart_name
-    //     } */
-    //     // mapUtils.setPopupCommon(glMap, lonlat, mainPopup) // 首页大屏气泡
-    //     // mapUtils.setPopupCommon(glMap, lonlat, popupConfig.mainPopup(mainPopupData.value.mpdt0)) // 首页大屏气泡
-    // })
+        console.log(item.serverpart_name)
+    })
+    el.addEventListener('mouseout', () => {
+        mapUtils.removePopup('glMap')
+    })
+    el.addEventListener('mouseover', () => {
+        mainPopupData.value = {
+            serverpart_name: item.serverpart_name,
+            region_name: item.region_name,
+            lonlat: `[ ${item.longitude}, ${item.latitude} ]`,
+        }
+        mapUtils.setPopupCommon(glMap, lonlat, popupConfig.mainPopup(mainPopupData.value))
+    })
 
     // 设置标注
     mapUtils.setMarkerCommon(el, lonlat, glMap)
@@ -188,6 +199,7 @@ defineExpose({
 
 <style lang="scss" scoped>
 @import './scss/marker.scss';
+@import './scss/popup.scss';
 
 .map_wrap {
     position: relative;
