@@ -44,7 +44,7 @@ export const createVitePlugins = (viteEnv: ViteEnv): (PluginOption | PluginOptio
     // vitePWA
     VITE_PWA && createVitePwa(viteEnv),
     // 是否生成包预览，分析依赖包大小做优化处理
-    VITE_REPORT && (visualizer({ filename: "stats.html", gzipSize: true, brotliSize: true }) as PluginOption)
+    VITE_REPORT && (visualizer({ filename: "stats.html", gzipSize: true, brotliSize: true, open: true }) as PluginOption)
   ];
 };
 
@@ -88,7 +88,7 @@ const createVitePwa = (viteEnv: ViteEnv): PluginOption | PluginOption[] => {
     manifest: {
       name: VITE_GLOB_APP_TITLE,
       short_name: VITE_GLOB_APP_TITLE,
-      theme_color: "#ffffff",
+      theme_color: "#ffffff"
       /* icons: [
         {
           src: __dirname.split(/[\\/]/).pop() + "/logo1.png",

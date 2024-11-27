@@ -1,6 +1,6 @@
 <template>
   <div class="card content-box">
-    <span class="text">我是AMAP1 🍓🍇🍈🍉</span>
+    <span class="text">我是three2 🍓🍇🍈🍉</span>
     <el-input v-model="value" placeholder="测试缓存"></el-input>
   </div>
 </template>
