@@ -72,6 +72,22 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       chunkSizeWarningLimit: 2000,
       rollupOptions: {
         output: {
+          manualChunks(id) {
+            if (id.includes("node_modules")) {
+              return id.toString().split("node_modules/")[1].split("/")[0].toString();
+            }
+          },
+          chunkFileNames: chunkInfo => {
+            const facadeModuleId = chunkInfo.facadeModuleId
+              ? chunkInfo.facadeModuleId.split("/")
+              : [];
+            const fileName = facadeModuleId[facadeModuleId.length - 2] || "[name]";
+            return `js/${fileName}/[name].[hash].js`;
+          },
+        },
+      }
+      /* rollupOptions: {
+        output: {
           // Static resource classification and packaging
           chunkFileNames: "assets/js/[name]-[hash].js",
           entryFileNames: "assets/js/[name]-[hash].js",
@@ -85,7 +101,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
             return driveLetter + name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, "");
           }
         }
-      }
+      } */
     }
   };
 });
