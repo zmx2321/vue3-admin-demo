@@ -5,7 +5,7 @@
         <div id="glMap" class="gl_map_cont" v-loading="mapLoading"></div>
 
         <!-- 图例 -->
-        <map-lend ref="refLend" @removePopup="mapUtils.removePopup('glMap')" v-if="tabCurrent === '浙江'" />
+        <map-lend ref="refLend" @removePopup="mapUtils.removePopup('glMap')" v-if="tabCurrent === '首页浙江'" />
     </section>
 </template>
 
@@ -29,7 +29,6 @@ const props = defineProps({
 let glMap = null // 地图核心数据
 
 let mapLoading = ref(true)
-const mainPopupData = ref({})
 
 let refLend = ref(null) // 图例
 
@@ -126,10 +125,11 @@ const setImgMarker = (dataList, tab) => {
 
     switch (tab) {
         case '首页浙江':
-            break
             setZjIndexMarker(dataList)
+            break
         case '浙江':
             setZjMarker(dataList)
+            break
     }
 
 
@@ -137,13 +137,15 @@ const setImgMarker = (dataList, tab) => {
 
 const setZjIndexMarker = (dataList) => {
     dataList.forEach((item) => {
+        const popData = popupConfig.zheJiangIndexPopup(item)
+
         switch (item.region_name) {
             case '浙东区域':
             case '浙西区域':
-                setIndexMarkerConfig([item.longitude, item.latitude], 'map0_mksty0', item)
+                setIndexMarkerConfig([item.longitude, item.latitude], 'map0_mksty0', item, popData)
                 break
             default:
-                setIndexMarkerConfig([item.longitude, item.latitude], 'map0_mksty1', item)
+                setIndexMarkerConfig([item.longitude, item.latitude], 'map0_mksty1', item, popData)
                 break
         }
     })
@@ -153,11 +155,11 @@ const setZjMarker = (dataList) => {
     console.log(dataList)
 
     dataList.forEach((item) => {
-        setIndexMarkerConfig([item.longitude, item.latitude], 'map0_mksty1', item)
+        setIndexMarkerConfig([item.longitude, item.latitude], 'map0_mksty1', item, popupConfig.zheJiangPopup(item))
     })
 }
 
-const setIndexMarkerConfig = (lonlat, markerClass, item) => {
+const setIndexMarkerConfig = (lonlat, markerClass, item, popupData) => {
     if (item.latitude <= -90 || item.latitude > 90) {
         // item.latitude = 30
         return
@@ -169,18 +171,14 @@ const setIndexMarkerConfig = (lonlat, markerClass, item) => {
     el.addEventListener('click', (e) => {
         e.stopPropagation()
 
-        console.log(item.serverpart_name)
+        console.log(item)
     })
     el.addEventListener('mouseout', () => {
         mapUtils.removePopup('glMap')
     })
     el.addEventListener('mouseover', () => {
-        mainPopupData.value = {
-            serverpart_name: item.serverpart_name,
-            region_name: item.region_name,
-            lonlat: `[ ${item.longitude}, ${item.latitude} ]`,
-        }
-        mapUtils.setPopupCommon(glMap, lonlat, popupConfig.mainPopup(mainPopupData.value))
+        // mapUtils.setPopupCommon(glMap, lonlat, popupConfig.zheJiangIndexPopup(item))
+        mapUtils.setPopupCommon(glMap, lonlat, popupData)
     })
 
     // 设置标注

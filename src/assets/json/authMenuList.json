@@ -234,6 +234,50 @@
               }
             }
           ]
+        },
+        {
+          "path": "/map/three",
+          "name": "高德地图",
+          "component": "/map/three/index",
+          "meta": {
+            "icon": "Menu",
+            "title": "three",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          },
+          "children": [
+            {
+              "path": "/map/three/three1",
+              "name": "three1",
+              "component": "/map/three/three1/index",
+              "meta": {
+                "icon": "Menu",
+                "title": "three1",
+                "isLink": "",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true
+              }
+            },
+            {
+              "path": "/map/three/three2",
+              "name": "three2",
+              "component": "/map/three/three2/index",
+              "meta": {
+                "icon": "Menu",
+                "title": "three2",
+                "isLink": "",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true
+              }
+            }
+          ]
         }
       ]
     },
