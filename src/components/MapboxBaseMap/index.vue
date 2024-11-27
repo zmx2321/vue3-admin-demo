@@ -142,10 +142,10 @@ const setZjIndexMarker = (dataList) => {
         switch (item.region_name) {
             case '浙东区域':
             case '浙西区域':
-                setIndexMarkerConfig([item.longitude, item.latitude], 'map0_mksty0', item, popData)
+                setIndexMarkerConfig([item.longitude, item.latitude], 'markType0', item, popData)
                 break
             default:
-                setIndexMarkerConfig([item.longitude, item.latitude], 'map0_mksty1', item, popData)
+                setIndexMarkerConfig([item.longitude, item.latitude], 'markType1', item, popData)
                 break
         }
     })
@@ -153,7 +153,7 @@ const setZjIndexMarker = (dataList) => {
 
 const setZjMarker = (dataList) => {
     dataList.forEach((item) => {
-        setIndexMarkerConfig([item.longitude, item.latitude], 'map0_mksty1', item, popupConfig.zheJiangPopup(item))
+        setIndexMarkerConfig([item.longitude, item.latitude], 'markType0', item, popupConfig.zheJiangPopup(item))
     })
 }
 

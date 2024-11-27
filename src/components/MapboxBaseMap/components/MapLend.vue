@@ -86,8 +86,8 @@ const lendConfig = (nodeTxt) => {
   /**
    * 首页大屏图例
    */
-  setLendConfig(nodeTxt, '图例1', '.map0_mksty0')
-  setLendConfig(nodeTxt, '图例2', '.map0_mksty1')
+  setLendConfig(nodeTxt, '图例1', '.markType0')
+  setLendConfig(nodeTxt, '图例2', '.markType1')
 }
 
 /**
