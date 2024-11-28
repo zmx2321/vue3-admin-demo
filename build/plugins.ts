@@ -85,6 +85,9 @@ const createVitePwa = (viteEnv: ViteEnv): PluginOption | PluginOption[] => {
   const { VITE_GLOB_APP_TITLE } = viteEnv;
   return VitePWA({
     registerType: "autoUpdate",
+    workbox: {
+      maximumFileSizeToCacheInBytes: 4 * 1024 * 1024
+    },
     manifest: {
       name: VITE_GLOB_APP_TITLE,
       short_name: VITE_GLOB_APP_TITLE,
