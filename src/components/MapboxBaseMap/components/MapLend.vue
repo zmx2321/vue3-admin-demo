@@ -2,21 +2,11 @@
   <!-- 图例 -->
   <section class="glmap_lend" @click="getLend" id="glmapLend">
     <!-- 图例 -->
-    <ul v-if="currentCompany === 'main'">
-      <li>
+    <ul>
+      <li v-for="(item, index) in lendConfigData" :key="index">
         <dl>
-          <dt>
-            <img src="../mapIco/map0/kx.png" alt="" />
-          </dt>
-          <dd>图例1</dd>
-        </dl>
-      </li>
-      <li>
-        <dl>
-          <dt>
-            <img src="../mapIco/map0/fm.png" alt="" />
-          </dt>
-          <dd>图例2</dd>
+          <dt :class="item.markerClass"></dt>
+          <dd>{{ item.name }}</dd>
         </dl>
       </li>
     </ul>
@@ -26,21 +16,23 @@
 <script setup>
 import { ref } from 'vue'
 
-// 全局变量
-let currentCompany = ref('main')
+const props = defineProps({
+  lendConfigData: {
+    type: Array,
+    default: () => []
+  }
+})
 
 // 自定义事件
 const emit = defineEmits(['removePopup'])
 
-// 返回
-const goBack = () => {
-  console.log('点击标注-返回')
-  // currentCompany.value = 'main'
-}
-
 // 点击显示隐藏
 const toggleLend = (calss) => {
-  // console.log(refLend.value.parentNode)
+  if (calss.indexOf('lend_') !== -1) {
+    console.log(calss)
+    calss = `.${calss.replace(/lend_/g, '')}`
+  }
+
   let dnCls = 'f-dn'
 
   document
@@ -58,6 +50,7 @@ const toggleLend = (calss) => {
 // 配置lend封装
 const setLendConfig = (nodeTxt, txt, nodeDom) => {
   if (nodeTxt === txt) {
+    console.log(nodeTxt, txt, nodeDom)
     toggleLend(nodeDom)
   }
 }
@@ -86,16 +79,10 @@ const lendConfig = (nodeTxt) => {
   /**
    * 首页大屏图例
    */
-  setLendConfig(nodeTxt, '图例1', '.markType0')
-  setLendConfig(nodeTxt, '图例2', '.markType1')
+  props.lendConfigData.forEach((item) => {
+    setLendConfig(nodeTxt, item.name, item.markerClass)
+  })
 }
-
-/**
- * 暴露方法 - 供父组件执行
- */
-defineExpose({
-  goBack
-})
 </script>
 
 <style lang="scss" scoped>
@@ -104,6 +91,7 @@ defineExpose({
   position: absolute;
   bottom: 38px;
   right: 28px;
+  z-index: 1;
 
   ul,
   li,
@@ -145,79 +133,15 @@ defineExpose({
           height: 24px;
           overflow: hidden;
           margin-right: 10px;
-
-          img {
-            width: 100%;
-            height: 100%;
-          }
+          background-size: 100%;
         }
 
         dd {
-          /* position: relative;
-          top: 2px;
-          left: 6px; */
           font-size: 14px;
           color: #adb1bc;
         }
       }
     }
   }
-
-  /* ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 188px;
-
-    li {
-      width: 90px;
-      height: 26px;
-      margin-bottom: 13px;
-      cursor: pointer;
-      text-align: right;
-
-      &:nth-child(even) {
-        margin-right: 0;
-      }
-
-      dl {
-        width: 100%;
-        padding-right: 10px;
-
-        &::after {
-          content: '';
-          display: block;
-          clear: both;
-          height: 0;
-          overflow: hidden;
-          visibility: hidden;
-        }
-
-        dt,
-        dd {
-          float: left;
-        }
-
-        dt {
-          width: 21px;
-          height: 24px;
-          overflow: hidden;
-
-          img {
-            width: 100%;
-            height: 100%;
-          }
-        }
-
-        dd {
-          position: relative;
-          top: 2px;
-          left: 6px;
-          font-size: 14px;
-          color: #adb1bc;
-        }
-      }
-    }
-  } */
 }
 </style>

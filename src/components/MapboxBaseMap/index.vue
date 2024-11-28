@@ -5,7 +5,7 @@
         <div id="glMap" class="gl_map_cont" v-loading="mapLoading"></div>
 
         <!-- 图例 -->
-        <map-lend ref="refLend" @removePopup="mapUtils.removePopup('glMap')" v-if="tabCurrent === '首页浙江'" />
+        <!-- <map-lend ref="refLend" @removePopup="mapUtils.removePopup('glMap')" /> -->
     </section>
 </template>
 
@@ -131,8 +131,6 @@ const setImgMarker = (dataList, tab) => {
             setZjMarker(dataList)
             break
     }
-
-
 }
 
 const setZjIndexMarker = (dataList) => {
@@ -142,10 +140,10 @@ const setZjIndexMarker = (dataList) => {
         switch (item.region_name) {
             case '浙东区域':
             case '浙西区域':
-                setIndexMarkerConfig([item.longitude, item.latitude], 'markType0', item, popData)
+                setIndexMarkerConfig([item.longitude, item.latitude], 'mark_type_0', item, popData)
                 break
             default:
-                setIndexMarkerConfig([item.longitude, item.latitude], 'markType1', item, popData)
+                setIndexMarkerConfig([item.longitude, item.latitude], 'mark_type_1', item, popData)
                 break
         }
     })
@@ -153,7 +151,7 @@ const setZjIndexMarker = (dataList) => {
 
 const setZjMarker = (dataList) => {
     dataList.forEach((item) => {
-        setIndexMarkerConfig([item.longitude, item.latitude], 'markType0', item, popupConfig.zheJiangPopup(item))
+        setIndexMarkerConfig([item.longitude, item.latitude], 'mark_type_0', item, popupConfig.zheJiangPopup(item))
     })
 }
 

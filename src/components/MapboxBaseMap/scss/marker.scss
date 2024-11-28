@@ -4,12 +4,4 @@
   cursor: pointer;
   background-size: cover;
   overflow: hidden;
-
-  &.markType0 {
-    background-image: url('mapIco//map0/kx.png');
-  }
-
-  &.markType1 {
-    background-image: url('mapIco//map0/fm.png');
-  }
 }

@@ -64,6 +64,7 @@ $tabRadius: 5px;
   line-height: 38px;
 
   ul {
+    padding: 0;
     margin-right: $titleMargin;
     background: #305392;
     border-radius: $tabRadius;

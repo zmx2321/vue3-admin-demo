@@ -2,6 +2,8 @@
   <mapbox-base-map ref="refMapBoxBaseMap" :tabCurrent="tabCurrent">
     <tab ref="tabRef" class="map_tab f-fl" :tab-list="tabListData" :current-index="currentIndex" @checkTab="checkTab"
       v-if="tabListData.length !== 0" />
+
+    <map-lend :lendConfigData="lendConfigData" />
   </mapbox-base-map>
 </template>
 
@@ -12,13 +14,17 @@ import MapboxBaseMap from "@/components/MapboxBaseMap/index.vue";
 // api
 import { Map } from "@/api/interface";
 import { getServiceAreaPoint, getGasStationPoint } from "@/api/modules/map";
-
-import Tab from "./components/Tab.vue";
+// 组件
+// import MapLend from './components/MapLend.vue'
+import MapLend from "@/components/MapboxBaseMap/components/MapLend.vue";
+import Tab from "@/components/MapboxBaseMap/components/Tab.vue";
 
 const tabListData = ref(['全国', '首页浙江', '浙江', '上海', '江苏', '新疆', '广西', '四川', '江西']) // 选项卡
 
 let tabCurrent = ref('浙江')// 当前选项卡
 let currentIndex = 0
+
+const lendConfigData = ref([])
 
 const refMapBoxBaseMap = ref(null)
 
@@ -49,9 +55,25 @@ const getMarkerList = async () => {
       break;
     case '首页浙江':
       res = await getServiceAreaPoint();
+      lendConfigData.value = [
+        {
+          name: '图例1',
+          markerClass: 'lend_mark_type_0'
+        },
+        {
+          name: '图例2',
+          markerClass: 'lend_mark_type_1'
+        }
+      ]
       break;
     case '浙江':
       res = await getGasStationPoint();
+      lendConfigData.value = [
+        {
+          name: '图例1',
+          markerClass: 'lend_mark_type_0'
+        }
+      ]
       break;
     case '上海':
       break;
