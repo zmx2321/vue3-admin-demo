@@ -29,7 +29,6 @@ const emit = defineEmits(['removePopup'])
 // 点击显示隐藏
 const toggleLend = (calss) => {
   if (calss.indexOf('lend_') !== -1) {
-    console.log(calss)
     calss = `.${calss.replace(/lend_/g, '')}`
   }
 
@@ -50,7 +49,6 @@ const toggleLend = (calss) => {
 // 配置lend封装
 const setLendConfig = (nodeTxt, txt, nodeDom) => {
   if (nodeTxt === txt) {
-    console.log(nodeTxt, txt, nodeDom)
     toggleLend(nodeDom)
   }
 }
@@ -70,12 +68,10 @@ const getLend = (e) => {
   // 移除气泡
   emit('removePopup')
 
-  // console.log(nodeTxt)
   lendConfig(nodeTxt) // lend配置
 }
 // lend配置 - 显示隐藏
 const lendConfig = (nodeTxt) => {
-  // console.log(nodeTxt)
   /**
    * 首页大屏图例
    */

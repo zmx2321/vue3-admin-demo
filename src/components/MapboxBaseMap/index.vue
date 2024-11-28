@@ -17,7 +17,6 @@ import MapLend from './components/MapLend.vue'
 // 工具
 import * as mapUtils from './mapUtils' // map-core
 import renderMapByCity from './renderMapByCity' // map-render
-import * as popupConfig from './mapData/popupConfig'
 
 const props = defineProps({
     tabCurrent: {
@@ -119,43 +118,7 @@ const indexMapClick = () => {
 /**
  * 地图标注相关
  */
-// 设置图片标注
-const setImgMarker = (dataList, tab) => {
-    // console.log('设置图片标注', dataList, tab)
-
-    switch (tab) {
-        case '首页浙江':
-            setZjIndexMarker(dataList)
-            break
-        case '浙江':
-            setZjMarker(dataList)
-            break
-    }
-}
-
-const setZjIndexMarker = (dataList) => {
-    dataList.forEach((item) => {
-        const popData = popupConfig.zheJiangIndexPopup(item)
-
-        switch (item.region_name) {
-            case '浙东区域':
-            case '浙西区域':
-                setIndexMarkerConfig([item.longitude, item.latitude], 'mark_type_0', item, popData)
-                break
-            default:
-                setIndexMarkerConfig([item.longitude, item.latitude], 'mark_type_1', item, popData)
-                break
-        }
-    })
-}
-
-const setZjMarker = (dataList) => {
-    dataList.forEach((item) => {
-        setIndexMarkerConfig([item.longitude, item.latitude], 'mark_type_0', item, popupConfig.zheJiangPopup(item))
-    })
-}
-
-const setIndexMarkerConfig = (lonlat, markerClass, item, popupData) => {
+const setMarkerConfig = (lonlat, markerClass, item, popupData) => {
     if (item.latitude <= -90 || item.latitude > 90) {
         // item.latitude = 30
         return
@@ -173,7 +136,6 @@ const setIndexMarkerConfig = (lonlat, markerClass, item, popupData) => {
         mapUtils.removePopup('glMap')
     })
     el.addEventListener('mouseover', () => {
-        // mapUtils.setPopupCommon(glMap, lonlat, popupConfig.zheJiangIndexPopup(item))
         mapUtils.setPopupCommon(glMap, lonlat, popupData)
     })
 
@@ -187,7 +149,7 @@ onMounted(() => {
 
 defineExpose({
     initMap,
-    setImgMarker
+    setMarkerConfig
 })
 </script>
 
@@ -205,6 +167,10 @@ defineExpose({
     .gl_map_cont {
         width: 100%;
         height: 100%;
+
+        ::v-deep(.maplibregl-ctrl-bottom-right) {
+            // display: none;
+        }
     }
 }
 </style>
