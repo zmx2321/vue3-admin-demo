@@ -1,0 +1,1 @@
+import{_ as o}from"./plugin-vueexport-helper-DlAUqK2U.js";import{o as e,i as c}from"./index-eXa7AXcn.js";const t={},s={class:"demo_cont"};function n(r,_){return e(),c("section",s,"空页面")}const f=o(t,[["render",n]]);export{f as default};
