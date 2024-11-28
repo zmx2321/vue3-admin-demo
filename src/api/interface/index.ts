@@ -99,4 +99,6 @@ export namespace Test {
 export namespace Map {
   export interface ServiceAreaPoint {}
   export interface GasStationPoint {}
+  export interface ZheJiangPoint {}
+  export interface CityPoint {}
 }

@@ -25,3 +25,15 @@ export const zheJiangPopup = (popupData) => {
     </section >
   )
 }
+
+// 城市点位气泡
+export const cityPopup = (popupData) => {
+  return (
+    <section class="zhe_jiang_popupp">
+      <ElDescriptions title={`坐标: [ ${popupData.longitude}, ${popupData.latitude} ]`} border column={1} class="margin-top" size="small">
+        <ElDescriptionsItem label="id">{popupData.pointId}</ElDescriptionsItem>
+        <ElDescriptionsItem label="省份">{popupData.province}</ElDescriptionsItem>
+      </ElDescriptions>
+    </section >
+  )
+}

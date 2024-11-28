@@ -81,6 +81,8 @@ const renderMap = (val) => {
 // 地图所有事件绑定
 const glMapEvent = () => {
     glMap.on('click', (e) => {
+        console.log('地图点击事件', e.lngLat)
+
         // 点击非layer请求所有数据
         let isOut = e.target.queryRenderedFeatures(e.point).length === 0
         if (isOut) {

@@ -13,7 +13,8 @@ import { ref, onMounted } from "vue";
 import MapboxBaseMap from "@/components/MapboxBaseMap/index.vue";
 // api
 import { Map } from "@/api/interface";
-import { getServiceAreaPoint, getGasStationPoint } from "@/api/modules/map";
+// import { getServiceAreaPoint, getGasStationPoint, getZheJiangPoint } from "@/api/modules/map";
+import * as mapApi from "@/api/modules/map";
 // 组件
 import MapLend from "@/components/MapboxBaseMap/components/MapLend.vue";
 import Tab from "@/components/MapboxBaseMap/components/Tab.vue";
@@ -57,22 +58,29 @@ const getMarkerList = async () => {
     case '全国':
       break;
     case '首页浙江':
-      res = await getServiceAreaPoint();
+      console.log("浙江标注", await mapApi.getZheJiangPoint())
+      res = await mapApi.getServiceAreaPoint();
       break;
     case '浙江':
-      res = await getGasStationPoint();
+      res = await mapApi.getGasStationPoint();
       break;
     case '上海':
+      res = await mapApi.getShangHaiPoint();
       break;
     case '江苏':
+      res = await mapApi.getJiangSuPoint();
       break;
     case '新疆':
+      res = await mapApi.getXinJiangPoint();
       break;
     case '广西':
+      res = await mapApi.getGuangXiPoint();
       break;
     case '四川':
+      res = await mapApi.getSiChuanPoint();
       break;
     case '江西':
+      res = await mapApi.getJiangXiPoint();
       break;
   }
 
@@ -96,6 +104,8 @@ const setImgMarker = (dataList, tab) => {
     case '浙江':
       setZjMarker(dataList)
       break
+    default:
+      setCityMarker(dataList)
   }
 }
 
@@ -129,7 +139,7 @@ const setZjIndexMarker = (dataList) => {
 const setZjMarker = (dataList) => {
   lendConfigData.value = [
     {
-      name: '图例1',
+      name: '图例',
       markerClass: 'lend_mark_type_0'
     }
   ]
@@ -137,6 +147,19 @@ const setZjMarker = (dataList) => {
   dataList.forEach((item) => {
     refMapBoxBaseMap.value.setMarkerConfig([item.longitude, item.latitude], 'mark_type_0', item, popupConfig.zheJiangPopup(item))
     // refMapBoxBaseMap.value.setMarkerConfig([item.longitude, item.latitude], lendConfigData.value[0].markerClass.replace(/lend_/g, ''), item, popupConfig.zheJiangPopup(item))
+  })
+}
+
+const setCityMarker = (dataList) => {
+  lendConfigData.value = [
+    {
+      name: '图例',
+      markerClass: 'lend_mark_type_0'
+    }
+  ]
+
+  dataList.forEach((item) => {
+    refMapBoxBaseMap.value.setMarkerConfig([item.longitude, item.latitude], 'mark_type_0', item, popupConfig.cityPopup(item))
   })
 }
 

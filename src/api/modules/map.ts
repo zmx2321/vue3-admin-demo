@@ -12,3 +12,38 @@ export const getServiceAreaPoint = () => {
 export const getGasStationPoint = () => {
     return http.get<Map.GasStationPoint>(`${base}/map/point/getGasStationPoint`, {}, { loading: false });
 };
+
+// 浙江点位
+export const getZheJiangPoint = () => {
+    return http.get<Map.ZheJiangPoint>(`${base}/map/point/getZheJiangPoint`, {}, { loading: false });
+};
+
+// 上海点位
+export const getShangHaiPoint = () => {
+    return http.get<Map.CityPoint>(`${base}/map/point/getShangHaiPoint`, {}, { loading: false });
+};
+
+// 江苏点位
+export const getJiangSuPoint = () => {
+    return http.get<Map.CityPoint>(`${base}/map/point/getJiangSuPoint`, {}, { loading: false });
+};
+
+// 新疆点位
+export const getXinJiangPoint = () => {
+    return http.get<Map.CityPoint>(`${base}/map/point/getXinJiangPoint`, {}, { loading: false });
+};
+
+// 江西点位
+export const getJiangXiPoint = () => {
+    return http.get<Map.CityPoint>(`${base}/map/point/getJiangXiPoint`, {}, { loading: false });
+};
+
+// 广西点位
+export const getGuangXiPoint = () => {
+    return http.get<Map.CityPoint>(`${base}/map/point/getGuangXiPoint`, {}, { loading: false });
+};
+
+// 四川点位
+export const getSiChuanPoint = () => {
+    return http.get<Map.CityPoint>(`${base}/map/point/getSiChuanPoint`, {}, { loading: false });
+};
