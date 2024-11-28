@@ -4,6 +4,7 @@
 import maplibregl from 'maplibre-gl'
 
 import { glMapConfigDev } from './mapData/mapConfig' // config
+import { render } from 'vue';
 
 /** ****************************
  * 地图供出方法 - 初始化地图
@@ -80,7 +81,6 @@ export const addMapLayer = (map, geoData, idName, color, opacity) => {
     type: 'line',
     source: idName,
     layout: {},
-    // eslint-disable-next-line no-dupe-keys
     layout: {
       'line-join': 'round',
       'line-cap': 'round'
@@ -104,7 +104,13 @@ export const setMarkerCommon = (el, lonlat, map, popup) => {
   }
 }
 // 设置气泡
-export const setPopupCommon = (map, linlat, inner) => new maplibregl.Popup({ closeOnClick: true }).setLngLat(linlat).setHTML(inner).addTo(map)
+// export const setPopupCommon = (map, linlat, inner) => new maplibregl.Popup({ closeOnClick: true }).setLngLat(linlat).setHTML(inner).addTo(map)
+export const setPopupCommon = (map, linlat, inner) => {
+  new maplibregl.Popup({ closeOnClick: true }).setLngLat(linlat).setHTML(`<div id="popup" class="popupp_wrap"></div>`).addTo(map)
+
+  // jsx
+  render(inner, document.querySelector('#popup'))
+}
 
 
 /** ****************************

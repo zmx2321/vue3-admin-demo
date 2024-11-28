@@ -18,7 +18,7 @@ import { getServiceAreaPoint, getGasStationPoint } from "@/api/modules/map";
 import MapLend from "@/components/MapboxBaseMap/components/MapLend.vue";
 import Tab from "@/components/MapboxBaseMap/components/Tab.vue";
 // data
-import * as popupConfig from './mapData/popupConfig'
+import * as popupConfig from './mapData/popupConfig.jsx'
 
 const tabListData = ref(['全国', '首页浙江', '浙江', '上海', '江苏', '新疆', '广西', '四川', '江西']) // 选项卡
 
@@ -75,6 +75,8 @@ const getMarkerList = async () => {
     case '江西':
       break;
   }
+
+  refMapBoxBaseMap.value.setMapLoading(false)
 
   if (res) {
     setImgMarker(res.data, tabCurrent.value)

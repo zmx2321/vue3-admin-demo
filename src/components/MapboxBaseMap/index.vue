@@ -3,9 +3,6 @@
         <slot></slot>
 
         <div id="glMap" class="gl_map_cont" v-loading="mapLoading"></div>
-
-        <!-- 图例 -->
-        <!-- <map-lend ref="refLend" @removePopup="mapUtils.removePopup('glMap')" /> -->
     </section>
 </template>
 
@@ -30,6 +27,13 @@ let glMap = null // 地图核心数据
 let mapLoading = ref(true)
 
 let refLend = ref(null) // 图例
+
+/**
+ * tools
+ */
+const setMapLoading = flag => {
+    mapLoading.value = flag
+}
 
 /**
  * map init
@@ -58,7 +62,7 @@ const initMapConfig = (next) => {
 }
 // 加载地图
 const initMap = (val) => {
-    mapLoading.value = true
+    setMapLoading(true)
 
     if (!val) {
         val = props.tabCurrent
@@ -71,7 +75,7 @@ const renderMap = (val) => {
     initMapConfig(() => {
         glMap = renderMapByCity(val)
 
-        mapLoading.value = false
+        // mapLoading.value = false
     })
 }
 // 地图所有事件绑定
@@ -149,7 +153,8 @@ onMounted(() => {
 
 defineExpose({
     initMap,
-    setMarkerConfig
+    setMarkerConfig,
+    setMapLoading
 })
 </script>
 
