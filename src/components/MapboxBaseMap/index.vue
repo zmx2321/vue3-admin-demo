@@ -18,7 +18,7 @@ import renderMapByCity from './renderMapByCity' // map-render
 const props = defineProps({
     tabCurrent: {
         type: String,
-        default: ''
+        default: '浙江'
     }
 })
 

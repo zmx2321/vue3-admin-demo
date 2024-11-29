@@ -1,5 +1,5 @@
 <template>
-  <mapbox-base-map ref="refMapBoxBaseMap" :tabCurrent="tabCurrent">
+  <mapbox-base-map ref="refMapBoxBaseMap" :tabCurrent="'首页浙江'">
 
     <map-lend :lendConfigData="lendConfigData" />
   </mapbox-base-map>
@@ -21,12 +21,12 @@ const lendConfigData = ref([])
 
 const refMapBoxBaseMap = ref(null)
 
-
 // 获取标注列表
 const getMarkerList = async () => {
   lendConfigData.value = []
 
   let res = await mapApi.getGasStationPoint();
+  // console.log("浙江标注", await mapApi.getZheJiangPoint())
 
   refMapBoxBaseMap.value.setMapLoading(false)
 

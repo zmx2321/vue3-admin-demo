@@ -41,10 +41,8 @@ const getMarkerList = async () => {
       res = {
         data: getData(await mapApi.getShangHaiPoint()).concat(getData(await mapApi.getJiangSuPoint())).concat(getData(await mapApi.getXinJiangPoint())).concat(getData(await mapApi.getGuangXiPoint())).concat(getData(await mapApi.getSiChuanPoint())).concat(getData(await mapApi.getJiangXiPoint()))
       }
-      console.log('全国标注', res)
       break;
     case '首页浙江':
-      console.log("浙江标注", await mapApi.getZheJiangPoint())
       res = await mapApi.getServiceAreaPoint();
       break;
     case '浙江':

@@ -72,7 +72,7 @@ export default function renderMapByCity(val) {
                 console.log('江西 - 点击文字标注', name)
             })
         default:
-            return initMapByCity(zhejiangGeo, {}, 'zhejiang')
+        // return initMapByCity(zhejiangGeo, {}, 'zhejiang')
     }
 }
 
