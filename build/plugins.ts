@@ -10,6 +10,11 @@ import eslintPlugin from "vite-plugin-eslint";
 import viteCompression from "vite-plugin-compression";
 import vueSetupExtend from "unplugin-vue-setup-extend-plus/vite";
 import NextDevTools from "vite-plugin-vue-devtools";
+// amap
+// import AutoImport from 'unplugin-auto-import/vite'
+// import Components from 'unplugin-vue-components/vite'
+// import {VueAmapResolver} from '@vuemap/unplugin-resolver'
+
 
 /**
  * 创建 vite 插件
@@ -44,7 +49,17 @@ export const createVitePlugins = (viteEnv: ViteEnv): (PluginOption | PluginOptio
     // vitePWA
     VITE_PWA && createVitePwa(viteEnv),
     // 是否生成包预览，分析依赖包大小做优化处理
-    VITE_REPORT && (visualizer({ filename: "stats.html", gzipSize: true, brotliSize: true, open: true }) as PluginOption)
+    VITE_REPORT && (visualizer({ filename: "stats.html", gzipSize: true, brotliSize: true, open: true }) as PluginOption),
+    // AutoImport({
+    //   resolvers: [ElementPlusResolver({
+    //     exclude: /^ElAmap[A-Z]*/
+    //   }),VueAmapResolver()],
+    // }),
+    // Components({
+    //   resolvers: [ElementPlusResolver({
+    //     exclude: /^ElAmap[A-Z]*/
+    //   }),VueAmapResolver()],
+    // }),
   ];
 };
 
