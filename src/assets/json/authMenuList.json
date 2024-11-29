@@ -162,6 +162,20 @@
           },
           "children": [
             {
+              "path": "/map/mapbox/mapbox0",
+              "name": "mapbox0",
+              "component": "/map/mapbox/mapbox0/index",
+              "meta": {
+                "icon": "Menu",
+                "title": "mapbox0",
+                "isLink": "",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true
+              }
+            },
+            {
               "path": "/map/mapbox/mapbox1",
               "name": "mapbox1",
               "component": "/map/mapbox/mapbox1/index",

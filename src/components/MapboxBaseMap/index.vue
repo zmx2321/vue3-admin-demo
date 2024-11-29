@@ -50,6 +50,7 @@ const resetMap = (next) => {
         next()
     }
 }
+
 // 初始化地图
 const initMapConfig = (next) => {
     resetMap(() => {
@@ -60,6 +61,7 @@ const initMapConfig = (next) => {
         glMapEvent() // 地图所有事件绑定
     })
 }
+
 // 加载地图
 const initMap = (val) => {
     setMapLoading(true)
@@ -70,14 +72,14 @@ const initMap = (val) => {
 
     renderMap(val)
 }
+
 // 渲染地图
 const renderMap = (val) => {
     initMapConfig(() => {
         glMap = renderMapByCity(val)
-
-        // mapLoading.value = false
     })
 }
+
 // 地图所有事件绑定
 const glMapEvent = () => {
     glMap.on('click', (e) => {
