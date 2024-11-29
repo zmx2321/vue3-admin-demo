@@ -75,7 +75,7 @@ const setGeoJsonLayer = (aMap, geoData, color, event, next) => {
 
 // 设置地图图层(点、线、面、geojson等)
 const setMapLayer = (aMap) => {
-  console.log('设置地图图层(点、线、面、geojson等)')
+  // console.log('设置地图图层(点、线、面、geojson等)')
 
   const chongQingGeo = refAMapBaseMap.value.getGeoJson('重庆')
   getcityArray(chongQingGeo)  // 获取城市列表
@@ -141,7 +141,7 @@ const selectName = (val) => {
 
 // 渲染geo
 const setMapByGeoData = (aMap, geoData) => {
-  console.log(aMap, geoData)
+  // console.log(aMap, geoData)
 
   // 初始化geojson，获取geojson地图对象
   // setGeoJsonLayer(aMap, geoData, "#f00", 'click', (e, iterator) => {

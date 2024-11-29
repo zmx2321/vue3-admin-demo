@@ -66,7 +66,7 @@ const setMapControl = (aMap) => {
     aMap.addControl(scale);
 
     // 定位
-    const locate = new AMap.Geolocation({
+    /* const locate = new AMap.Geolocation({
         position: 'RB',
         offset: [10, 20],
         showCircle: false,
@@ -74,7 +74,7 @@ const setMapControl = (aMap) => {
         showButton: true,
         zoomToAccuracy: true,
     });
-    aMap.addControl(locate);
+    aMap.addControl(locate); */
 }
 
 // 设置地图图层(点、线、面、geojson等
