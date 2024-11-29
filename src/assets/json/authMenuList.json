@@ -336,6 +336,20 @@
             "isAffix": false,
             "isKeepAlive": true
           }
+        },
+        {
+          "path": "/business/richText",
+          "name": "富文本",
+          "component": "/business/richText/index",
+          "meta": {
+            "icon": "Menu",
+            "title": "富文本",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
         }
       ]
     },
