@@ -4,7 +4,7 @@
             <slot></slot>
         </div>
 
-        <el-amap :center="center" :zoom="zoom" @init="initMap" />
+        <el-amap ref="refAmap" :center="center" :zoom="zoom" @init="initMap" @click="handleClickMap" />
     </section>
 </template>
 
@@ -15,6 +15,22 @@ import { ElAmap } from "@vuemap/vue-amap";
 import * as mapUtils from './mapUtils' // map-core
 // geoData
 import chongQingGeo from './mapData/geoData/chongQing.json' // 重庆
+
+/* import {ElAmap, useCitySearch ,lazyAMapApiLoaderInstance} from "@vuemap/vue-amap";
+
+const center = ref<number[]>(null)
+
+onBeforeMount(() => {
+  lazyAMapApiLoaderInstance.then(() => {
+    useCitySearch().then(res => {
+      const {getLocalCity} = res;
+      getLocalCity().then(cityResult => {
+        center.value = cityResult.bounds.getCenter().toArray()
+        console.log('cityResult: ', cityResult)
+      })
+    })
+  })
+}) */
 
 const emit = defineEmits(['setMapLayer'])
 
@@ -29,18 +45,18 @@ const props = defineProps({
     },
 })
 
-let aMap = null
+const refAmap = ref(null)
 
 // 初始化地图
-const initMap = (map) => {
-    aMap = map  // 保存地图实例
+const initMap = (aMap) => {
+    console.log('地图实例', aMap === refAmap.value.$$getInstance(), aMap)
 
     setMapControl(aMap)  // 设置地图控件
 
     // getGeoJson()  // 获取GeoJson数据
     setMapLayer(aMap)  // 设置地图图层(点、线、面、geojson等)
 
-    setMapEvent(aMap)  // 设置地图事件
+    setMapEvent(aMap)  // 设置地图事件 - 点击事件单独提取
 }
 
 // 设置地图控件
@@ -92,18 +108,26 @@ const setMapEvent = (aMap) => {
         // console.log(aMap.getCanvasLayer())
     })
 
-    // 点击
+    /* // 点击
     aMap.on('click', e => {
         // console.log("地图点击事件", e)
 
         // 地图坐标
         mapUtils.getPosition(e)
-    })
+    }) */
 
     // 移动
     aMap.on('moveend', () => {
         // mapUtils.logMapinfo(aMap)
     })
+}
+
+// 地图点击事件
+const handleClickMap = (e) => {
+    // console.log('地图点击事件')
+
+    // 地图坐标
+    mapUtils.getPosition(e)
 }
 
 /**

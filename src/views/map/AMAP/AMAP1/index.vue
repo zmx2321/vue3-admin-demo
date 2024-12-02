@@ -26,7 +26,8 @@ const originCenter = ref([107.943579, 30.131735])  // 原始中心点
      */
 // 初始化geojson配置，返回面
 const initGeojsonLayer = (data, fillColor) => {
-  return new AMap.GeoJSON({
+  console.log(data)
+  /* return new AMap.GeoJSON({
     // 要加载的标准GeoJSON对象
     geoJSON: data,
 
@@ -51,16 +52,18 @@ const initGeojsonLayer = (data, fillColor) => {
         strokeOpacity: 1, //线透明度
       });
     }
-  })
+  }) */
 }
 
 // 初始化geojson并绑定事件
 const setGeoJsonLayer = (aMap, geoData, color, event, next) => {
+  console.log('aaaaa', AMap.GeoJSON)
+  // console.log('初始化geojson并绑定事件', aMap, geoData, color, event, next)
   // 获取第一层geojson地图对象
-  let geojsonLayer = initGeojsonLayer(geoData, color)
+  // let geojsonLayer = initGeojsonLayer(geoData, color)
 
   // 第一层地图对象触发事件 - 初始化geojson并在地图上渲染
-  geojsonLayer.setMap(aMap);
+  // geojsonLayer.setMap(aMap);
 
   // 遍历第一层地图对象遮罩层
   /* geojsonLayer.eachOverlay(iterator => {
@@ -144,18 +147,18 @@ const setMapByGeoData = (aMap, geoData) => {
   // console.log(aMap, geoData)
 
   // 初始化geojson，获取geojson地图对象
-  // setGeoJsonLayer(aMap, geoData, "#f00", 'click', (e, iterator) => {
-  //   /* this.toChongqing()
+  setGeoJsonLayer(aMap, geoData, "#f00", 'click', (e, iterator) => {
+    /* this.toChongqing()
 
-  //   // 给当前面添加事件
-  //   this.getGeoEvent(e, iterator, geojsonItem => {
-  //     // 处理业务流程
-  //     // console.log("处理geojson业务流程")
+    // 给当前面添加事件
+    this.getGeoEvent(e, iterator, geojsonItem => {
+      // 处理业务流程
+      // console.log("处理geojson业务流程")
 
-  //     // 使用重庆geojson示例
-  //     this.getChonQingData(geojsonItem)
-  //   }) */
-  // })
+      // 使用重庆geojson示例
+      this.getChonQingData(geojsonItem)
+    }) */
+  })
 }
 
 const toChongqing = () => {
