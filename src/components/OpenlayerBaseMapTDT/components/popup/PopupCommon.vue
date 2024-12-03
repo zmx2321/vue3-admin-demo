@@ -7,10 +7,8 @@
   </div>
 
   <!-- 气泡详情弹窗 -->
-  <!-- gis页面 -->
-  <!-- <gis-popup-detail-dialog ref="refGisPopupDetailDialog" /> -->
-  <!-- 投诉页面 -->
-  <!-- <complain-popup-detail-dialog ref="refComplainPopupDetailDialog" /> -->
+  <!-- demo页面 -->
+  <demo-popup-detail-dialog ref="refDemoPopupDetailDialog" />
 </template>
 
 <script setup lang="jsx">
@@ -18,21 +16,18 @@
 import { nextTick, ref, h, render } from "vue";
 // map data
 import * as popupInner from "./popupInner";
-// import { gisDataStore } from '@/store/modules/gis.js'  // store
 // map core
 import * as mapUtils from "../../mapUtils.js";
 // 组件传参
 import mittBus from "@/utils/mittBus"; // mitt
 // 组件
-// import GisPopupDetailDialog from "@/views/gis/components/popup/GisPopupDetailDialog.vue";
-// import ComplainPopupDetailDialog from "@/views/complain/components/popup/ComplainPopupDetailDialog.vue";
+import DemoPopupDetailDialog from "@/views/map/openlayer/openlayer-tdt/demo/components/popup/DemoPopupDetailDialog.vue";
 
 // 如果popup不设置overflow的话,会在左下角显示,这里在一开始进行隐藏
 let isShowPopup = ref(false);
 let currentPopupObj = {};
 
-let refGisPopupDetailDialog = ref(null);
-let refComplainPopupDetailDialog = ref(null);
+let refDemoPopupDetailDialog = ref(null);
 
 // const { setCurrentPopupData } = gisDataStore()
 
@@ -93,18 +88,13 @@ const setPopupBackDom = (inner) => {
 
 // 显示气泡弹出窗
 const showPopupDialog = (popupData, currentPageType) => {
-  // console.log(currentPageType);
+  console.log(popupData, currentPageType);
 
   // 弹出相对应气泡窗
   switch (currentPageType) {
-    case "gis":
+    case "demo":
       nextTick(() => {
-        refGisPopupDetailDialog.value.show(popupData);
-      });
-      break;
-    case "complain":
-      nextTick(() => {
-        refComplainPopupDetailDialog.value.show(popupData);
+        refDemoPopupDetailDialog.value.show(popupData);
       });
       break;
   }

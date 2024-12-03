@@ -2,8 +2,7 @@
   <section class="lend_wrap" v-show="isShowLend">
     <div class="lent_tb_wrap" v-show="toggleFlag">
       <!-- 显示具体页面图例 -->
-      <!-- <gis-lend v-show="currentPageType === 'gis'" /> -->
-      <!-- <complain-lend v-show="currentPageType === 'complain'" /> -->
+      <demo-lend v-show="currentPageType === 'demo'" />
     </div>
     <div class="toggle" :title="`点击${!toggleFlag ? '显示' : '隐藏'}图例`" @click="toggleLend"></div>
   </section>
@@ -11,8 +10,7 @@
 
 <script setup>
 import { ref } from "vue";
-// import GisLend from "@/views/gis/components/lend/index.vue";
-// import ComplainLend from "@/views/complain/components/lend/index.vue";
+import DemoLend from "@/views/map/openlayer/openlayer-tdt/demo/components/lend/index.vue";
 
 import mittBus from "@/utils/mittBus"; // mitt
 
@@ -45,8 +43,8 @@ $bgColorBody: rgba(24, 102, 237, 0.4);
 
 .lend_wrap {
   position: fixed;
-  bottom: 56px;
-  right: 30px;
+  bottom: 88px;
+  right: 58px;
 
   ::v-deep(.el-table) {
     cursor: pointer;

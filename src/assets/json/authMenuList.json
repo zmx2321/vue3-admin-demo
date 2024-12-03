@@ -84,6 +84,20 @@
                     "isAffix": false,
                     "isKeepAlive": false
                   }
+                },
+                {
+                  "path": "/map/openlayer/openlayer-tdt/demo",
+                  "name": "案例",
+                  "component": "/map/openlayer/openlayer-tdt/demo/index",
+                  "meta": {
+                    "icon": "Menu",
+                    "title": "案例",
+                    "isLink": "",
+                    "isHide": false,
+                    "isFull": false,
+                    "isAffix": false,
+                    "isKeepAlive": false
+                  }
                 }
               ]
             },
