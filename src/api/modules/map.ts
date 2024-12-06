@@ -47,3 +47,8 @@ export const getGuangXiPoint = () => {
 export const getSiChuanPoint = () => {
     return http.get<Map.CityPoint>(`${base}/map/point/getSiChuanPoint`, {}, { loading: false });
 };
+
+// 渲染宁波测试数据
+export const renderNbTestData = () => {
+    return http.get<Map.CityPoint>(`${base}/map/point/renderNbTestData`, {}, { loading: false });
+};

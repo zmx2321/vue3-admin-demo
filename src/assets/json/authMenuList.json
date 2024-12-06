@@ -32,7 +32,6 @@
         {
           "path": "/map/openlayer",
           "name": "openlayer",
-          "component": "/map/openlayer/index",
           "meta": {
             "icon": "Menu",
             "title": "openlayer",
@@ -59,7 +58,7 @@
               "children": [
                 {
                   "path": "/map/openlayer/openlayer-tdt/empty",
-                  "name": "初始化地图",
+                  "name": "初始化地图-天地图",
                   "component": "/map/openlayer/openlayer-tdt/empty/index",
                   "meta": {
                     "icon": "Menu",
@@ -73,7 +72,7 @@
                 },
                 {
                   "path": "/map/openlayer/openlayer-tdt/test",
-                  "name": "测试",
+                  "name": "测试-天地图",
                   "component": "/map/openlayer/openlayer-tdt/test/index",
                   "meta": {
                     "icon": "Menu",
@@ -104,7 +103,7 @@
             {
               "path": "/map/openlayer/openlayer-gd",
               "name": "openlayer-高德",
-              "component": "/map/openlayer/openlayer-gd/index",
+              "component": "/map/openlayer/openlayer-gd",
               "meta": {
                 "icon": "Menu",
                 "title": "openlayer-高德",
@@ -113,7 +112,37 @@
                 "isFull": false,
                 "isAffix": false,
                 "isKeepAlive": false
-              }
+              },
+              "children": [
+                {
+                  "path": "/map/openlayer/openlayer-gd/empty",
+                  "name": "初始化地图-高德",
+                  "component": "/map/openlayer/openlayer-gd/empty/index",
+                  "meta": {
+                    "icon": "Menu",
+                    "title": "初始化地图",
+                    "isLink": "",
+                    "isHide": false,
+                    "isFull": false,
+                    "isAffix": false,
+                    "isKeepAlive": false
+                  }
+                },
+                {
+                  "path": "/map/openlayer/openlayer-gd/demo",
+                  "name": "案例-高德",
+                  "component": "/map/openlayer/openlayer-gd/demo/index",
+                  "meta": {
+                    "icon": "Menu",
+                    "title": "案例",
+                    "isLink": "",
+                    "isHide": false,
+                    "isFull": false,
+                    "isAffix": false,
+                    "isKeepAlive": false
+                  }
+                }
+              ]
             }
           ]
         },
