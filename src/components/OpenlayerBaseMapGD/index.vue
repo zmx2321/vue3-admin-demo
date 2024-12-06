@@ -1,5 +1,5 @@
 <template>
-  <section class="ol_map_wrap" v-if="env === 'development'">
+  <section class="ol_map_wrap">
     <!-- 插槽 -->
     <slot></slot>
 
@@ -37,16 +37,12 @@
     <!-- 切换天地图token 弹窗 -->
     <set-token-dialog ref="refSetTokenDialog" />
   </section>
-  <section v-else>
-    天地图服务暂不可用,即将跳转高德地图服务页面！
-  </section>
 </template>
 
 <script setup name="gis">
 // vue - core
 import { ref, onMounted, defineEmits, nextTick } from "vue";
 import { getCurrentInstance } from 'vue';
-import { useRoute, useRouter } from "vue-router";
 // map - core
 import * as mapUtils from "./mapUtils.js";
 import menuUtils from './menuUtils.js'
@@ -100,9 +96,6 @@ const props = defineProps({
 
 const { proxy } = getCurrentInstance();
 
-const router = useRouter();
-
-const env = import.meta.env.VITE_USER_NODE_ENV
 let myOlMap = null;
 
 const refPopupCommon = ref(null);
@@ -810,12 +803,6 @@ const addArrowLine = (olMap, position, src, businessType) => {
 
 // 初始化地图
 const resetOlMap = () => {
-  if (env !== 'development') {
-    let timer = setTimeout(() => {
-      router.push('/map/openlayer/openlayer-gd')
-      clearTimeout(timer)
-    }, 5000);
-  }
   // console.log("地图初始化");
   /* if (myOlMap) {
     mapUtils.destroyMap(myOlMap)
