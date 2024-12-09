@@ -14,7 +14,8 @@ export interface CustomAxiosRequestConfig extends InternalAxiosRequestConfig {
   cancel?: boolean;
 }
 
-export const myApi = import.meta.env.VITE_MYAPI_URL
+export const zmxApi = import.meta.env.VITE_ZMXAPI_URL
+export const myTestApi = import.meta.env.VITE_MYTESTAPI_URL
 
 const config = {
   // 默认地址请求地址，可在 .env.** 文件中修改

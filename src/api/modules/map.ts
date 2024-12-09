@@ -1,7 +1,7 @@
 import { Map } from "@/api/interface/index";
-import http, { myApi } from "@/api";
+import http, { zmxApi } from "@/api";
 
-const base = `../${myApi}`
+const base = `../${zmxApi}`
 
 // 服务区点位
 export const getServiceAreaPoint = () => {
