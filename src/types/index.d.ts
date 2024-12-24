@@ -1,0 +1,1 @@
+declare module "@/../lib/vform/render.umd.js"

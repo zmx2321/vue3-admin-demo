@@ -29,7 +29,8 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       alias: {
         "@": resolve(__dirname, "./src"),
         "vue-i18n": "vue-i18n/dist/vue-i18n.cjs.js"
-      }
+      },
+      extensions: ['.js', '.vue', '.json', '.ts']  //使用路径别名时想要省略的后缀名，可以自己增减
     },
     define: {
       __APP_INFO__: JSON.stringify(__APP_INFO__)
@@ -54,6 +55,9 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     esbuild: {
       pure: viteEnv.VITE_DROP_CONSOLE ? ["console.log", "debugger"] : []
     },
+    /* optimizeDeps: {
+      include: ['@/../lib/vform/render.umd.js']  //此处路径必须跟main.js中import路径完全一致！
+    }, */
     build: {
       // outDir: "dist",
       minify: "esbuild",
@@ -86,6 +90,9 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
             return driveLetter + name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, "");
           }
         }
+      },
+      commonjsOptions: {
+        include: /node_modules|lib/  //这里记得把lib目录加进来，否则生产打包会报错！！
       }
     }
   };
