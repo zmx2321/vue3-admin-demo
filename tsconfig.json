@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "ignoreDeprecations": "5.0", // 忽略已弃用警告
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
@@ -40,3 +41,5 @@
   ],
   "exclude": ["node_modules", "dist", "**/*.js"]
 }
+
+// tsconfig.json
