@@ -51,6 +51,9 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       proxy: createProxy(viteEnv.VITE_PROXY)
     },
     plugins: createVitePlugins(viteEnv),
+    /* optimizeDeps: {
+      include: ['@/../lib/vform/designer.umd.js', '@/../lib/vform/render.umd.js'] //此处路径必须跟main.js中import路径完全一致！
+    }, */
     esbuild: {
       pure: viteEnv.VITE_DROP_CONSOLE ? ["console.log", "debugger"] : []
     },
@@ -58,6 +61,9 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       // outDir: "dist",
       minify: "esbuild",
       outDir: __dirname.split(/[\\/]/).pop(),
+      commonjsOptions: {
+        include: /node_modules|lib/
+      },
       // esbuild 打包更快，但是不能去除 console.log，terser打包慢，但能去除 console.log
       // minify: "terser",
       // terserOptions: {

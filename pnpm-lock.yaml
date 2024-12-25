@@ -83,9 +83,15 @@ dependencies:
   sortablejs:
     specifier: ^1.15.2
     version: 1.15.4
+  typescript:
+    specifier: ^5.5.2
+    version: 5.7.2
   unplugin-vue-components:
     specifier: ^0.27.5
     version: 0.27.5(rollup@2.79.2)(vue@3.5.13)
+  vform3-builds:
+    specifier: ^3.0.10
+    version: 3.0.10
   vue:
     specifier: ^3.4.31
     version: 3.5.13(typescript@5.7.2)
@@ -199,9 +205,6 @@ devDependencies:
   stylelint-config-standard-scss:
     specifier: ^13.1.0
     version: 13.1.0(postcss@8.4.49)(stylelint@16.10.0)
-  typescript:
-    specifier: ^5.5.2
-    version: 5.7.2
   unplugin-vue-setup-extend-plus:
     specifier: ^1.0.1
     version: 1.0.1
@@ -9430,6 +9433,10 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
     dev: true
+
+  /vform3-builds@3.0.10:
+    resolution: {integrity: sha512-sULNk72Z6NG94X9MMgpBwinaIOYjtl7Bn5jZbV9iZaglSYr2SHm/wpXPAjl8F8OW6SzOOJgIpRek+NvOvN7wsg==}
+    dev: false
 
   /vite-hot-client@0.2.3(vite@5.4.11):
     resolution: {integrity: sha512-rOGAV7rUlUHX89fP2p2v0A2WWvV3QMX2UYq0fRqsWSvFvev4atHWqjwGoKaZT1VTKyLGk533ecu3eyd0o59CAg==}

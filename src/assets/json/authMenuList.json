@@ -393,6 +393,20 @@
             "isAffix": false,
             "isKeepAlive": true
           }
+        },
+        {
+          "path": "/business/VForm3Designer",
+          "name": "表单设计器",
+          "component": "/business/VForm3Designer/index",
+          "meta": {
+            "icon": "Menu",
+            "title": "表单设计器",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
         }
       ]
     },
