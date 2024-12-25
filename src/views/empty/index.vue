@@ -1,7 +1,12 @@
 <template>
   <section class="empty-page">
-    <div class="inner inner1">{{ currentData }}</div>
-    <div class="inner inner2"></div>
+    <div class="inner inner1">
+      <input type="text" v-model="text" placeholder="请输入">
+      <p>{{ text }}</p>
+    </div>
+    <div class="inner inner2">
+      {{ currentData }}
+    </div>
   </section>
 </template>
 <script setup lang="ts" name="useTreeFilter">
@@ -11,6 +16,11 @@ import { User } from "@/api/interface";
 import { Test } from "@/api/interface";
 import { getUserList } from "@/api/modules/user";
 import { getMockTest } from "@/api/modules/test";
+// refUtil
+import { debounceRef, myRef } from "@/utils/refUtils";
+
+const text = debounceRef("");
+// const text = myRef("");
 
 let currentData = ref([]);
 const getList = async () => {
