@@ -1,8 +1,12 @@
 <template>
   <el-dialog class="my_dialog" :title="reportName" width="1280" v-model="showDialog">
     <div class="vform-design-wrap relative">
+<<<<<<< HEAD
       <v-form-render :form-json="formJson" :form-data="formData" :option-data="optionData"
         ref="vFormRenderRef"></v-form-render>
+=======
+      <v-form-render :form-json="formJson" :form-data="formData" :option-data="optionData" ref="vFormRenderRef"></v-form-render>
+>>>>>>> 8a244b03a1608c909fdc169a6ec29b6202e9a0ca
       <!-- <div style="position: absolute; left: 0; right: 0; top: 0; bottom: 0"></div> -->
     </div>
 
@@ -124,12 +128,20 @@ defineExpose({ show })
   border: 1px solid #f4f5fe;
   padding: 20px;
   overflow-y: scroll;
+<<<<<<< HEAD
 
   ::v-deep(.float-right.external-link) {
     display: none;
   }
 
   ::v-deep(.el-header.main-header) {
+=======
+  :deep .float-right.external-link {
+    display: none;
+  }
+
+  :deep .el-header.main-header {
+>>>>>>> 8a244b03a1608c909fdc169a6ec29b6202e9a0ca
     display: none;
   }
 }

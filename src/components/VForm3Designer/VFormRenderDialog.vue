@@ -1,8 +1,12 @@
 <template>
   <el-dialog class="my_dialog" title="表单设计" width="1280" v-model="showDialog">
     <div class="vform-design-wrap">
-      <v-form-render :form-json="formJson" :form-data="formData" :option-data="optionData"
+      <<<<<<< HEAD <v-form-render :form-json="formJson" :form-data="formData" :option-data="optionData"
         ref="vFormRenderRef"></v-form-render>
+        =======
+        <v-form-render :form-json="formJson" :form-data="formData" :option-data="optionData"
+          ref="vFormRenderRef"></v-form-render>
+        >>>>>>> 8a244b03a1608c909fdc169a6ec29b6202e9a0ca
     </div>
   </el-dialog>
 </template>
