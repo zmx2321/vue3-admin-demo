@@ -120,7 +120,7 @@ const reflashMap = () => {
 }
 
 .map_search_wrap {
-  :deep .el-tabs__header {
+  ::v-deep(.el-tabs__header) {
     z-index: 0;
 
     .el-tabs__nav-wrap {
@@ -130,7 +130,7 @@ const reflashMap = () => {
     }
   }
 
-  :deep .el-tabs__content {
+  ::v-deep(.el-tabs__content) {
     display: v-bind("isShowSearch");
     position: absolute;
     top: 50px;

@@ -45,7 +45,7 @@ defineExpose({
     justify-content: space-around;
     padding-top: 10px;
 
-    :deep .health_time {
+    ::v-deep(.health_time) {
         position: absolute;
         top: 0;
         left: 0;

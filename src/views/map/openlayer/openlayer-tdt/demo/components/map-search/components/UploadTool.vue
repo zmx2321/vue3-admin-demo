@@ -75,7 +75,7 @@ const changeFile = (file) => {
 .upload_wrap {
     width: 275px;
 
-    :deep .el-upload-list {
+    ::v-deep(.el-upload-list) {
         max-height: 100px;
         overflow-y: auto;
     }
