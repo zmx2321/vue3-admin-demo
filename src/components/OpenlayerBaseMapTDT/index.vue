@@ -812,7 +812,7 @@ const addArrowLine = (olMap, position, src, businessType) => {
 const resetOlMap = () => {
   if (env !== 'development') {
     let timer = setTimeout(() => {
-      router.push('/map/openlayer/openlayer-gd/empty')
+      router.push('/map/openlayer/openlayer-gd')
       clearTimeout(timer)
     }, 5000);
   }

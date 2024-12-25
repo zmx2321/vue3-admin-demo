@@ -135,8 +135,8 @@ const handleClickMap = (e) => {
  */
 // 飞到指定地点
 const flyToCenter = (center, zoom) => {
-    mapUtils.setMapCenter(refAmap.value.$$getInstance(), center);
-    mapUtils.setMapZoom(refAmap.value.$$getInstance(), zoom);
+    mapUtils.setMapCenter(aMap, center);
+    mapUtils.setMapZoom(aMap, zoom);
 }
 
 // 获取GeoJson数据
