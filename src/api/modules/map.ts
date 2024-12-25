@@ -52,3 +52,8 @@ export const getSiChuanPoint = () => {
 export const renderNbTestData = () => {
     return http.get<Map.CityPoint>(`${base}/map/point/renderNbTestData`, {}, { loading: false });
 };
+
+// 天地图 - 周边搜索
+export const queryGisDataByPOISearch = (params) => {
+    return http.get<Map.CityPoint>(`https://api.tianditu.gov.cn/v2/search`, {}, { loading: false });
+};

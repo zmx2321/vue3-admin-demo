@@ -27,7 +27,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import DetailDialog from "@/components/OpenlayerBaseMap/components/DetailDialog.vue";
+import DetailDialog from '@/components/global/DialogInfo.vue'
 
 const props = defineProps({
   title: {

@@ -1,19 +1,27 @@
 <template>
-  <openlayer-base-map class="empty_map" ref="refOpenlayerBaseMap" :isShowLend="true" :currentPageType="'demo'"
-    @getOlMapInstance="getOlMapInstance" @getCurrentViewData="getCurrentViewData">
+  <openlayer-base-map class="empty_map" ref="refOpenlayerBaseMap" :isShowLend="true" :isControlOverviewInfo="true"
+    :currentPageType="'demo'" @getOlMapInstance="getOlMapInstance" @getCurrentViewData="getCurrentViewData"
+    @toggleOverviewInfo="toggleOverviewInfo">
 
+    <!-- 搜索组件 -->
+    <map-search />
+
+    <!-- 右侧信息 - 健康度概览 -->
+    <overview-info v-show="isShowHealthOverview" />
   </openlayer-base-map>
 </template>
 
 <script setup>
 // vue - core
-import { ref, onUnmounted } from "vue";
-import { getCurrentInstance } from 'vue';
+import { ref, getCurrentInstance, onUnmounted } from "vue";
 // 工具
 import mittBus from "@/utils/mittBus"; // mitt - 组件传参工具
 import { getPopupInnerDom, getPOIPopupInnerDom, getFeaturesPopupInnerDom, getNoFeaturesPopupInnerDom } from "./components/popup/DemoPopup.jsx"; // 气泡窗dom
 // 组件
 import OpenlayerBaseMap from "@/components/OpenlayerBaseMapTDT/index.vue";
+
+import MapSearch from "./components/map-search/index.vue"; // 搜索组件
+import OverviewInfo from "./components/OverviewInfo.vue"; // 健康度概览
 
 import list from "./data/list.json";
 
@@ -24,6 +32,8 @@ let myOlMap = null;
 let myMapCommonData = null;
 
 let currentRenderType = "频率"; // 当前渲染方式
+
+let isShowHealthOverview = ref(true)
 
 /**
  * 接收其他组件派发的方法
@@ -309,6 +319,12 @@ const getCurrentViewData = async (olMap) => {
 /**
 * 工具方法
 */
+// 显示隐藏概览
+const toggleOverviewInfo = (val) => {
+  // console.log('显示隐藏概览', val)
+
+  isShowHealthOverview.value = val
+}
 // 获取可视区域坐标参数
 const getCurrentPositionParams = (olMap) => {
   let viewPosition = refOpenlayerBaseMap.value.getCurrentViewPosition(olMap);
