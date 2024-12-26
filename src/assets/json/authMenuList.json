@@ -1478,6 +1478,20 @@
         "isAffix": false,
         "isKeepAlive": true
       }
+    },
+    {
+      "path": "/interview/index",
+      "name": "interview",
+      "component": "/interview/index",
+      "meta": {
+        "icon": "InfoFilled",
+        "title": "面试题",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      }
     }
   ],
   "msg": "成功"
