@@ -28,8 +28,8 @@ import errorHandler from "@/utils/errorHandler";
 import components from '@/components/index.js'
 
 /* import VForm3 from '@/../lib/vform/designer.umd.js'
-import '@/../lib/vform/designer.style.css'
-import '@/../lib/vform/render.style.css' */
+import '../lib/vform/designer.style.css' */
+
 import VForm3 from 'vform3-builds'  // 引入VForm3库
 import 'vform3-builds/dist/designer.style.css'  // 引入VForm3样式
 import VFormRender from 'vform3-builds/dist/render.umd.js'  // 引入VFormRender组件
@@ -52,7 +52,7 @@ const app = createApp(App);
 app.config.errorHandler = errorHandler;
 app.use(components)
 app.use(VueAMap);
-app.use(VForm3); // 使用VForm3库
+app.use(VForm3)  //全局注册VForm3，同时注册了v-form-designer、v-form-render等组件
 
 /* lazyAMapApiLoaderInstance.then(() => {
   this.map = new AMap.Map('amapContainer', {

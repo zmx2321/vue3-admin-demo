@@ -51,9 +51,9 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       proxy: createProxy(viteEnv.VITE_PROXY)
     },
     plugins: createVitePlugins(viteEnv),
-    /* optimizeDeps: {
-      include: ['@/../lib/vform/designer.umd.js', '@/../lib/vform/render.umd.js'] //此处路径必须跟main.js中import路径完全一致！
-    }, */
+    optimizeDeps: {
+      include: ['@/../lib/vform/designer.umd.js']  //此处路径必须跟main.js中import路径完全一致！
+    },
     esbuild: {
       pure: viteEnv.VITE_DROP_CONSOLE ? ["console.log", "debugger"] : []
     },
