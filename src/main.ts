@@ -27,13 +27,13 @@ import errorHandler from "@/utils/errorHandler";
 
 import components from '@/components/index.js'
 
-/* import VForm3 from '@/../lib/vform/designer.umd.js'
-import '../lib/vform/designer.style.css' */
+import VForm3 from '@/../lib/vform/designer.umd.js'
+import '../lib/vform/designer.style.css'
 
-import VForm3 from 'vform3-builds'  // 引入VForm3库
+/* import VForm3 from 'vform3-builds'  // 引入VForm3库
 import 'vform3-builds/dist/designer.style.css'  // 引入VForm3样式
 import VFormRender from 'vform3-builds/dist/render.umd.js'  // 引入VFormRender组件
-import 'vform3-builds/dist/render.style.css'  // 引入VFormRender样式
+import 'vform3-builds/dist/render.style.css'  // 引入VFormRender样式 */
 
 // vue amap
 import VueAMap, {initAMapApiLoader} from '@vuemap/vue-amap';
