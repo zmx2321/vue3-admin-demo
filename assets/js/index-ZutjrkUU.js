@@ -1,1 +1,0 @@
-import{_ as e}from"./plugin-vueexport-helper-DlAUqK2U.js";import{o as t,c as o}from"./index-CdvcANWd.js";const c={class:"empty-page"},s={__name:"index",setup(_){return(a,n)=>(t(),o("section",c," 1111 "))}},m=e(s,[["__scopeId","data-v-47185ceb"]]);export{m as default};
