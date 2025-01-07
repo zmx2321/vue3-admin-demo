@@ -335,6 +335,50 @@
               }
             }
           ]
+        },
+        {
+          "path": "/map/echarts",
+          "name": "echarts",
+          "component": "/map/echarts/index",
+          "meta": {
+            "icon": "Menu",
+            "title": "echarts",
+            "isLink": "",
+            "isHide": false,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          },
+          "children": [
+            {
+              "path": "/map/echarts/echarts1",
+              "name": "echarts1",
+              "component": "/map/echarts/echarts1/index",
+              "meta": {
+                "icon": "Menu",
+                "title": "echarts1",
+                "isLink": "",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true
+              }
+            },
+            {
+              "path": "/map/echarts/echarts2",
+              "name": "echarts2",
+              "component": "/map/echarts/echarts2/index",
+              "meta": {
+                "icon": "Menu",
+                "title": "echarts2",
+                "isLink": "",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true
+              }
+            }
+          ]
         }
       ]
     },
