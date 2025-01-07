@@ -1,7 +1,8 @@
 
 import axios from 'axios'
 
-const base = "https://geo.datav.aliyun.com/areas_v3/bound/"
+// const base = "https://geo.datav.aliyun.com/areas_v3/bound/"
+const base = "https://static1.tuyacn.com/static/tuyav/smart/data-visualization/data/mapData/"
 
 let city = ""
 
