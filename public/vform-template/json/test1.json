@@ -1,0 +1,342 @@
+{
+    "widgetList": [
+        {
+            "type": "grid",
+            "category": "container",
+            "icon": "grid",
+            "cols": [
+                {
+                    "type": "grid-col",
+                    "category": "container",
+                    "icon": "grid-col",
+                    "internal": true,
+                    "widgetList": [
+                        {
+                            "type": "static-text",
+                            "icon": "static-text",
+                            "formItemFlag": false,
+                            "options": {
+                                "name": "static-text20799",
+                                "columnWidth": "200px",
+                                "hidden": false,
+                                "textContent": "人员登记表",
+                                "customClass": [],
+                                "onCreated": "",
+                                "onMounted": "",
+                                "label": "static-text"
+                            },
+                            "displayName": "静态文字",
+                            "id": "static-text20799"
+                        }
+                    ],
+                    "options": {
+                        "name": "gridCol96077",
+                        "hidden": false,
+                        "span": 12,
+                        "customClass": []
+                    },
+                    "id": "grid-col-96077"
+                }
+            ],
+            "options": {
+                "name": "grid64343",
+                "hidden": false,
+                "gutter": 12,
+                "customClass": []
+            },
+            "displayName": "栅格",
+            "id": "grid64343"
+        },
+        {
+            "type": "grid",
+            "category": "container",
+            "icon": "grid",
+            "cols": [
+                {
+                    "type": "grid-col",
+                    "category": "container",
+                    "icon": "grid-col",
+                    "internal": true,
+                    "widgetList": [
+                        {
+                            "type": "input",
+                            "icon": "text-field",
+                            "formItemFlag": true,
+                            "options": {
+                                "name": "input97458",
+                                "label": "姓名",
+                                "labelAlign": "",
+                                "type": "text",
+                                "defaultValue": "",
+                                "placeholder": "",
+                                "columnWidth": "200px",
+                                "size": "",
+                                "labelWidth": null,
+                                "labelHidden": false,
+                                "readonly": false,
+                                "disabled": false,
+                                "hidden": false,
+                                "clearable": true,
+                                "showPassword": false,
+                                "required": true,
+                                "validation": "",
+                                "validationHint": "",
+                                "customClass": [],
+                                "labelIconClass": null,
+                                "labelIconPosition": "rear",
+                                "labelTooltip": null,
+                                "minLength": null,
+                                "maxLength": null,
+                                "showWordLimit": false,
+                                "prefixIcon": "",
+                                "suffixIcon": "",
+                                "appendButton": false,
+                                "buttonDisabled": false,
+                                "buttonIcon": "el-icon-search",
+                                "onCreated": "",
+                                "onMounted": "",
+                                "onChange": "",
+                                "onFocus": "",
+                                "onBlur": "",
+                                "onValidate": ""
+                            },
+                            "displayName": "单行输入",
+                            "id": "input97458"
+                        }
+                    ],
+                    "options": {
+                        "name": "gridCol66750",
+                        "hidden": false,
+                        "span": 12
+                    },
+                    "id": "grid-col-66750"
+                },
+                {
+                    "type": "grid-col",
+                    "category": "container",
+                    "icon": "grid-col",
+                    "internal": true,
+                    "widgetList": [
+                        {
+                            "type": "radio",
+                            "icon": "radio-field",
+                            "formItemFlag": true,
+                            "options": {
+                                "name": "radio61394",
+                                "label": "性别",
+                                "labelAlign": "",
+                                "defaultValue": 3,
+                                "columnWidth": "200px",
+                                "size": "",
+                                "displayStyle": "inline",
+                                "labelWidth": null,
+                                "labelHidden": false,
+                                "disabled": false,
+                                "hidden": false,
+                                "optionItems": [
+                                    {
+                                        "label": "女士",
+                                        "value": 1
+                                    },
+                                    {
+                                        "label": "先生",
+                                        "value": 2
+                                    },
+                                    {
+                                        "label": "无可奉告",
+                                        "value": 3
+                                    }
+                                ],
+                                "required": false,
+                                "validation": "",
+                                "validationHint": "",
+                                "customClass": [],
+                                "labelIconClass": null,
+                                "labelIconPosition": "rear",
+                                "labelTooltip": null,
+                                "onCreated": "",
+                                "onMounted": "",
+                                "onChange": "",
+                                "onValidate": ""
+                            },
+                            "displayName": "单选项",
+                            "id": "radio61394"
+                        }
+                    ],
+                    "options": {
+                        "name": "gridCol16505",
+                        "hidden": false,
+                        "span": 12
+                    },
+                    "id": "grid-col-16505"
+                }
+            ],
+            "options": {
+                "name": "grid88004",
+                "hidden": false,
+                "gutter": 12,
+                "customClass": []
+            },
+            "displayName": "栅格",
+            "id": "grid88004"
+        },
+        {
+            "type": "grid",
+            "category": "container",
+            "icon": "grid",
+            "cols": [
+                {
+                    "type": "grid-col",
+                    "category": "container",
+                    "icon": "grid-col",
+                    "internal": true,
+                    "widgetList": [
+                        {
+                            "type": "number",
+                            "icon": "number-field",
+                            "formItemFlag": true,
+                            "options": {
+                                "name": "number106358",
+                                "label": "年龄",
+                                "labelAlign": "",
+                                "defaultValue": 18,
+                                "placeholder": "",
+                                "columnWidth": "200px",
+                                "size": "",
+                                "labelWidth": null,
+                                "labelHidden": false,
+                                "disabled": false,
+                                "hidden": false,
+                                "required": true,
+                                "validation": "",
+                                "validationHint": "",
+                                "customClass": [],
+                                "labelIconClass": "el-icon-question",
+                                "labelIconPosition": "rear",
+                                "labelTooltip": "年龄大于18岁的成年人方可登记",
+                                "min": 0,
+                                "max": 100,
+                                "precision": 0,
+                                "step": 1,
+                                "controlsPosition": "right",
+                                "onCreated": "",
+                                "onMounted": "",
+                                "onChange": "",
+                                "onFocus": "",
+                                "onBlur": "",
+                                "onValidate": ""
+                            },
+                            "displayName": "计数器",
+                            "id": "number106358"
+                        }
+                    ],
+                    "options": {
+                        "name": "gridCol101163",
+                        "hidden": false,
+                        "span": 12
+                    },
+                    "id": "grid-col-101163"
+                },
+                {
+                    "type": "grid-col",
+                    "category": "container",
+                    "icon": "grid-col",
+                    "internal": true,
+                    "widgetList": [
+                        {
+                            "type": "select",
+                            "icon": "select-field",
+                            "formItemFlag": true,
+                            "options": {
+                                "name": "select62173",
+                                "label": "教育程度",
+                                "labelAlign": "",
+                                "defaultValue": "",
+                                "placeholder": "",
+                                "columnWidth": "200px",
+                                "size": "",
+                                "labelWidth": null,
+                                "labelHidden": false,
+                                "disabled": false,
+                                "hidden": false,
+                                "clearable": true,
+                                "filterable": false,
+                                "allowCreate": false,
+                                "remote": false,
+                                "automaticDropdown": false,
+                                "multiple": false,
+                                "multipleLimit": 0,
+                                "optionItems": [
+                                    {
+                                        "value": "1",
+                                        "label": "社会人"
+                                    },
+                                    {
+                                        "value": "2",
+                                        "label": "高中"
+                                    },
+                                    {
+                                        "value": "3",
+                                        "label": "大学"
+                                    },
+                                    {
+                                        "value": "4",
+                                        "label": "研究生"
+                                    },
+                                    {
+                                        "value": "5",
+                                        "label": "博士及以上"
+                                    }
+                                ],
+                                "required": true,
+                                "validation": "",
+                                "validationHint": "",
+                                "customClass": [],
+                                "labelIconClass": null,
+                                "labelIconPosition": "rear",
+                                "labelTooltip": null,
+                                "onCreated": "",
+                                "onMounted": "",
+                                "onRemoteQuery": "",
+                                "onChange": "",
+                                "onFocus": "",
+                                "onBlur": "",
+                                "onValidate": ""
+                            },
+                            "displayName": "下拉选项",
+                            "id": "select62173"
+                        }
+                    ],
+                    "options": {
+                        "name": "gridCol46272",
+                        "hidden": false,
+                        "span": 12,
+                        "customClass": []
+                    },
+                    "id": "grid-col-46272"
+                }
+            ],
+            "options": {
+                "name": "grid75579",
+                "hidden": false,
+                "gutter": 12
+            },
+            "id": "grid75579"
+        }
+    ],
+    "formConfig": {
+        "labelWidth": 80,
+        "labelPosition": "left",
+        "size": "",
+        "labelAlign": "label-left-align",
+        "cssCode": "",
+        "customClass": "",
+        "functions": "",
+        "layoutType": "PC",
+        "jsonVersion": 3,
+        "onFormCreated": "",
+        "onFormMounted": "",
+        "onFormDataChange": "",
+        "onFormValidate": ""
+    }
+}
