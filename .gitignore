@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 dist
+vue3-admin-demo
 dist-ssr
 stats.html
 .history
