@@ -113,9 +113,8 @@ const ruleForm = ref({
   // dynamicFieldsValue: "121.634959, 29.878552", // 动态字段结果 - 无重叠
   // dynamicFieldsValue: "121.621406, 29.872199", // 动态字段结果 - 有重叠
   // dynamicFieldsValue: "公园", // 动态字段结果
-  // dynamicFieldsValue: 'H949990-宁波江北奥体中心体育馆内场临时EasyMarco-HLH-D101-65'  // 动态字段结果
-  // dynamicFieldsValue: '460-00-815600-69'  // 动态字段结果 - 室外cgi测试
-  // dynamicFieldsValue: '460-00-405194-1'  // 动态字段结果 - 室内cgi测试
+  // dynamicFieldsValue: '460-xx-815600-69'  // 动态字段结果 - 室外cgi测试
+  // dynamicFieldsValue: '4xxxx-405194-1'  // 动态字段结果 - 室内cgi测试
 });
 
 /**
